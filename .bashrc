@@ -31,7 +31,7 @@ alias pacman='sudo pacman'
 alias please='sudo'
 
 _is_git_dir() {
-    if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1
+    if [ -d .git ] || [ "$(git rev-parse --git-dir 2>/dev/null)" ]
     then GITVAR="git"
     else unset GITVAR
     fi
@@ -39,6 +39,7 @@ _is_git_dir() {
 _get_git_branch() {
     if [ $GITVAR ]
     then GITBRANCH="($(git symbolic-ref --quiet --short HEAD 2>/dev/null)) "
+    else unset GITBRANCH
     fi
 }
 
