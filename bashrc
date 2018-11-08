@@ -32,7 +32,6 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
 alias ln='ln -v'
-alias pacman='sudo pacman'
 alias please='sudo'
 
 _is_git_dir() {
@@ -103,7 +102,7 @@ if [ -d "/opt/android-sdk" ] ; then
 fi
 
 # set GPG to prompt for passpharse one current tty
-export GPT_TTY=$(tty)
+export GPG_TTY=$(tty)
 
 # set PATH so it includes user's private(home) bin if it exists
 if [ -d "$HOME/bin" ] ; then
