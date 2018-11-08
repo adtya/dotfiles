@@ -5,6 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# pickup color from pywal
+if [ -f $HOME/.cache/wal/sequences ] ; then
+    (cat $HOME/.cache/wal/sequences &)
+fi
+
 HISTSIZE=-1
 HISTFILESIZE=-1
 HISTCONTROL=ignoreboth
@@ -85,7 +90,7 @@ _prompt_maker() {
     _get_git_branch
     _get_git_dirty
 
-    export PS1=" \[${BOLD}${DIRT}\]$DIRTSYMBOL\[${RED}\]${ERR}\[${GREEN}\]\W \[${BLUE}\]${GITBRANCH}\[${RESET}\]"
+    export PS1=" \[${BOLD}${DIRT}\]$DIRTSYMBOL\[${RED}\]${ERR}\[${GREEN}\]\W \[${BLUE}\]${GITBRANCH}\[${RESET}\] "
     export PS2=" \[${BOLD}${PURPLE}\]... \[${RESET}\]"
 }
 
@@ -120,3 +125,7 @@ if [ -d "/opt/dart-sdk/bin" ] ; then
     export PATH="/opt/dart-sdk/bin:$PATH"
 fi
 
+# set PATH so it includes google-cloud-sdk
+# if [ -d "/opt/gcloud-sdk/google-cloud-sdk/bin" ] ; then
+#     export PATH="/opt/gcloud-sdk/google-cloud-sdk/bin:$PATH"
+# fi

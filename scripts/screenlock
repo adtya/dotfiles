@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DIR="$HOME/Pictures/Wallpapers"
+LOCK_LIST="$HOME/.cache/lock.list"
+if [ -f "$LOCK_LIST" ]; then
+	rm "$LOCK_LIST"
+fi
+# cd "$DIR"
+
+for FILE in $(ls "$DIR"/*.png); do
+	echo "$FILE" >> "$LOCK_LIST"
+done
+
+RANDOM_PAPER=$(shuf -n 1 "$LOCK_LIST")
+i3lock -i $RANDOM_PAPER

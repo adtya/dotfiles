@@ -1,0 +1,16 @@
+#!/bin/bash
+
+DIR="$HOME/Pictures/Wallpapers"
+PAPER_LIST="$HOME/.cache/papers.list"
+if [ -f "$PAPER_LIST" ]; then
+	rm "$PAPER_LIST"
+fi
+cd "$DIR"
+
+for FILE in $(ls "$DIR"); do
+	echo "$DIR/$FILE" >> "$PAPER_LIST"
+done
+
+RANDOM_PAPER=$(shuf -n 1 "$PAPER_LIST")
+$HOME/.local/bin/wal -i "$RANDOM_PAPER" -n
+feh --bg-fill "$RANDOM_PAPER"
