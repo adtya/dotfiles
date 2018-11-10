@@ -1,7 +1,7 @@
-URxvt.font: xft:Fira Mono:medium:size=11:antialiasing=true, xft:DejaVu Sans Mono:medium:size=11:antialiasing=true, xft:fontawesome:medium:size=11:antialiasing=true
-URxvt.boldFont: xft:Fira Mono:bold:size=11:antialiasing=true, xft:DejaVu Sans Mono:bold:size=11:antialiasing=true, xft:fontawesome:medium:size=11:antialiasing=true
-URxvt.italicFont: xft:Fira Mono:italic:size=11:antialiasing=true, xft:DejaVu Sans Mono:italic:size=11:antialiasing=true, xft:fontawesome:medium:size=11:antialiasing=true
-URxvt.boldItalicFont: xft:Fira Mono:bold:italic:size=11:antialiasing=true, xft:DejaVu Sans Mono:bold:italic:size=11:antialiasing=true, xft:fontawesome:medium:size=11:antialiasing=true
+URxvt.font: xft:Fira Mono:medium:size=11:antialiasing=true, xft:DejaVu Sans Mono:medium:size=11:antialiasing=true, xft:FontAwesome:medium:size=11:antialiasing=true
+URxvt.boldFont: xft:Fira Mono:bold:size=11:antialiasing=true, xft:DejaVu Sans Mono:bold:size=11:antialiasing=true, xft:FontAwesome:medium:size=11:antialiasing=true
+URxvt.italicFont: xft:Fira Mono:italic:size=11:antialiasing=true, xft:DejaVu Sans Mono:italic:size=11:antialiasing=true, xft:FontAwesome:medium:size=11:antialiasing=true
+URxvt.boldItalicFont: xft:Fira Mono:bold:italic:size=11:antialiasing=true, xft:DejaVu Sans Mono:bold:italic:size=11:antialiasing=true, xft:FontAwesome:medium:size=11:antialiasing=true
 URxvt.letterSpace: -1
 URxvt*borderless: true
 URxvt.internalBorder: 10
