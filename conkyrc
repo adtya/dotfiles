@@ -1,0 +1,84 @@
+conky.config = {
+    alignment = 'top_right',
+    background = true,
+    border_width = 0,
+    border_inner_margin = 6,
+    border_outer_margin = 6,
+    cpu_avg_samples = 1,
+    default_color = 'white',
+    default_outline_color = 'black',
+    default_shade_color = 'black',
+    draw_borders = true,
+    draw_graph_borders = true,
+    draw_outline = true,
+    draw_shades = true,
+    use_xft = true,
+    font = 'Fira Mono:size=12',
+    gap_x = 24,
+    gap_y = 24,
+    minimum_height = 9,
+    minimum_width = 16,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    extra_newline = false,
+    own_window = true,
+    own_window_argb_visual = true,
+    own_window_class = 'Conky',
+    own_window_transparent = true,
+    own_window_type = 'desktop',
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    double_buffer = true,
+    mpd_host = '127.0.0.1'
+}
+
+conky.text = [[
+$nodename: $distribution $kernel $machine
+$hr
+${color grey}Battery: $color${battery_percent}% $battery_status $battery_time
+${color grey}Uptime:$color $uptime
+$hr
+${color grey}RAM:$color ${memwithbuffersbar 12}
+${color grey}CPU:$color ${cpubar cpu0 12}
+${cpubar cpu1 12,100} ${cpubar cpu2 12,100} ${cpubar cpu3 12,100} ${cpubar cpu4 12,100}
+${cpubar cpu5 12,100} ${cpubar cpu6 12,100} ${cpubar cpu7 12,100} ${cpubar cpu8 12,100}
+$hr
+${color grey} /: $color${fs_free /}${color grey} free of $color${fs_size /}
+${fs_bar 12 /}
+${color grey} /mnt/ntfs-disk: $color${fs_free /mnt/ntfs-disk}${color grey} free of $color${fs_size /mnt/ntfs-disk}
+${fs_bar 12 /mnt/ntfs-disk}
+
+ /dev/sda: Read:  ${diskio_read /dev/sda}
+           Write: ${diskio_write /dev/sda}
+ /dev/sdb: Read:  ${diskio_read /dev/sdb}
+           Write: ${diskio_write /dev/sdb}
+${if_existing /dev/sdc}
+ /dev/sdc: Read:  ${diskio_read /dev/sdc}
+           Write: ${diskio_write /dev/sdc} 
+$endif ${if_existing /dev/sdd}
+ /dev/sdd: Read:  ${diskio_read /dev/sdd}
+           Write: ${diskio_write /dev/sdd}
+$endif ${if_existing /dev/sde}
+ /dev/sde: Read:  ${diskio_read /dev/sde}
+           Write: ${diskio_write /dev/sde}    
+$endif
+$hr
+${color}WiFi:     ${color grey}Down:$color ${downspeedf WiFi} KiB
+          ${color grey}Up:  $color ${upspeedf WiFi} KiB
+${color}Ethernet: ${color grey}Down:$color ${downspeedf Ethernet} KiB
+          ${color grey}Up:  $color ${upspeedf Ethernet} KiB
+$if_mpd_playing
+$hr
+$mpd_smart
+$mpd_album
+${mpd_bar 6}
+$endif
+]]

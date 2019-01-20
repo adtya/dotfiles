@@ -15,3 +15,4 @@ set softtabstop=4
 set ruler 
 set backspace=indent,eol,start
 syntax on
+colorscheme smyck

@@ -5,14 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# pickup color from pywal
-if [ -f $HOME/.cache/wal/sequences ] ; then
-    (cat $HOME/.cache/wal/sequences &)
-fi
-
 HISTSIZE=-1
 HISTFILESIZE=-1
 HISTCONTROL=ignoreboth
+shopt -s histappend
 
 BOLD="$(tput bold)"
 RED="$(tput setaf 1)"
@@ -33,8 +29,10 @@ alias mv='mv -v'
 alias rm='rm -v'
 alias ln='ln -v'
 alias please='sudo'
-alias code='visual-studio-code'
-alias vim='nvim'
+
+export EDITOR=vim
+export GPG_TTY=$(tty)
+
 
 _is_git_dir() {
     if [ -d .git ] || [ "$(git rev-parse --git-dir 2>/dev/null)" ]
@@ -76,6 +74,19 @@ _get_git_dirty() {
     fi
 }
 
+_get_virtual_env_name() {
+    if [ "$VIRTUAL_ENV" ]
+    then {
+        IFS='/' read -a _envdirectory <<< $VIRTUAL_ENV
+        VENV_NAME="${_envdirectory[${#_envdirectory[@]}-1]}"
+        VENV_NAME="[$VENV_NAME] "
+    }
+    else {
+        unset VENV_NAME
+    }
+    fi
+}
+
 _err_code() {
     ERR="$?"
     if [ $ERR -eq 0 ]
@@ -90,9 +101,11 @@ _prompt_maker() {
     _is_git_dir
     _get_git_branch
     _get_git_dirty
+    _get_virtual_env_name
 
-    export PS1=" \[${BOLD}${DIRT}\]$DIRTSYMBOL\[${RED}\]${ERR}\[${GREEN}\]\W \[${BLUE}\]${GITBRANCH}\[${RESET}\] "
+    export PS1=" \[${BOLD}${RED}\]${ERR}\[${DIRT}\]${DIRTSYMBOL}\[${YELLOW}\]${VENV_NAME}\[${GREEN}\]\W \[${BLUE}\]${GITBRANCH}\[${RESET}\]"
     export PS2=" \[${BOLD}${PURPLE}\]... \[${RESET}\]"
+    echo -en "\033]0; "Terminal" \a"
 }
 
 export PROMPT_COMMAND='_prompt_maker'
@@ -102,9 +115,6 @@ export PROMPT_COMMAND='_prompt_maker'
 if [ -d "/opt/android-sdk" ] ; then
     export ANDROID_HOME="/opt/android-sdk"
 fi
-
-# set GPG to prompt for passpharse one current tty
-export GPG_TTY=$(tty)
 
 # set PATH so it includes user's private(home) bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -126,7 +136,8 @@ if [ -d "/opt/dart-sdk/bin" ] ; then
     export PATH="/opt/dart-sdk/bin:$PATH"
 fi
 
-# set PATH so it includes google-cloud-sdk
-# if [ -d "/opt/gcloud-sdk/google-cloud-sdk/bin" ] ; then
-#     export PATH="/opt/gcloud-sdk/google-cloud-sdk/bin:$PATH"
-# fi
+# set PATH so it includes flutter's bin if it exists
+if [ -d "/opt/flutter/bin" ] ; then
+    export PATH="/opt/flutter/bin:$PATH"
+fi
+
