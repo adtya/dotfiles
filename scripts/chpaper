@@ -5,10 +5,9 @@ PAPER_LIST="$HOME/.cache/papers.list"
 if [ -f "$PAPER_LIST" ]; then
 	rm "$PAPER_LIST"
 fi
-cd "$DIR"
 
-for FILE in $(ls "$DIR"); do
-	echo "file://$DIR/$FILE" >> "$PAPER_LIST"
+for FILE in $DIR/*; do
+	echo \"file://$FILE\" >> "$PAPER_LIST"
 done
 
 RANDOM_PAPER=$(shuf -n 1 "$PAPER_LIST")
