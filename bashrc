@@ -19,6 +19,7 @@ PURPLE="$(tput setaf 5)"
 RESET="$(tput sgr0)"
 
 alias ls='ls --color=auto --human-readable'
+alias sl='ls'
 alias l='ls -lah --color=auto'
 alias vi='vim'
 alias ga='git add'
@@ -105,7 +106,7 @@ _prompt_maker() {
 
     export PS1=" \[${BOLD}${RED}\]${ERR}\[${DIRT}\]${DIRTSYMBOL}\[${YELLOW}\]${VENV_NAME}\[${GREEN}\]\W \[${BLUE}\]${GITBRANCH}\[${RESET}\]"
     export PS2=" \[${BOLD}${PURPLE}\]... \[${RESET}\]"
-    echo -en "\033]0; "Terminal" \a"
+    echo -en "\033]0;  \a"
 }
 
 export PROMPT_COMMAND='_prompt_maker'
