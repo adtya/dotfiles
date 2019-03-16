@@ -15,7 +15,7 @@ conky.config = {
     use_xft = true,
     font = 'Fira Mono:size=12',
     gap_x = 24,
-    gap_y = 24,
+    gap_y = 48,
     minimum_height = 9,
     minimum_width = 16,
     net_avg_samples = 2,
@@ -28,8 +28,10 @@ conky.config = {
     own_window = true,
     own_window_argb_visual = true,
     own_window_class = 'Conky',
-    own_window_transparent = true,
+    own_window_transparent = false,
     own_window_type = 'desktop',
+    own_window_argb_visual = true,
+    own_window_argb_value = 150,
     stippled_borders = 0,
     update_interval = 1.0,
     uppercase = false,
@@ -41,23 +43,25 @@ conky.config = {
 }
 
 conky.text = [[
-$nodename: $distribution $kernel
-$hr
-${color grey}Battery: $color${battery_percent}% $battery_status $battery_time
-${color grey}Uptime:$color $uptime
-$hr
-${color grey}RAM:$color${memwithbuffersbar 12}
-${color grey}SWP:$color${swapbar 12}
-${color grey}CPU:$color${cpubar cpu0 12}
-${cpubar cpu1 12,100} ${cpubar cpu2 12,100} ${cpubar cpu3 12,100} ${cpubar cpu4 12,100}
-${cpubar cpu5 12,100} ${cpubar cpu6 12,100} ${cpubar cpu7 12,100} ${cpubar cpu8 12,100}
-$hr
-${color grey} /: $color${fs_free /}${color grey} free of $color${fs_size /}
-${fs_bar 12 /}
-${color grey} /mnt/storage: $color${fs_free /mnt/storage}${color grey} free of $color${fs_size /mnt/storage}
-${fs_bar 12 /mnt/storage}
-${color grey} /mnt/storage-ntfs: $color${fs_free /mnt/storage-ntfs}${color grey} free of $color${fs_size /mnt/storage-ntfs}
-${fs_bar 12 /mnt/storage-ntfs}
+${font Fira Mono Medium:size=16}System${font} $hr
+${color grey}Host$alignr$color$nodename ($machine)
+${color grey}Distribution$alignr$color$distribution
+${color grey}Kernel$alignr$color$sysname $kernel
+${font Fira Mono Medium:size=16}Battery${font} $hr
+${color grey}Battery$alignr$color${battery_percent}% ($battery_status)
+${color grey}Full/Empty In$alignr$color$battery_time
+${color grey}Uptime$alignr$color$uptime
+${font Fira Mono Medium:size=16}Resources${font} $hr
+${color grey}RAM${alignr}$color$memwithbuffers ($mem)${color grey} used of $color$memmax
+${color grey}SWAP$alignr$color$swap${color grey} used of $color$swapmax
+${color grey}CPU$alignr$color${cpu cpu0}%
+${cpubar cpu1 6,100} ${cpubar cpu2 6,100} ${cpubar cpu3 6,100} ${cpubar cpu4 6,100}
+${cpubar cpu5 6,100} ${cpubar cpu6 6,100} ${cpubar cpu7 6,100} ${cpubar cpu8 6,100}
+${font Fira Mono Medium:size=16}Storage${font}
+${color grey} /$alignr$color${fs_free /}${color grey} free of $color${fs_size /}
+${fs_bar 6 /}
+${color grey} /mnt/storage$alignr$color${fs_free /mnt/storage}${color grey} free of $color${fs_size /mnt/storage}
+${fs_bar 6 /mnt/storage}
 
  /dev/sda: Read:  ${diskio_read /dev/sda}
            Write: ${diskio_write /dev/sda}
@@ -68,7 +72,9 @@ ${if_existing /dev/sdc} /dev/sdc: Read:  ${diskio_read /dev/sdc}
  /dev/sdd: Read:  ${diskio_read /dev/sdd}
            Write: ${diskio_write /dev/sdd}$endif${if_existing /dev/sde}
  /dev/sde: Read:  ${diskio_read /dev/sde}
-           Write: ${diskio_write /dev/sde}$endif
+           Write: ${diskio_write /dev/sde}$endif${if_existing /dev/mmcblk0}
+ /dev/mmcblk0: Read:  ${diskio_read /dev/mmcblk0}
+               Write: ${diskio_write /dev/mmcblk0}$endif
 $hr
 ${color}WiFi:     ${color grey}Down:$color ${downspeedf WiFi} KiB
           ${color grey}Up:  $color ${upspeedf WiFi} KiB
