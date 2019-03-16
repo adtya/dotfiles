@@ -2,8 +2,8 @@
 
 DIR="$HOME/Pictures/Wallpapers"
 
-RANDOM_PAPER="$DIR/$(/usr/bin/ls $DIR | /usr/bin/shuf -n 1)"
-RANDOM_LOCK="$DIR/$(/usr/bin/ls $DIR | /usr/bin/shuf -n 1)"
+RANDOM_PAPER="file://$DIR/$(/usr/bin/ls $DIR | /usr/bin/shuf -n 1)"
+RANDOM_LOCK="file://$DIR/$(/usr/bin/ls $DIR | /usr/bin/shuf -n 1)"
 
 gsettings set org.gnome.desktop.background picture-uri "$RANDOM_PAPER"
 gsettings set org.gnome.desktop.background primary-color "#000000"
