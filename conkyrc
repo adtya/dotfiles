@@ -47,40 +47,35 @@ ${font Fira Mono Medium:size=16}System${font} $hr
 ${color grey}Host$alignr$color$nodename ($machine)
 ${color grey}Distribution$alignr$color$distribution
 ${color grey}Kernel$alignr$color$sysname $kernel
+
 ${font Fira Mono Medium:size=16}Battery${font} $hr
 ${color grey}Battery$alignr$color${battery_percent}% ($battery_status)
 ${color grey}Full/Empty In$alignr$color$battery_time
-${color grey}Uptime$alignr$color$uptime
+${color grey}Uptime$alignr$color$uptime_short
+
 ${font Fira Mono Medium:size=16}Resources${font} $hr
 ${color grey}RAM${alignr}$color$memwithbuffers ($mem)${color grey} used of $color$memmax
 ${color grey}SWAP$alignr$color$swap${color grey} used of $color$swapmax
 ${color grey}CPU$alignr$color${cpu cpu0}%
 ${cpubar cpu1 6,100} ${cpubar cpu2 6,100} ${cpubar cpu3 6,100} ${cpubar cpu4 6,100}
 ${cpubar cpu5 6,100} ${cpubar cpu6 6,100} ${cpubar cpu7 6,100} ${cpubar cpu8 6,100}
-${font Fira Mono Medium:size=16}Storage${font}
+
+${font Fira Mono Medium:size=16}Storage${font} $hr
 ${color grey} /$alignr$color${fs_free /}${color grey} free of $color${fs_size /}
 ${fs_bar 6 /}
 ${color grey} /mnt/storage$alignr$color${fs_free /mnt/storage}${color grey} free of $color${fs_size /mnt/storage}
 ${fs_bar 6 /mnt/storage}
 
- /dev/sda: Read:  ${diskio_read /dev/sda}
-           Write: ${diskio_write /dev/sda}
- /dev/sdb: Read:  ${diskio_read /dev/sdb}
-           Write: ${diskio_write /dev/sdb}
-${if_existing /dev/sdc} /dev/sdc: Read:  ${diskio_read /dev/sdc}
-           Write: ${diskio_write /dev/sdc}$endif${if_existing /dev/sdd}
- /dev/sdd: Read:  ${diskio_read /dev/sdd}
-           Write: ${diskio_write /dev/sdd}$endif${if_existing /dev/sde}
- /dev/sde: Read:  ${diskio_read /dev/sde}
-           Write: ${diskio_write /dev/sde}$endif${if_existing /dev/mmcblk0}
- /dev/mmcblk0: Read:  ${diskio_read /dev/mmcblk0}
-               Write: ${diskio_write /dev/mmcblk0}$endif
-$hr
-${color}WiFi:     ${color grey}Down:$color ${downspeedf WiFi} KiB
-          ${color grey}Up:  $color ${upspeedf WiFi} KiB
-${color}Ethernet: ${color grey}Down:$color ${downspeedf Ethernet} KiB
-          ${color grey}Up:  $color ${upspeedf Ethernet} KiB
-$if_mpd_playing
+${font Fira Mono:size=14}I/O${font} ${font Fira Mono:size=8}(Read/Write)${font} $hr
+${color grey}/dev/sda$alignr$color${diskio_read /dev/sda} / ${diskio_write /dev/sda}
+${color grey}/dev/sdb$alignr$color${diskio_read /dev/sdb} / ${diskio_write /dev/sdb}
+
+${font Fira Mono:size=14}Network${font} ${font Fira Mono:size=8}(Down/Up)${font} $hr
+${color grey}WiFi$alignr$color${downspeed WiFi} / ${upspeed WiFi}
+${color grey}Ethernet$alignr$color${downspeed Ethernet} / ${upspeed Ethernet}
+${if_mpd_playing}
+
+${font Fira Mono:size=14}Media${font} $hr
 $hr
 $mpd_smart
 $mpd_album
