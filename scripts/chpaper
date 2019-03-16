@@ -1,17 +1,9 @@
 #!/bin/bash
 
 DIR="$HOME/Pictures/Wallpapers"
-PAPER_LIST="$HOME/.cache/papers.list"
-if [ -f "$PAPER_LIST" ]; then
-	rm "$PAPER_LIST"
-fi
 
-for FILE in $DIR/*; do
-	echo \"file://$FILE\" >> "$PAPER_LIST"
-done
-
-RANDOM_PAPER=$(shuf -n 1 "$PAPER_LIST")
-RANDOM_LOCK=$(shuf -n 1 "$PAPER_LIST")
+RANDOM_PAPER="$DIR/$(/usr/bin/ls $DIR | /usr/bin/shuf -n 1)"
+RANDOM_LOCK="$DIR/$(/usr/bin/ls $DIR | /usr/bin/shuf -n 1)"
 
 gsettings set org.gnome.desktop.background picture-uri "$RANDOM_PAPER"
 gsettings set org.gnome.desktop.background primary-color "#000000"
