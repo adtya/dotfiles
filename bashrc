@@ -112,10 +112,6 @@ _prompt_maker() {
 export PROMPT_COMMAND='_prompt_maker'
 
 # Environement variables
-# set ANDROID_HOME if it exists
-if [ -d "/opt/android-sdk" ] ; then
-    export ANDROID_HOME="/opt/android-sdk"
-fi
 
 # set PATH so it includes user's private(home) bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -142,3 +138,7 @@ if [ -d "/opt/flutter/bin" ] ; then
     export PATH="/opt/flutter/bin:$PATH"
 fi
 
+# set ANDROID_HOME if it exists
+if [ -d "/opt/android-sdk" ] ; then
+    export ANDROID_HOME="/opt/android-sdk"
+fi
