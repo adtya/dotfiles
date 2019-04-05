@@ -24,13 +24,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-BOLD="$(tput bold)"
-RED="$(tput setaf 1)"
-GREEN="$(tput setaf 2)"
-YELLOW="$(tput setaf 3)"
-BLUE="$(tput setaf 4)"
-PURPLE="$(tput setaf 5)"
-RESET="$(tput sgr0)"
 
 export EDITOR=vim
 export GPG_TTY=$(tty)
@@ -53,24 +46,20 @@ _get_git_dirty() {
     then {
         if [ -z "$(git status --short 2>/dev/null)" ]
         then {
-            DIRT="$(tput setaf 2)"
-            DIRTSYMBOL="✔ "
+            _DIRTSYMBOL="\[\033[1;32m\]✔\[\033[0m\] "
         }
         elif [ "$(git ls-files --others --exclude-standard 2>/dev/null)" ]
         then {
-            DIRT="$(tput setaf 1)"
-            DIRTSYMBOL="✘ "
+            _DIRTSYMBOL="\[\033[1;31m\]✘\[\033[0m\] "
         }
         elif [ "$(git ls-files --exclude-standard 2>/dev/null)" ]
         then {
-            DIRT="$(tput setaf 3)"
-            DIRTSYMBOL="✘ "
+            _DIRTSYMBOL="\[\033[1;33m\]✘\[\033[0m\] "
         }
         fi
     }
     else {
-        unset DIRT
-        unset DIRTSYMBOL
+        unset _DIRTSYMBOL
     }
     fi
 }
@@ -79,20 +68,20 @@ _get_virtual_env_name() {
     if [ "$VIRTUAL_ENV" ]
     then {
         IFS='/' read -a _envdirectory <<< $VIRTUAL_ENV
-        VENV_NAME="${_envdirectory[${#_envdirectory[@]}-1]}"
-        VENV_NAME="[$VENV_NAME] "
+        _VENVNAME="${_envdirectory[${#_envdirectory[@]}-1]}"
+        _VENVNAME="[$_VENVNAME] "
     }
     else {
-        unset VENV_NAME
+        unset _VENVNAME
     }
     fi
 }
 
 _err_code() {
-    ERR="$?"
-    if [ $ERR -eq 0 ]
-    then unset ERR
-    else ERR="${ERR} "
+    _ERR="$?"
+    if [ $_ERR -eq 0 ]
+    then unset _ERR
+    else _ERR="${_ERR} "
     fi
 }
 
@@ -104,9 +93,8 @@ _prompt_maker() {
     _get_git_dirty
     _get_virtual_env_name
 
-    export PS1=" \[${BOLD}${RED}\]${ERR}\[${DIRT}\]${DIRTSYMBOL}\[${YELLOW}\]${VENV_NAME}\[${GREEN}\]\W \[${BLUE}\]${GITBRANCH}\[${RESET}\]"
-    export PS2=" \[${BOLD}${PURPLE}\]... \[${RESET}\]"
-    echo -en "\033]0; "Terminal" \a"
+    export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;34m\]\W\[\033[0m\] \[\033[1;32m\]${GITBRANCH}\[\033[0m\]"
+    export PS2=" \[\033[1;35m\]...\[\033[0m\] "
 }
 
 export PROMPT_COMMAND='_prompt_maker'
