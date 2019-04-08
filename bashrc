@@ -30,19 +30,19 @@ export GPG_TTY=$(tty)
 
 _is_git_dir() {
     if [ -d .git ] || [ "$(git rev-parse --git-dir 2>/dev/null)" ]
-    then GITVAR="git"
-    else unset GITVAR
+    then _GITVAR="git"
+    else unset _GITVAR
     fi
 }
 _get_git_branch() {
-    if [ $GITVAR ]
-    then GITBRANCH="($(git symbolic-ref --quiet --short HEAD 2>/dev/null)) "
-    else unset GITBRANCH
+    if [ $_GITVAR ]
+    then _GITBRANCH="($(git symbolic-ref --quiet --short HEAD 2>/dev/null)) "
+    else unset _GITBRANCH
     fi
 }
 
 _get_git_dirty() {
-    if [ "$GITVAR" ]
+    if [ "$_GITVAR" ]
     then {
         if [ -z "$(git status --short 2>/dev/null)" ]
         then {
@@ -93,7 +93,7 @@ _prompt_maker() {
     _get_git_dirty
     _get_virtual_env_name
 
-    export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;34m\]\W\[\033[0m\] \[\033[1;32m\]${GITBRANCH}\[\033[0m\]"
+    export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;34m\]\W\[\033[0m\] \[\033[1;32m\]${_GITBRANCH}\[\033[0m\]"
     export PS2=" \[\033[1;35m\]...\[\033[0m\] "
 }
 
@@ -112,11 +112,6 @@ fi
 # set PATH so it includes the user's npm global bin if it exists
 if [ -d "$HOME/.local/share/npm-global/bin" ] ; then
     export PATH="$HOME/.local/share/npm-global/bin:$PATH"
-fi
-
-# set PATH so it includes dart-sdk's bin if it exists
-if [ -d "/opt/dart-sdk/bin" ] ; then
-    export PATH="/opt/dart-sdk/bin:$PATH"
 fi
 
 # set PATH so it includes flutter's bin if it exists
