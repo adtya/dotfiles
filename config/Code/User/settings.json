@@ -18,6 +18,7 @@
   },
   "zenMode.fullScreen": false,
   "zenMode.centerLayout": false,
+  "explorer.autoReveal": true,
   "explorer.openEditors.visible": 0,
   "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
@@ -33,11 +34,9 @@
   "editor.detectIndentation": true,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}${appName}",
+  "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
   "workbench.colorTheme": "One Dark Pro Vivid",
-  "gitlens.views.repositories.location": "gitlens",
-  "gitlens.views.fileHistory.location": "gitlens",
-  "gitlens.views.lineHistory.location": "gitlens",
-  "gitlens.views.compare.location": "gitlens",
-  "gitlens.views.search.location": "gitlens"
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.cursorBlinking": true
 }
