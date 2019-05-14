@@ -29,7 +29,7 @@ export EDITOR=vim
 export GPG_TTY=$(tty)
 
 _is_git_dir() {
-    if [ -d .git ] || [ "$(git rev-parse --git-dir 2>/dev/null)" ]
+    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]
     then _GITVAR="git"
     else unset _GITVAR
     fi
@@ -44,19 +44,26 @@ _get_git_branch() {
 _get_git_dirty() {
     if [ "$_GITVAR" ]
     then {
-        if [ -z "$(git status --short 2>/dev/null)" ]
+        _TEMP="$(echo $_GITBRANCH | sed -e 's/(//' -e 's/)//')"
+        if [ x"$(git rev-parse $_TEMP 2>/dev/null)" = x"$(git rev-parse remotes/origin/$_TEMP 2>/dev/null)" ]
         then {
             _DIRTSYMBOL="\[\033[1;32m\]✔\[\033[0m\] "
         }
-        elif [ "$(git ls-files --others --exclude-standard 2>/dev/null)" ]
-        then {
-            _DIRTSYMBOL="\[\033[1;31m\]✘\[\033[0m\] "
+        else {
+            _DIRTSYMBOL="\[\033[1;33m\]✔\[\033[0m\] "
         }
-        elif [ "$(git ls-files --exclude-standard 2>/dev/null)" ]
+        fi
+        if [ "$(git diff --name-only --cached 2>/dev/null)" ]
         then {
             _DIRTSYMBOL="\[\033[1;33m\]✘\[\033[0m\] "
         }
         fi
+        if [ "$(git diff --name-only 2>/dev/null)" ]
+        then {
+            _DIRTSYMBOL="\[\033[1;31m\]✘\[\033[0m\] "
+        }
+        fi
+        unset _TEMP
     }
     else {
         unset _DIRTSYMBOL
@@ -93,11 +100,21 @@ _prompt_maker() {
     _get_git_dirty
     _get_virtual_env_name
 
-    export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;34m\]\W\[\033[0m\] \[\033[1;32m\]${_GITBRANCH}\[\033[0m\]"
+    export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;32m\]\W\[\033[0m\] \[\033[1;34m\]${_GITBRANCH}\[\033[0m\]"
     export PS2=" \[\033[1;35m\]...\[\033[0m\] "
 }
 
 export PROMPT_COMMAND='_prompt_maker'
+
+# set PATH so it includes sbin if it exists
+if [ -d "/sbin" ] ; then
+    export PATH="$PATH:/sbin"
+fi
+
+# set PATH so it includes /usr/sbin if it exists
+if [ -d "/usr/sbin" ] ; then
+    export PATH="$PATH:/usr/sbin"
+fi
 
 # set PATH so it includes user's private(home) bin if it exists
 if [ -d "$HOME/bin" ] ; then
