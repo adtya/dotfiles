@@ -16,6 +16,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Use Bash Completion
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -28,12 +29,15 @@ fi
 export EDITOR=vim
 export GPG_TTY=$(tty)
 
+# Set _GITVAR if the CWD is inside a git work tree
 _is_git_dir() {
     if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]
     then _GITVAR="git"
     else unset _GITVAR
     fi
 }
+
+# Set _GITBRANCH to the currently checked out branch
 _get_git_branch() {
     if [ $_GITVAR ]
     then _GITBRANCH="($(git symbolic-ref --quiet --short HEAD 2>/dev/null)) "
@@ -41,31 +45,44 @@ _get_git_branch() {
     fi
 }
 
+# Set _DIRTSYMBOL based on how dirty the directory is.
 _get_git_dirty() {
     if [ "$_GITVAR" ]
     then {
+        # _TEMP stores the current branch.
         _TEMP="$(echo $_GITBRANCH | sed -e 's/(//' -e 's/)//')"
+
+        # Check if remote and local are in sync.
         if [ x"$(git rev-parse $_TEMP 2>/dev/null)" = x"$(git rev-parse remotes/origin/$_TEMP 2>/dev/null)" ]
         then {
+            # Green Tick if in sync.
             _DIRTSYMBOL="\[\033[1;32m\]✔\[\033[0m\] "
         }
         else {
+            # Yellow tick if out of sync.
             _DIRTSYMBOL="\[\033[1;33m\]✔\[\033[0m\] "
         }
         fi
+
+        # Check if anything is in staging, overwrites the value set by previous if block
         if [ "$(git diff --name-only --cached 2>/dev/null)" ]
         then {
+            # Yellow X if anything is in Staging.
             _DIRTSYMBOL="\[\033[1;33m\]✘\[\033[0m\] "
         }
         fi
-        if [ "$(git diff --name-only 2>/dev/null)" ]
+
+        # Check if any unstaged changes, overwrites the value set by any previous if blocks.
+        if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others 2>/dev/null)" ]
         then {
+            # Red X if unstaged changes.
             _DIRTSYMBOL="\[\033[1;31m\]✘\[\033[0m\] "
         }
         fi
         unset _TEMP
     }
     else {
+        # remove _DIRTSYMBOL if not a valid GIT directory
         unset _DIRTSYMBOL
     }
     fi
@@ -99,6 +116,15 @@ _prompt_maker() {
     _get_git_branch
     _get_git_dirty
     _get_virtual_env_name
+
+    # 30 - Dark Gray
+    # 31 - Red
+    # 32 - Light Green
+    # 33 - Yellow
+    # 34 - Light Blue
+    # 35 - Light Purple
+    # 36 - Light Cyan
+    # 37 - White
 
     export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;32m\]\W\[\033[0m\] \[\033[1;34m\]${_GITBRANCH}\[\033[0m\]"
     export PS2=" \[\033[1;35m\]...\[\033[0m\] "
