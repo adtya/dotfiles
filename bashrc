@@ -32,7 +32,7 @@ export GPG_TTY=$(tty)
 # Set _GITVAR if the CWD is inside a git work tree
 _is_git_dir() {
     if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]
-    then _GITVAR="git"
+    then _GITVAR="$(git rev-parse --show-toplevel 2>/dev/null)"
     else unset _GITVAR
     fi
 }
@@ -73,7 +73,7 @@ _get_git_dirty() {
         fi
 
         # Check if any unstaged changes, overwrites the value set by any previous if blocks.
-        if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others 2>/dev/null)" ]
+        if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others --exclude-standard $_GITVAR 2>/dev/null)" ]
         then {
             # Red X if unstaged changes.
             _DIRTSYMBOL="\[\033[1;31m\]✘\[\033[0m\] "
