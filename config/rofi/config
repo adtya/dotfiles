@@ -1,0 +1,3 @@
+rofi.modi: run,ssh,drun
+rofi.font: Fira Mono 12
+rofi.sort: true
