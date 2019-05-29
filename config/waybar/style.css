@@ -1,46 +1,38 @@
 * {
     border: none;
-    border-radius: 2;
+    border-radius: 2px;
     font-family: 'FuraMono Nerd Font Mono';
     font-size: 16px;
     min-height: 0;
 }
 
+#window {
+   margin-left: 8px;
+   margin-right: 8px;
+}
+
 window#waybar {
-    background: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background: #222222;
+    /*border-bottom: 3px solid #2F2F2F;*/
     color: #ffffff;
-    transition-property: background, background-color;
-    transition-duration: .5s;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
-
 window#waybar.empty {
-    background: #000000;
+    background: #222222;
 }
 window#waybar.solo {
-    background: #000000;
-}
-
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
+    background: #222222;
 }
 
 #workspaces button {
     padding: 0 5px;
     background: transparent;
     color: #ffffff;
-    border-bottom: 3px solid transparent;
+    border-bottom: 3px solid #2F2F2F;
 }
 
 #workspaces button.focused {
@@ -57,7 +49,7 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #mpd, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
     padding: 0 10px;
     margin: 0 5px;
     color: #ffffff;
