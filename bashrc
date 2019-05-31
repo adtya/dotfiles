@@ -128,7 +128,7 @@ _prompt_maker() {
 
     export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;32m\]\W\[\033[0m\] \[\033[1;34m\]${_GITBRANCH}\[\033[0m\]"
     export PS2=" \[\033[1;35m\]...\[\033[0m\] "
-    
+    echo -en '\033]2;'Kitty \| $_VENVNAME${PWD/\/home\/$USER/\~} $_GITBRANCH'\007'
     # Unset variable after use
     unset _ERR
     unset _DIRTSYMBOL
@@ -136,7 +136,6 @@ _prompt_maker() {
     unset _GITBRANCH
     unset _GITVAR
 }
-
 export PROMPT_COMMAND='_prompt_maker'
 
 # set PATH so it includes sbin if it exists
@@ -174,3 +173,6 @@ if [ -d "/opt/android-sdk" ] ; then
     export ANDROID_HOME="/opt/android-sdk"
 fi
 
+if [ "$(tty)" == "/dev/tty1" ] ; then
+    sway
+fi

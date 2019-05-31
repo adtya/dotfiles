@@ -159,6 +159,8 @@ bar {
 bindsym $mod+shift+w exec $HOME/.local/bin/chpaper
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2- unmute
+bindsym shift+XF86AudioLowerVolume exec amixer -q set Capture 2- unmute
+bindsym shift+XF86AudioRaiseVolume exec amixer -q set Capture 2+ unmute
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDOwn exec brightnessctl set 10%-
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
@@ -167,7 +169,7 @@ bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshot
 bindsym $mod+l exec swaylock -i ~/.cache/wallpaper.png
 
 exec_always xrdb ~/.Xresources
-exec ~/.local.bin/chpaper
+exec ~/.local/bin/chpaper
 exec telegram -startintray
 
 include /etc/sway/config.d/*
