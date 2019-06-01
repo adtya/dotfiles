@@ -138,16 +138,6 @@ _prompt_maker() {
 }
 export PROMPT_COMMAND='_prompt_maker'
 
-# set PATH so it includes sbin if it exists
-if [ -d "/sbin" ] ; then
-    export PATH="$PATH:/sbin"
-fi
-
-# set PATH so it includes /usr/sbin if it exists
-if [ -d "/usr/sbin" ] ; then
-    export PATH="$PATH:/usr/sbin"
-fi
-
 # set PATH so it includes user's private(home) bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
