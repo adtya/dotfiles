@@ -168,8 +168,9 @@ bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshot
 
 bindsym $mod+l exec swaylock -i ~/.cache/wallpaper.png
 
-exec mako --default-timeout 2000 --icons 1
-exec ~/.local/bin/chpaper
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id mako --default-timeout 2000 --icons 1
+exec --no-startup-id ~/.local/bin/chpaper
 exec telegram -startintray
 
 include /etc/sway/config.d/*
