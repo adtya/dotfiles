@@ -1,19 +1,18 @@
 * {
     border: none;
-    border-radius: 2px;
+    border-radius: 0px;
     font-family: 'FuraMono Nerd Font Mono';
     font-size: 16px;
     min-height: 0;
 }
 
 #window {
-   margin-left: 8px;
-   margin-right: 8px;
+   padding: 0px 10px;
+   background: #44AA77;
 }
 
 window#waybar {
     background: #222222;
-    /*border-bottom: 3px solid #2F2F2F;*/
     color: #ffffff;
 }
 
@@ -30,18 +29,19 @@ window#waybar.solo {
 
 #workspaces button {
     padding: 0 5px;
-    background: transparent;
+    background: #44AA77;
     color: #ffffff;
-    border-bottom: 3px solid #2F2F2F;
 }
 
 #workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid #ffffff;
+    border-bottom: 3px solid #77DDAA;
+    border-top: 3px solid #77DDAA;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background: #AA4477;
+    border-bottom: 3px solid #DD77AA;
+    border-top: 3px solid #DD77AA;
 }
 
 #mode {
@@ -49,11 +49,11 @@ window#waybar.solo {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #mpd, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode {
     padding: 0 10px;
-    margin: 0 5px;
     color: #ffffff;
 }
+
 
 #clock {
     background-color: #64727D;
@@ -121,20 +121,6 @@ label:focus {
     color: #2a5c45;
 }
 
-#custom-media {
-    background: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-.custom-spotify {
-    background: #66cc99;
-}
-
-.custom-vlc {
-    background: #ffa000;
-}
-
 #temperature {
     background: #f0932b;
 }
@@ -145,30 +131,4 @@ label:focus {
 
 #tray {
     background-color: #2980b9;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background: #f53c3c;
-}
-
-#mpd.stopped {
-    background: #90b1b1;
-}
-
-#mpd.paused {
-    background: #51a37a;
 }

@@ -1,3 +1,4 @@
+alias code='visual-studio-code'
 alias cp='cp -v'
 alias gaa='git add .'
 alias ga='git add'
