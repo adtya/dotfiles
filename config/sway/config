@@ -18,7 +18,7 @@ default_border pixel 4
 gaps outer 8
 gaps inner 8
 output * bg $HOME/.cache/wallpaper.png fill
-
+output eDP-1 pos 0 0 res 1920x1080
 
 ### Input configuration
 input "2:7:SynPS/2_Synaptics_TouchPad" {
