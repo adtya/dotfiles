@@ -28,25 +28,25 @@ window#waybar.solo {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0px 3px;
     background: #44AA77;
     color: #ffffff;
 }
 
 #workspaces button.focused {
-    border-bottom: 3px solid #77DDAA;
-    border-top: 3px solid #77DDAA;
+    padding: 0px;
+    border: 3px solid #77DDAA;
 }
 
 #workspaces button.urgent {
+    padding: 0px;
     background: #AA4477;
-    border-bottom: 3px solid #DD77AA;
-    border-top: 3px solid #DD77AA;
+    border: 3px solid #DD77AA;
 }
 
 #mode {
     background: #64727D;
-    border-bottom: 3px solid #ffffff;
+    border: 3px solid #ffffff;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode {

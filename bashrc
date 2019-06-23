@@ -28,8 +28,9 @@ fi
 
 export EDITOR=vim
 export GPG_TTY=$(tty)
-#export SSH_ASKPASS="always:/usr/bin/ssh-askpass-fullscreen"
-#keychain ~/.ssh/id_rsa >/dev/null 2>/dev/null && . ~/.keychain/Y700-sh
+keychain --agents ssh,gpg 2>/dev/null
+source ${HOME}/.keychain/${HOSTNAME}-sh
+source ${HOME}/.keychain/${HOSTNAME}-sh-gpg
 
 # Set _GITVAR if the CWD is inside a git work tree
 _is_git_dir() {
