@@ -49,7 +49,7 @@ window#waybar.solo {
     border: 3px solid #ffffff;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip {
     padding: 0 10px;
     color: #ffffff;
 }
@@ -131,4 +131,7 @@ label:focus {
 
 #tray {
     background-color: #2980b9;
+}
+#custom-ip {
+    background: #1869a8;
 }
