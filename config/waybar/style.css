@@ -12,7 +12,7 @@
 }
 
 window#waybar {
-    background: #222222;
+    background: #44AA77;
     color: #ffffff;
 }
 
@@ -21,10 +21,10 @@ window#waybar.hidden {
 }
 
 window#waybar.empty {
-    background: #222222;
+    background: #44AA77;
 }
 window#waybar.solo {
-    background: #222222;
+    background: #44AA77;
 }
 
 #workspaces button {

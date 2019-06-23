@@ -4,7 +4,7 @@
     "width": 1920, 
     "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
     "modules-center": [ ],
-    "modules-right": ["clock", "network", "custom/ip", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["network", "custom/ip", "pulseaudio", "backlight", "cpu", "memory", "temperature", "battery", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -83,7 +83,7 @@
         }
     },
     "custom/ip": {
-        "format": "{}",
+        "format": "{} ",
         "interval": 30,
         "exec": "$HOME/.config/waybar/getip 2>/dev/null"
     }
