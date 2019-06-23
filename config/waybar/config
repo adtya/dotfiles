@@ -1,54 +1,12 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    //"height": 24, // Waybar height (to be removed for auto height)
-    "width": 1920, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "layer": "top", 
+    "position": "top", 
+    "width": 1920, 
+    "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
     "modules-center": [ ],
-    "modules-right": ["network", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "clock"],
-     // Modules configuration
-     //"sway/workspaces": {
-     //    "disable-scroll": true,
-     //    "all-outputs": true,
-     //    "format": "{name}: {icon}",
-     //    "format-icons": {
-     //        "1": "",
-     //        "2": "",
-     //        "3": "",
-     //        "4": "",
-     //        "5": "",
-     //        "urgent": "",
-     //        "focused": "",
-     //        "default": ""
-     //    }
-     //},
+    "modules-right": ["clock", "network", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "mpd": {
-        "format": " {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title}  ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        }
     },
     "idle_inhibitor": {
         "tooltip": false,
@@ -59,13 +17,14 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 24,
         "spacing": 10
     },
     "clock": {
         "tooltip": false,
+        "interval": 1,
         "format": "{:%I:%M %p}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%d %B %Y, %A}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -76,15 +35,11 @@
         "tooltip": false
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{percent}% {icon}",
         "format-icons": ["", ""]
     },
@@ -98,8 +53,6 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{capacity}% {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""],
         "tooltip": false
     },
@@ -113,7 +66,6 @@
         "tooltip": false
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "tooltip": false,
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
