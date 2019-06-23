@@ -1,3 +1,5 @@
-rofi.modi: run,ssh,drun
-rofi.font: Fira Mono 12
+rofi.modi: run,drun
+rofi.font: Fira Code Retina 12
 rofi.sort: true
+rofi.show-icons: true
+rofi.icon-theme: Qogir
