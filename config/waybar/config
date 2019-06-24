@@ -1,7 +1,8 @@
 {
     "layer": "top", 
     "position": "top", 
-    "width": 1920, 
+    "width": 1920,
+    "height": 24,
     "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
     "modules-center": [ ],
     "modules-right": ["network", "custom/ip", "pulseaudio", "backlight", "cpu", "memory", "temperature", "battery", "clock"],
