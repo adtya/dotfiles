@@ -37,7 +37,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
     # start your launcher
     bindsym $mod+d exec $menu
-    bindsym Mod1+F2 exec rofi -show run
+    bindsym $mod+F2 exec rofi -show run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -157,11 +157,11 @@ bar {
     swaybar_command waybar
 }
 
-bindsym $mod+shift+w exec $HOME/.local/bin/chpaper
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2- unmute
-bindsym shift+XF86AudioLowerVolume exec amixer -q set Capture 2- unmute
-bindsym shift+XF86AudioRaiseVolume exec amixer -q set Capture 2+ unmute
+bindsym $mod+shift+w exec --no-startup-id ~/.config/scripts/chpaper.sh
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/volume_up.sh
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/volume_down.sh
+bindsym shift+XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/mic_down.sh
+bindsym shift+XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/mic_up.sh
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDOwn exec brightnessctl set 10%-
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
@@ -172,7 +172,7 @@ bindsym $mod+l exec swaylock -i ~/.cache/wallpaper.png
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 #exec ssh-agent
 exec --no-startup-id mako --default-timeout 4000 --icons 1
-exec --no-startup-id ~/.local/bin/chpaper
+exec --no-startup-id ~/.config/scripts/chpaper.sh
 exec telegram -startintray
 
 include /etc/sway/config.d/*
