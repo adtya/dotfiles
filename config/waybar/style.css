@@ -1,0 +1,137 @@
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: 'FuraMono Nerd Font Mono';
+    font-size: 16px;
+    min-height: 0;
+}
+
+#window {
+   padding: 0px 10px;
+   background: #44AA77;
+}
+
+window#waybar {
+    background: #44AA77;
+    color: #ffffff;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    background: #44AA77;
+}
+window#waybar.solo {
+    background: #44AA77;
+}
+
+#workspaces button {
+    padding: 0px 3px;
+    background: #44AA77;
+    color: #ffffff;
+}
+
+#workspaces button.focused {
+    padding: 0px;
+    border: 3px solid #77DDAA;
+}
+
+#workspaces button.urgent {
+    padding: 0px;
+    background: #AA4477;
+    border: 3px solid #DD77AA;
+}
+
+#mode {
+    background: #64727D;
+    border: 3px solid #ffffff;
+}
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+
+#clock {
+    background-color: #64727D;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background: #2ecc71;
+    color: #000000;
+}
+
+#memory {
+    background: #9b59b6;
+}
+
+#backlight {
+    background: #90b1b1;
+}
+
+#network {
+    background: #2980b9;
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#pulseaudio {
+    background: #f1c40f;
+    color: #000000;
+}
+
+#pulseaudio.muted {
+    background: #90b1b1;
+    color: #2a5c45;
+}
+
+#temperature {
+    background: #f0932b;
+}
+
+#temperature.critical {
+    background: #eb4d4b;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+#custom-ip {
+    background: #1869a8;
+}
