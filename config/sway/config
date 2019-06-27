@@ -15,8 +15,8 @@ font pango:Fira Code Retina 10
 
 # Windows
 default_border pixel 4
-gaps outer 8
-gaps inner 8
+gaps outer 4
+gaps inner 4
 output * bg $HOME/.cache/wallpaper.png fill
 output eDP-1 pos 0 0 res 1920x1080
 
@@ -168,6 +168,7 @@ bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date 
 bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 
 bindsym $mod+l exec swaylock -i ~/.cache/wallpaper.png
+bindsym $mod+shift+l exec ~/.config/scripts/hibernate.sh
 
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 #exec ssh-agent
