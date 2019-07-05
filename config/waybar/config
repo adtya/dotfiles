@@ -85,7 +85,8 @@
     },
     "custom/ip": {
         "format": "{} ",
-        "interval": 30,
-        "exec": "curl ipecho.org 2>/dev/null"
+        "interval": 8,
+        "exec": "$HOME/.config/scripts/getip.sh",
+        "tooltip": false
     }
 }
