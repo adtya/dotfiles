@@ -1,0 +1,42 @@
+# required by dev-lang/spidermonkey-52.9.1_pre1::gentoo
+# required by sys-auth/polkit-0.115-r3::gentoo
+# required by gnome-extra/polkit-gnome-0.105-r1::gentoo
+>=dev-lang/python-2.7.15:2.7 sqlite
+# required by gui-apps/mako-1.3::gentoo
+# required by gui-apps/mako (argument)
+>=sys-apps/dbus-1.12.12-r1 user-session
+# required by net-libs/webkit-gtk-2.24.2::gentoo
+# required by gnome-extra/sushi-3.30.0::gentoo
+# required by gnome-base/nautilus-3.30.5::gentoo[previewer]
+# required by app-text/evince-3.30.2::gentoo[nautilus]
+# required by evince (argument)
+>=media-libs/harfbuzz-2.3.1 icu
+# required by www-client/firefox-67.0::gentoo[system-libvpx]
+# required by firefox (argument)
+>=media-libs/libvpx-1.8.0-r1 postproc
+# required by www-client/firefox-67.0::gentoo[system-libvpx]
+# required by firefox (argument)
+=media-libs/libvpx-1.5.0 postproc
+# required by www-client/firefox-67.0::gentoo[system-sqlite]
+# required by firefox (argument)
+>=dev-db/sqlite-3.28.0 secure-delete
+# required by www-client/firefox-67.0::gentoo
+# required by firefox (argument)
+>=dev-lang/python-3.6.8:3.6 sqlite
+# required by sys-devel/llvmgold-7::gentoo
+>=sys-devel/llvm-7.1.0 gold
+# required by www-client/firefox-67.0::gentoo[system-libvpx]
+# required by firefox (argument)
+=media-libs/libvpx-1.7.0 postproc
+# required by sys-power/suspend-1.0_p20150810-r1::gentoo[crypt]
+# required by sys-power/suspend (argument)
+>=dev-libs/libgcrypt-1.8.3 static-libs
+# required by sys-power/suspend-1.0_p20150810-r1::gentoo[crypt]
+# required by sys-power/suspend (argument)
+>=dev-libs/libgpg-error-1.36 static-libs
+# required by sys-power/suspend-1.0_p20150810-r1::gentoo[lzo]
+# required by sys-power/suspend (argument)
+>=dev-libs/lzo-2.10 static-libs
+# required by app-misc/neofetch-6.0.0::gentoo[X]
+# required by neofetch (argument)
+>=www-client/w3m-0.5.3_p20180125 imlib

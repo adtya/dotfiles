@@ -1,0 +1,66 @@
+# required by net-misc/networkmanager-1.16.0::gentoo
+# required by @selected
+# required by @world (argument)
+=sys-libs/readline-8.0 ~amd64
+# required by sys-apps/systemd-241-r1::gentoo
+# required by gui-apps/mako-1.3::gentoo
+# required by gui-apps/mako (argument)
+>=sys-apps/dbus-1.12.12-r2 ~amd64
+# required by thermald (argument)
+=sys-power/thermald-1.8-r1 ~amd64
+# required by www-client/firefox-67.0::gentoo
+# required by firefox (argument)
+=dev-libs/nspr-4.21 ~amd64
+# required by www-client/firefox-67.0::gentoo[system-libvpx]
+# required by firefox (argument)
+=media-libs/libvpx-1.8.0-r1 ~amd64
+# required by www-client/firefox-67.0::gentoo[system-av1]
+# required by firefox (argument)
+=media-libs/dav1d-0.3.1 ~amd64
+# required by www-client/firefox-67.0::gentoo
+# required by firefox (argument)
+=dev-util/cbindgen-0.8.7 ~amd64
+# required by net-misc/networkmanager-1.16.0::gentoo[nss]
+# required by www-client/firefox-67.0::gentoo[wifi]
+# required by firefox (argument)
+=dev-libs/nss-3.44-r2 ~amd64
+# required by www-client/firefox-67.0::gentoo[system-libvpx]
+# required by firefox (argument)
+=media-libs/libvpx-1.7.0 ~amd64
+# required by net-libs/nodejs-10.15.3::gentoo
+# required by www-client/firefox-67.0::gentoo
+# required by @selected
+# required by @world (argument)
+=net-dns/c-ares-1.15.0 ~amd64
+# required by x11-base/xorg-server-1.20.4::gentoo[-libressl]
+# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
+# required by x11-base/xorg-drivers-1.20::gentoo[input_devices_libinput]
+=dev-libs/openssl-1.1.0k ~amd64
+# required by net-libs/nodejs-10.15.3::gentoo
+# required by www-client/firefox-67.0::gentoo
+# required by @selected
+# required by @world (argument)
+=net-libs/nghttp2-1.38.0 ~amd64
+# required by net-libs/nghttp2-1.38.0::gentoo[cxx]
+# required by net-libs/nodejs-10.15.3::gentoo
+# required by www-client/firefox-67.0::gentoo
+# required by @selected
+# required by @world (argument)
+=net-libs/http-parser-2.9.2 ~amd64
+# required by dev-libs/libevent-2.1.8::gentoo[-libressl,ssl]
+# required by www-client/firefox-67.0::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/openssl-1.1.1c ~amd64
+# required by sys-devel/clang-runtime-8.0.0::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.0::gentoo
+# required by sys-libs/compiler-rt-sanitizers-8.0.0::gentoo[clang]
+=sys-libs/compiler-rt-8.0.0 ~amd64
+# required by sys-devel/clang-runtime-8.0.0::gentoo[compiler-rt,sanitize]
+# required by sys-devel/clang-8.0.0::gentoo
+# required by sys-libs/compiler-rt-8.0.0::gentoo[clang]
+=sys-libs/compiler-rt-sanitizers-8.0.0 ~amd64
+# required by sys-devel/clang-runtime-8.0.0::gentoo[openmp]
+# required by sys-devel/clang-8.0.0::gentoo
+# required by sys-libs/compiler-rt-8.0.0::gentoo[clang]
+=sys-libs/libomp-8.0.0 ~amd64

@@ -1,0 +1,5 @@
+sys-devel/clang ~amd64
+sys-devel/clang-runtime ~amd64
+sys-devel/llvm ~amd64
+sys-devel/llvmgold ~amd64
+sys-devel/lld ~amd64
