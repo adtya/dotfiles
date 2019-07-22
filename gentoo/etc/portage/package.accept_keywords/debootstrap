@@ -1,0 +1,3 @@
+dev-util/debootstrap ~amd64
+app-crypt/debian-archive-keyring ~amd64
+app-crypt/ubuntu-keyring ~amd64

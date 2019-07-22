@@ -48,18 +48,6 @@
 # required by @selected
 # required by @world (argument)
 =dev-libs/openssl-1.1.1c ~amd64
-# required by sys-devel/clang-runtime-8.0.0::gentoo[compiler-rt]
-# required by sys-devel/clang-8.0.0::gentoo
-# required by sys-libs/compiler-rt-sanitizers-8.0.0::gentoo[clang]
-=sys-libs/compiler-rt-8.0.0 ~amd64
-# required by sys-devel/clang-runtime-8.0.0::gentoo[compiler-rt,sanitize]
-# required by sys-devel/clang-8.0.0::gentoo
-# required by sys-libs/compiler-rt-8.0.0::gentoo[clang]
-=sys-libs/compiler-rt-sanitizers-8.0.0 ~amd64
-# required by sys-devel/clang-runtime-8.0.0::gentoo[openmp]
-# required by sys-devel/clang-8.0.0::gentoo
-# required by sys-libs/compiler-rt-8.0.0::gentoo[clang]
-=sys-libs/libomp-8.0.0 ~amd64
 # required by net-libs/webkit-gtk-2.24.2::gentoo
 # required by gnome-extra/sushi-3.30.0::gentoo
 # required by gnome-base/nautilus-3.30.5::gentoo[previewer]
@@ -77,9 +65,18 @@
 # required by gui-apps/waybar-0.7.0::adtya
 # required by waybar (argument)
 =dev-libs/spdlog-1.3.1 ~amd64
-# required by waybar (argument)
-=gui-apps/waybar-0.7.0 ~amd64
-# required by app-misc/grim (argument)
-=app-misc/grim-1.2.0 ~amd64
-# required by app-misc/slurp (argument)
-=app-misc/slurp-1.2.0 ~amd64
+# required by media-sound/spotify-1.1.5-r1::gentoo
+# required by spotify (argument)
+=dev-util/patchelf-0.10 ~amd64
+# required by sys-devel/clang-runtime-8.0.1::gentoo[openmp]
+# required by sys-devel/clang-8.0.1::gentoo
+# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
+=sys-libs/libomp-8.0.1 ~amd64
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt,sanitize]
+# required by sys-devel/clang-8.0.1::gentoo
+# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
+=sys-libs/compiler-rt-sanitizers-8.0.1 ~amd64
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.1::gentoo
+# required by sys-libs/compiler-rt-sanitizers-8.0.1::gentoo[clang]
+=sys-libs/compiler-rt-8.0.1 ~amd64
