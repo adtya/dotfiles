@@ -142,22 +142,22 @@ _prompt_maker() {
 export PROMPT_COMMAND='_prompt_maker'
 
 # set PATH so it includes user's private(home) bin if it exists
-if [ -d "$HOME/bin" ] && [[ "$PATH" != *$HOME/bin:* ]]; then
+if [ -d "$HOME/bin" ] && [[ "$PATH" != *$HOME/bin:* ]] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private(local) bin if it exists
-if [ -d "$HOME/.local/bin" ] && [[ "$PATH" != *$HOME/.local/bin:* ]]; then
+if [ -d "$HOME/.local/bin" ] && [[ "$PATH" != *$HOME/.local/bin:* ]] ; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # set PATH so it includes the user's npm global bin if it exists
-if [ -d "$HOME/.local/share/npm-global/bin" ] && [[ "$PATH" != *$HOME/.local/share/npm-global/bin:* ]]; then
+if [ -d "$HOME/.local/share/npm-global/bin" ] && [[ "$PATH" != *$HOME/.local/share/npm-global/bin:* ]] ; then
     export PATH="$HOME/.local/share/npm-global/bin:$PATH"
 fi
 
 # set PATH so it includes flutter's bin if it exists
-if [ -d "/opt/flutter/bin" ] && [[ "$PATH" != */opt/flutter/bin:* ]]; then
+if [ -d "/opt/flutter/bin" ] && [[ "$PATH" != */opt/flutter/bin:* ]] ; then
     export PATH="/opt/flutter/bin:$PATH"
 fi
 
@@ -170,8 +170,12 @@ if [ -d "/opt/android-sdk" ] ; then
 fi
 
 # set JAVA_HOME
-if [ -d "/opt/jre" ] ; then
-    export JAVA_HOME="/opt/jre"
+if [ -d "/opt/android-studio" ] ; then
+    export JAVA_HOME="/opt/android-studio/jre"
+fi
+
+if [ -d "/opt/mongodb" ] && [[ "$PATH" != */opt/mongodb/bin:* ]] ; then
+    export PATH="/opt/mongodb/bin:$PATH"
 fi
 
 # Run Sway if on tty1

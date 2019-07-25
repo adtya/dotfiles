@@ -1,9 +1,8 @@
 #!/bin/bash
 
-DIR="$HOME/Pictures/Wallpapers"
-WALLPAPER="$HOME/.cache/wallpaper.png"
+DIR="${HOME}/Pictures/Wallpapers"
 
-RANDOM_PAPER="$(/bin/ls $DIR/*/* | /usr/bin/shuf -n 1)"
-magick convert "${RANDOM_PAPER}" -resize 1920x1080\> "${WALLPAPER}"
-swaymsg "output * bg '${WALLPAPER}' fill"
-echo "Wallpaper: $RANDOM_PAPER"
+RANDOM_PAPER="$(/bin/ls ${DIR}/*/* | /usr/bin/shuf -n 1)"
+swaymsg "output * bg '${RANDOM_PAPER}' fill"
+echo "Wallpaper: ${RANDOM_PAPERi}"
+echo "${RANDOM_PAPER}" > ${HOME}/.cache/wallpaper

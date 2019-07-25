@@ -17,7 +17,6 @@ font pango:Fira Code Retina 10
 default_border pixel 4
 gaps outer 4
 gaps inner 4
-output * bg $HOME/.cache/wallpaper.png fill
 output eDP-1 pos 0 0 res 1920x1080
 
 ### Input configuration
@@ -149,15 +148,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
 }
 
-bindsym $mod+shift+w exec --no-startup-id ~/.config/scripts/chpaper.sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/volume_up.sh
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/volume_down.sh
 bindsym shift+XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/mic_down.sh
@@ -167,13 +161,12 @@ bindsym XF86MonBrightnessDOwn exec brightnessctl set 10%-
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 
-bindsym $mod+l exec swaylock -i ~/.cache/wallpaper.png
+bindsym $mod+l exec swaylock -i "$(cat ~/.cache/wallpaper)"
 bindsym $mod+shift+l exec ~/.config/scripts/hibernate.sh
 
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
-#exec ssh-agent
-exec --no-startup-id mako --default-timeout 4000 --icons 1
-exec --no-startup-id ~/.config/scripts/chpaper.sh
+exec --no-startup-id mako --default-timeout 8000
+exec_always --no-startup-id ~/.config/scripts/chpaper.sh
 exec telegram -startintray
 
 include /etc/sway/config.d/*
