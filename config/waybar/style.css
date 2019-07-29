@@ -8,12 +8,12 @@
 
 #window {
    padding: 0px 10px;
-   background: #44AA77;
+   background: #282A36;
 }
 
 window#waybar {
-    background: #44AA77;
-    color: #ffffff;
+    background: #282A36;
+    color: #F8F8F2;
 }
 
 window#waybar.hidden {
@@ -21,64 +21,55 @@ window#waybar.hidden {
 }
 
 window#waybar.empty {
-    background: #44AA77;
+    background: #282A36;
 }
 window#waybar.solo {
-    background: #44AA77;
+    background: #282A36;
 }
 
 #workspaces button {
     padding: 0px 3px;
-    background: #44AA77;
-    color: #ffffff;
+    background: #282A36;
+    color: #F8F8F2;
 }
 
 #workspaces button.focused {
     padding: 0px;
-    border: 3px solid #77DDAA;
+    border: 3px solid #5AF78E;
 }
 
 #workspaces button.urgent {
     padding: 0px;
-    background: #AA4477;
-    border: 3px solid #DD77AA;
+    background: #FF6E67;
+    border: 3px solid #FF5555;
 }
 
 #mode {
-    background: #64727D;
-    border: 3px solid #ffffff;
+    background: #282A36;
+    border: 3px solid #6272A4;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip {
     padding: 0 10px;
-    color: #ffffff;
-}
-
-
-#clock {
-    background-color: #64727D;
-}
-
-#battery {
-    background-color: #ffffff;
-    color: #000000;
+    color: #F8F8F2;
+    background-color: #282A36;
 }
 
 #battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
+    background-color: #5AF78E;
+    color: #282A36;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #FF6E67;
+        color: #282A36;
     }
 }
 
 #battery.critical:not(.charging) {
-    background: #f53c3c;
-    color: #ffffff;
+    background: #282A36;
+    color: #FF6E67;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -87,51 +78,17 @@ window#waybar.solo {
 }
 
 label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background: #9b59b6;
-}
-
-#backlight {
-    background: #90b1b1;
-}
-
-#network {
-    background: #2980b9;
+    background-color: #282A36;
 }
 
 #network.disconnected {
-    background: #f53c3c;
-}
-
-#pulseaudio {
-    background: #f1c40f;
-    color: #000000;
+    background: #FF6E67;
 }
 
 #pulseaudio.muted {
-    background: #90b1b1;
-    color: #2a5c45;
-}
-
-#temperature {
-    background: #f0932b;
+    background: #FF6E67;
 }
 
 #temperature.critical {
-    background: #eb4d4b;
-}
-
-#tray {
-    background-color: #2980b9;
-}
-#custom-ip {
-    background: #1869a8;
+    background: #FF6E67;
 }
