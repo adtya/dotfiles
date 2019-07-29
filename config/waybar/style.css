@@ -56,19 +56,16 @@ window#waybar.solo {
 }
 
 #battery.charging {
-    background-color: #5AF78E;
-    color: #282A36;
+    color: #5AF78E;
 }
 
 @keyframes blink {
     to {
-        background-color: #FF6E67;
-        color: #282A36;
+        color: #F8F8F2;
     }
 }
 
 #battery.critical:not(.charging) {
-    background: #282A36;
     color: #FF6E67;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -82,13 +79,13 @@ label:focus {
 }
 
 #network.disconnected {
-    background: #FF6E67;
+    color: #FF6E67;
 }
 
 #pulseaudio.muted {
-    background: #FF6E67;
+    color: #FF6E67;
 }
 
 #temperature.critical {
-    background: #FF6E67;
+    color: #FF6E67;
 }
