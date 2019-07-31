@@ -1,0 +1,10 @@
+font="Fira Code Retina 12"
+margin=20
+border-size=3
+background-color=#28263aff
+border-color=#6272a4ff
+text-color=#f8f8f2ff
+icons=1
+icon-path=/home/adtya/.icons/Qogir
+markup=1
+default-timeout=8000
