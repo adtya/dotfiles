@@ -28,6 +28,7 @@ fi
 
 export EDITOR=vim
 export GPG_TTY=$(tty)
+export MOZ_ENABLE_WAYLAND=1
 keychain --agents ssh,gpg 2>/dev/null
 source ${HOME}/.keychain/${HOSTNAME}-sh
 source ${HOME}/.keychain/${HOSTNAME}-sh-gpg
@@ -142,8 +143,8 @@ _prompt_maker() {
 export PROMPT_COMMAND='_prompt_maker'
 
 # set PATH so it includes user's private(home) bin if it exists
-if [ -d "$HOME/bin" ] && [[ "$PATH" != *$HOME/bin:* ]] ; then
-    export PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/.bin" ] && [[ "$PATH" != *$HOME/.bin:* ]] ; then
+    export PATH="$HOME/.bin:$PATH"
 fi
 
 # set PATH so it includes user's private(local) bin if it exists
@@ -156,29 +157,3 @@ if [ -d "$HOME/.local/share/npm-global/bin" ] && [[ "$PATH" != *$HOME/.local/sha
     export PATH="$HOME/.local/share/npm-global/bin:$PATH"
 fi
 
-# set PATH so it includes flutter's bin if it exists
-if [ -d "/opt/flutter/bin" ] && [[ "$PATH" != */opt/flutter/bin:* ]] ; then
-    export PATH="/opt/flutter/bin:$PATH"
-fi
-
-# set ANDROID_HOME if it exists
-if [ -d "/opt/android-sdk" ] ; then
-    export ANDROID_HOME="/opt/android-sdk"
-    if [[ "$PATH" != *$ANDROID_HOME/tools/bin:* ]] ; then
-        export PATH="$ANDROID_HOME/tools/bin:$PATH"
-    fi
-fi
-
-# set JAVA_HOME
-if [ -d "/opt/android-studio" ] ; then
-    export JAVA_HOME="/opt/android-studio/jre"
-fi
-
-if [ -d "/opt/mongodb" ] && [[ "$PATH" != */opt/mongodb/bin:* ]] ; then
-    export PATH="/opt/mongodb/bin:$PATH"
-fi
-
-# Run Sway if on tty1
-if [ "$(tty)" == "/dev/tty1" ] ; then
-    sway
-fi

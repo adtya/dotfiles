@@ -14,9 +14,6 @@
 # required by www-client/firefox-67.0::gentoo[system-libvpx]
 # required by firefox (argument)
 >=media-libs/libvpx-1.8.0-r1 postproc
-# required by www-client/firefox-67.0::gentoo[system-libvpx]
-# required by firefox (argument)
-=media-libs/libvpx-1.5.0 postproc
 # required by www-client/firefox-67.0::gentoo[system-sqlite]
 # required by firefox (argument)
 >=dev-db/sqlite-3.28.0 secure-delete
