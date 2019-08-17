@@ -11,9 +11,6 @@
 # required by www-client/firefox-67.0::gentoo
 # required by firefox (argument)
 =dev-libs/nspr-4.21 ~amd64
-# required by www-client/firefox-67.0::gentoo[system-libvpx]
-# required by firefox (argument)
-=media-libs/libvpx-1.8.0-r1 ~amd64
 # required by www-client/firefox-67.0::gentoo[system-av1]
 # required by firefox (argument)
 =media-libs/dav1d-0.3.1 ~amd64
@@ -43,11 +40,6 @@
 # required by @selected
 # required by @world (argument)
 =net-libs/http-parser-2.9.2 ~amd64
-# required by dev-libs/libevent-2.1.8::gentoo[-libressl,ssl]
-# required by www-client/firefox-67.0::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-libs/openssl-1.1.1c ~amd64
 # required by net-libs/webkit-gtk-2.24.2::gentoo
 # required by gnome-extra/sushi-3.30.0::gentoo
 # required by gnome-base/nautilus-3.30.5::gentoo[previewer]
