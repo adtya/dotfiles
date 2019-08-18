@@ -1,0 +1,3 @@
+# required by media-video/gnome-mpv-0.16::gentoo
+# required by media-video/gnome-mpv (argument)
+>=media-video/mpv-0.27.2 libmpv

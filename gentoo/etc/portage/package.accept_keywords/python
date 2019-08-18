@@ -1,4 +1,4 @@
 dev-lang/python ~amd64
 dev-python/pip ~amd64
-dev-python/certifi ~amd64
 dev-python/setuptools ~amd64
+dev-python/certifi ~amd64

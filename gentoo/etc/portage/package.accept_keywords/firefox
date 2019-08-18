@@ -1,1 +1,22 @@
 www-client/firefox ~amd64
+
+# required by www-client/firefox-68.0.2::gentoo
+# required by www-client/firefox (argument)
+=dev-libs/nspr-4.21 ~amd64
+
+# required by www-client/firefox-68.0.2::gentoo
+# required by www-client/firefox (argument)
+=dev-util/cbindgen-0.9.0 ~amd64
+
+# required by www-client/firefox-68.0.2::gentoo[system-libvpx]
+# required by www-client/firefox (argument)
+=media-libs/libvpx-1.7.0 ~amd64
+
+# required by www-client/firefox-68.0.2::gentoo[system-libvpx]
+# required by www-client/firefox (argument)
+=media-libs/libvpx-1.8.0-r1 ~amd64
+
+# required by net-misc/networkmanager-1.16.0::gentoo
+# required by www-client/firefox-68.0.2::gentoo[wifi]
+# required by www-client/firefox (argument)
+=dev-libs/nss-3.45 ~amd64

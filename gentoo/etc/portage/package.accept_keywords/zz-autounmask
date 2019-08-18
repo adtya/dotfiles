@@ -1,74 +1,13 @@
-# required by net-misc/networkmanager-1.16.0::gentoo
+# required by sys-libs/slang-2.3.2::gentoo[readline]
+# required by dev-libs/newt-0.52.20::gentoo
+# required by net-misc/networkmanager-1.16.0::gentoo[ncurses]
 # required by @selected
 # required by @world (argument)
-=sys-libs/readline-8.0 ~amd64
-# required by sys-apps/systemd-241-r1::gentoo
-# required by gui-apps/mako-1.3::gentoo
-# required by gui-apps/mako (argument)
->=sys-apps/dbus-1.12.12-r2 ~amd64
-# required by thermald (argument)
-=sys-power/thermald-1.8-r1 ~amd64
-# required by www-client/firefox-67.0::gentoo
-# required by firefox (argument)
-=dev-libs/nspr-4.21 ~amd64
-# required by www-client/firefox-67.0::gentoo[system-av1]
-# required by firefox (argument)
-=media-libs/dav1d-0.3.1 ~amd64
-# required by www-client/firefox-67.0::gentoo
-# required by firefox (argument)
-=dev-util/cbindgen-0.8.7 ~amd64
-# required by www-client/firefox-67.0::gentoo[system-libvpx]
-# required by firefox (argument)
-=media-libs/libvpx-1.7.0 ~amd64
-# required by net-libs/nodejs-10.15.3::gentoo
-# required by www-client/firefox-67.0::gentoo
-# required by @selected
-# required by @world (argument)
-=net-dns/c-ares-1.15.0 ~amd64
-# required by x11-base/xorg-server-1.20.4::gentoo[-libressl]
-# required by x11-drivers/xf86-input-libinput-0.28.2::gentoo
-# required by x11-base/xorg-drivers-1.20::gentoo[input_devices_libinput]
-=dev-libs/openssl-1.1.0k ~amd64
-# required by net-libs/nodejs-10.15.3::gentoo
-# required by www-client/firefox-67.0::gentoo
-# required by @selected
-# required by @world (argument)
-=net-libs/nghttp2-1.38.0 ~amd64
-# required by net-libs/nghttp2-1.38.0::gentoo[cxx]
-# required by net-libs/nodejs-10.15.3::gentoo
-# required by www-client/firefox-67.0::gentoo
-# required by @selected
-# required by @world (argument)
-=net-libs/http-parser-2.9.2 ~amd64
+=sys-libs/readline-8.0_p1 ~amd64
+
 # required by net-libs/webkit-gtk-2.24.2::gentoo
 # required by gnome-extra/sushi-3.30.0::gentoo
 # required by gnome-base/nautilus-3.30.5::gentoo[previewer]
 # required by @selected
 # required by @world (argument)
-=media-libs/harfbuzz-2.5.3 ~amd64
-# required by net-misc/networkmanager-1.16.0::gentoo
-# required by www-client/firefox-68.0::gentoo[wifi]
-# required by @selected
-# required by @world (argument)
-=dev-libs/nss-3.44.1 ~amd64
-# required by gui-apps/waybar-0.7.0::adtya
-# required by waybar (argument)
-=dev-libs/libfmt-5.3.0 ~amd64
-# required by gui-apps/waybar-0.7.0::adtya
-# required by waybar (argument)
-=dev-libs/spdlog-1.3.1 ~amd64
-# required by media-sound/spotify-1.1.5-r1::gentoo
-# required by spotify (argument)
-=dev-util/patchelf-0.10 ~amd64
-# required by sys-devel/clang-runtime-8.0.1::gentoo[openmp]
-# required by sys-devel/clang-8.0.1::gentoo
-# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
-=sys-libs/libomp-8.0.1 ~amd64
-# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt,sanitize]
-# required by sys-devel/clang-8.0.1::gentoo
-# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
-=sys-libs/compiler-rt-sanitizers-8.0.1 ~amd64
-# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
-# required by sys-devel/clang-8.0.1::gentoo
-# required by sys-libs/compiler-rt-sanitizers-8.0.1::gentoo[clang]
-=sys-libs/compiler-rt-8.0.1 ~amd64
+=media-libs/harfbuzz-2.6.0 ~amd64

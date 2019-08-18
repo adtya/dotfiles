@@ -1,2 +1,5 @@
-sys-boot/plymouth pango
-x11-libs/libdrm libkms
+sys-boot/plymouth pango libkms
+
+# required by sys-boot/plymouth-0.9.4-r1::gentoo[libkms]
+# required by sys-boot/plymouth (argument)
+>=x11-libs/libdrm-2.4.97 libkms

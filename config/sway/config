@@ -84,8 +84,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/volume_up.sh
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/volume_down.sh
 bindsym shift+XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/mic_down.sh
 bindsym shift+XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/mic_up.sh
-bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
-bindsym XF86MonBrightnessDOwn exec brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 47+
+bindsym XF86MonBrightnessDOwn exec brightnessctl set 47-
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym $mod+l exec swaylock -i "$(cat ~/.cache/wallpaper)"

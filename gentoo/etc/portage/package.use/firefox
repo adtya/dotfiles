@@ -1,1 +1,21 @@
-www-client/firefox clang system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-sqlite lto
+www-client/firefox system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-sqlite clang
+
+# required by www-client/firefox-68.0.2::gentoo[system-libvpx]
+# required by www-client/firefox (argument)
+>=media-libs/libvpx-1.8.0-r1 postproc
+
+# required by www-client/firefox-68.0.2::gentoo[system-libvpx]
+# required by www-client/firefox (argument)
+=media-libs/libvpx-1.5.0 postproc
+
+# required by www-client/firefox-68.0.2::gentoo[system-libvpx]
+# required by www-client/firefox (argument)
+=media-libs/libvpx-1.7.0 postproc
+
+# required by www-client/firefox-68.0.2::gentoo[system-sqlite]
+# required by www-client/firefox (argument)
+>=dev-db/sqlite-3.28.0 secure-delete
+
+# required by www-client/firefox-68.0.2::gentoo
+# required by www-client/firefox (argument)
+>=dev-lang/python-3.7.4-r1 sqlite
