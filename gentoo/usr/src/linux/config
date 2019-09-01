@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.2.9-gentoo Kernel Configuration
+# Linux/x86 5.2.11-gentoo Kernel Configuration
 #
 
 #
@@ -160,14 +160,7 @@ CONFIG_CHECKPOINT_RESTORE=y
 # CONFIG_SCHED_AUTOGROUP is not set
 # CONFIG_SYSFS_DEPRECATED is not set
 CONFIG_RELAY=y
-CONFIG_BLK_DEV_INITRD=y
-CONFIG_INITRAMFS_SOURCE=""
-# CONFIG_RD_GZIP is not set
-# CONFIG_RD_BZIP2 is not set
-# CONFIG_RD_LZMA is not set
-CONFIG_RD_XZ=y
-# CONFIG_RD_LZO is not set
-# CONFIG_RD_LZ4 is not set
+# CONFIG_BLK_DEV_INITRD is not set
 CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE=y
 # CONFIG_CC_OPTIMIZE_FOR_SIZE is not set
 CONFIG_SYSCTL=y
@@ -412,7 +405,7 @@ CONFIG_HOTPLUG_CPU=y
 CONFIG_LEGACY_VSYSCALL_EMULATE=y
 # CONFIG_LEGACY_VSYSCALL_NONE is not set
 CONFIG_CMDLINE_BOOL=y
-CONFIG_CMDLINE="rd.luks.uuid=2ddb4c0a-06a9-4957-8b3c-3a11df749956 rd.lvm.vg=vg0 root=/dev/mapper/vg0-root resume=/dev/mapper/vg0-swap quiet splash"
+CONFIG_CMDLINE="root=PARTUUID=d6fde363-a985-a94a-bf77-8530a5751b86 resume=PARTUUID=8400f0ff-3293-d340-8592-59686d7e95be quiet"
 # CONFIG_CMDLINE_OVERRIDE is not set
 CONFIG_MODIFY_LDT_SYSCALL=y
 CONFIG_HAVE_LIVEPATCH=y
@@ -476,7 +469,6 @@ CONFIG_ACPI_PROCESSOR_AGGREGATOR=m
 CONFIG_ACPI_THERMAL=y
 CONFIG_ACPI_NUMA=y
 CONFIG_ARCH_HAS_ACPI_TABLE_UPGRADE=y
-CONFIG_ACPI_TABLE_UPGRADE=y
 # CONFIG_ACPI_DEBUG is not set
 # CONFIG_ACPI_PCI_SLOT is not set
 CONFIG_ACPI_CONTAINER=y
@@ -1379,7 +1371,7 @@ CONFIG_PREVENT_FIRMWARE_BUILD=y
 # Firmware loader
 #
 CONFIG_FW_LOADER=y
-CONFIG_EXTRA_FIRMWARE="i915/skl_dmc_ver1_27.bin intel-ucode/06-5e-03 intel/ibt-hw-37.8.10-fw-1.10.3.11.e.bseq iwlwifi-7265D-29.ucode rtl_nic/rtl8168h-2.fw"
+CONFIG_EXTRA_FIRMWARE="i915/skl_dmc_ver1_27.bin intel-ucode/06-5e-03 intel/ibt-hw-37.8.10-fw-1.10.3.11.e.bseq iwlwifi-7265D-29.ucode rtl_nic/rtl8168h-2.fw regulatory.db regulatory.db.p7s"
 CONFIG_EXTRA_FIRMWARE_DIR="/lib/firmware"
 # CONFIG_FW_LOADER_USER_HELPER is not set
 # end of Firmware loader
@@ -4759,7 +4751,6 @@ CONFIG_XZ_DEC_ARMTHUMB=y
 CONFIG_XZ_DEC_SPARC=y
 CONFIG_XZ_DEC_BCJ=y
 # CONFIG_XZ_DEC_TEST is not set
-CONFIG_DECOMPRESS_XZ=y
 CONFIG_GENERIC_ALLOCATOR=y
 CONFIG_INTERVAL_TREE=y
 CONFIG_ASSOCIATIVE_ARRAY=y
