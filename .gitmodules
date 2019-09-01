@@ -1,9 +1,6 @@
-[submodule "vim/bundle/Vundle.vim"]
-	path = vim/bundle/Vundle.vim
+[submodule "vim/bundle/dracula"]
+	path = vim/bundle/dracula
+	url = https://github.com/dracula/vim.git
+[submodule "vim/bundle/vundle"]
+	path = vim/bundle/vundle
 	url = https://github.com/VundleVim/Vundle.vim.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/vim-airline-themes"]
-	path = vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
