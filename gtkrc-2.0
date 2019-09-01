@@ -1,3 +1,8 @@
-gtk-theme-name="Qogir-win"
-gtk-icon-theme-name="Qogir"
-gtk-cursor-theme-name="Capitaine"
+# -- THEME AUTO-WRITTEN DO NOT EDIT
+include "/home/adtya/.themes/Ant-Dracula/gtk-2.0/gtkrc"
+
+gtk-theme-name  = "Ant-Dracula"
+
+include "/home/adtya/.gtkrc.mine"
+
+# -- THEME AUTO-WRITTEN DO NOT EDIT

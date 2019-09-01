@@ -3,7 +3,7 @@ configuration {
 	font: "Fira Code Retina 12";
 	show-icons: true;
 	terminal: "kitty";
-	icon-theme: "Qogir-dark";
+	icon-theme: "Tela-dark";
 	sort: false;
 	theme: "base16-dracula";
 }
