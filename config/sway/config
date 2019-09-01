@@ -88,7 +88,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 47+
 bindsym XF86MonBrightnessDOwn exec brightnessctl set 47-
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
-bindsym $mod+l exec swaylock -i "$(cat ~/.cache/wallpaper)"
+bindsym $mod+l exec swaylock -i "$(cat /tmp/wallpaper)"
 bindsym $mod+shift+l exec ~/.config/scripts/hibernate.sh
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id mako --default-timeout 8000

@@ -1,3 +1,3 @@
 #!/bin/bash
-swaylock -i "$(cat $HOME/.cache/wallpaper)" -f
+swaylock -i "$(cat /tmp/wallpaper)" -f
 systemctl hibernate
