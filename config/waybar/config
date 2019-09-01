@@ -3,42 +3,17 @@
     "position": "top", 
     "width": 1920,
     "height": 29,
-    "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
-    "modules-center": [ ],
-    "modules-right": ["network", "custom/ip", "pulseaudio", "backlight", "cpu", "memory", "temperature", "battery", "clock"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": [],
+    "modules-right": ["network", "custom/ip", "pulseaudio", "backlight", "battery", "clock"],
     "sway/mode": {
         "format": "{}"
-    },
-    "idle_inhibitor": {
-        "tooltip": false,
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        "icon-size": 24,
-        "spacing": 10
     },
     "clock": {
         "tooltip": false,
         "interval": 1,
         "format": "{:%I:%M %p} ",
         "format-alt": "{:%d %B %Y, %A} "
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% ",
-        "tooltip": false
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -84,7 +59,8 @@
         }
     },
     "custom/ip": {
-        "format": "{} ",
+        "format": "",
+        "format-alt": "{} ",
         "interval": 10,
         "exec": "$HOME/.config/scripts/getip.sh",
         "tooltip": false
