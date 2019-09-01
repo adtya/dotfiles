@@ -1,0 +1,6 @@
+gui-wm/sway ~amd64
+
+# required by gui-wm/sway-1.2::gentoo
+# required by @selected
+# required by @world (argument)
+=gui-libs/wlroots-0.7.0 ~amd64

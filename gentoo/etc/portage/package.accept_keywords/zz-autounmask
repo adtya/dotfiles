@@ -5,9 +5,7 @@
 # required by @world (argument)
 =sys-libs/readline-8.0_p1 ~amd64
 
-# required by net-libs/webkit-gtk-2.24.2::gentoo
-# required by gnome-extra/sushi-3.30.0::gentoo
-# required by gnome-base/nautilus-3.30.5::gentoo[previewer]
-# required by @selected
-# required by @world (argument)
-=media-libs/harfbuzz-2.6.0 ~amd64
+# required by net-misc/networkmanager-1.16.0::gentoo
+# required by www-client/firefox-68.0.2::gentoo[wifi]
+# required by www-client/firefox (argument)
+=dev-libs/nss-3.45 ~amd64
