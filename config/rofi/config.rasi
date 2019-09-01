@@ -5,5 +5,5 @@ configuration {
 	terminal: "kitty";
 	icon-theme: "Qogir-dark";
 	sort: false;
-	theme: "dracula";
+	theme: "base16-dracula";
 }
