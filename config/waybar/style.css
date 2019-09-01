@@ -1,3 +1,5 @@
+@import 'base16-dracula.css';
+
 * {
     border: none;
     border-radius: 0px;
@@ -8,12 +10,12 @@
 
 #window {
    padding: 0px 10px;
-   background: #282A36;
+   background: @base00;
 }
 
 window#waybar {
-    background: #282A36;
-    color: #F8F8F2;
+    background: @base00;
+    color: @base05;
 }
 
 window#waybar.hidden {
@@ -21,52 +23,52 @@ window#waybar.hidden {
 }
 
 window#waybar.empty {
-    background: #282A36;
+    background: @base00;
 }
 window#waybar.solo {
-    background: #282A36;
+    background: @base00;
 }
 
 #workspaces button {
     padding: 0px 3px;
-    background: #282A36;
-    color: #F8F8F2;
+    background: @base00;
+    color: @base05;
 }
 
 #workspaces button.focused {
     padding: 0px;
-    border: 3px solid #5AF78E;
+    border: 3px solid @base0F;
 }
 
 #workspaces button.urgent {
     padding: 0px;
-    background: #FF6E67;
-    border: 3px solid #FF5555;
+    background: @base00;
+    border: 3px solid @base08;
 }
 
 #mode {
-    background: #282A36;
-    border: 3px solid #6272A4;
+    background: @base00;
+    border: 3px solid @base02;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip {
     padding: 0 10px;
-    color: #F8F8F2;
-    background-color: #282A36;
+    color: @base05;
+    background-color: @base00;
 }
 
 #battery.charging {
-    color: #5AF78E;
+    color: @base0F;
 }
 
 @keyframes blink {
     to {
-        color: #F8F8F2;
+        color: @base05;
     }
 }
 
 #battery.critical:not(.charging) {
-    color: #FF6E67;
+    color: @base00;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -75,17 +77,17 @@ window#waybar.solo {
 }
 
 label:focus {
-    background-color: #282A36;
+    background-color: @base00;
 }
 
 #network.disconnected {
-    color: #FF6E67;
+    color: @base00;
 }
 
 #pulseaudio.muted {
-    color: #FF6E67;
+    color: @base00;
 }
 
 #temperature.critical {
-    color: #FF6E67;
+    color: @base00;
 }
