@@ -132,7 +132,7 @@ _prompt_maker() {
 
     export PS1=" \[\033[1;31m\]${_ERR}\[\033[0m\]${_DIRTSYMBOL}\[\033[1;33m\]${_VENVNAME}\[\033[0m\]\[\033[1;32m\]\W\[\033[0m\] \[\033[1;34m\]${_GITBRANCH}\[\033[0m\]"
     export PS2=" \[\033[1;35m\]...\[\033[0m\] "
-    echo -en '\033]2;'Kitty: ${_VENVNAME}${PWD/\/home\/$USER/\~} ${_GITBRANCH}'\007'
+    echo -en '\033]2;'${_VENVNAME}${PWD/\/home\/$USER/\~} ${_GITBRANCH}'\007'
     # Unset variable after use
     unset _ERR
     unset _DIRTSYMBOL
@@ -157,3 +157,20 @@ if [ -d "$HOME/.local/share/npm-global/bin" ] && [[ "$PATH" != *$HOME/.local/sha
     export PATH="$HOME/.local/share/npm-global/bin:$PATH"
 fi
 
+# Add nodejs from /opt/nodejs
+if [ -d "/opt/nodejs/bin" ] && [[ "$PATH" != */opt/nodejs/bin:* ]] ; then
+    export PATH="/opt/nodejs/bin:$PATH"
+fi
+
+# Add yarnpkg from /opt/yarnpkg
+if [ -d "/opt/yarnpkg/bin" ] && [[ "$PATH" != */opt/yarnpkg/bin:* ]] ; then
+    export PATH="/opt/yarnpkg/bin:$PATH"
+fi
+
+if [ -d "/opt/exercism" ] ; then
+    source /opt/exercism/shell/exercism_completion.bash
+fi
+
+if [ "$(tty)" == "/dev/tty1" ] ; then
+    sway
+fi
