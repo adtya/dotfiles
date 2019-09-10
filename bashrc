@@ -172,5 +172,8 @@ if [ -d "/opt/exercism" ] ; then
 fi
 
 if [ "$(tty)" == "/dev/tty1" ] ; then
+    if [ -z "$(pgrep pulseaudio)" ] ; then
+        pulseaudio -D
+    fi
     sway
 fi

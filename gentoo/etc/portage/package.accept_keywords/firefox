@@ -1,8 +1,15 @@
 www-client/firefox ~amd64
 
-# required by www-client/firefox-68.0.2::gentoo
-# required by www-client/firefox (argument)
-=dev-libs/nspr-4.21 ~amd64
-# required by www-client/firefox-68.0.2::gentoo
-# required by www-client/firefox (argument)
-=dev-util/cbindgen-0.9.0 ~amd64
+# required by virtual/rust-1.37.0::gentoo
+# required by www-client/firefox-69.0::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-lang/rust-1.37.0 ~amd64
+# required by www-client/firefox-69.0::gentoo
+# required by @selected
+# required by @world (argument)
+=virtual/cargo-1.37.0 ~amd64
+# required by www-client/firefox-69.0::gentoo
+# required by @selected
+# required by @world (argument)
+=virtual/rust-1.37.0 ~amd64
