@@ -1,6 +1,3 @@
-## Base16 Dracula
-# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
-
 set $base00 #282936
 set $base01 #3a3c4e
 set $base02 #626483

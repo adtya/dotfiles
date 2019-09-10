@@ -5,10 +5,10 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim', {'name': 'vundle'}
-Plugin 'dracula/vim', {'name': 'dracula'}
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
-Plugin 'w0rp/ale'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -20,6 +20,6 @@ set autoindent
 set showmatch
 set noswapfile
 
-"colorscheme dracula
-let g:airline_theme='dracula'
-"hi Normal ctermbg=None
+let base16colorspace=256
+colorscheme base16-dracula
+hi Normal ctermbg=None
