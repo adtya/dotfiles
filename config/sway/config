@@ -11,7 +11,7 @@ set $term kitty
 set $menu rofi -show drun
 
 font pango:Fira Code Retina 10
-default_border pixel 4
+default_border pixel 2
 gaps outer 4
 gaps inner 4
 output eDP-1 pos 0 0 res 1920x1080
