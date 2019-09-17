@@ -140,6 +140,12 @@ _prompt_maker() {
     unset _GITBRANCH
     unset _GITVAR
 }
+export -f _err_code
+export -f _is_git_dir
+export -f _get_git_branch
+export -f _get_git_dirty
+export -f _get_virtual_env_name
+export -f _prompt_maker
 export PROMPT_COMMAND='_prompt_maker'
 
 # set PATH so it includes user's private(home) bin if it exists
@@ -173,7 +179,7 @@ fi
 
 if [ "$(tty)" == "/dev/tty1" ] ; then
     if [ -z "$(pgrep pulseaudio)" ] ; then
-        pulseaudio -D
+        pulseaudio --start --log-target=syslog
     fi
     sway
 fi
