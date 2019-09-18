@@ -29,9 +29,9 @@ fi
 export EDITOR=vim
 export GPG_TTY=$(tty)
 export MOZ_ENABLE_WAYLAND=1
-keychain --agents ssh,gpg 2>/dev/null
-source ${HOME}/.keychain/${HOSTNAME}-sh
+keychain --agents gpg 2>/dev/null
 source ${HOME}/.keychain/${HOSTNAME}-sh-gpg
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # Set _GITVAR if the CWD is inside a git work tree
 _is_git_dir() {
