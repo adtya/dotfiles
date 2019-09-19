@@ -1,8 +1,8 @@
 # -- THEME AUTO-WRITTEN DO NOT EDIT
 include "/home/adtya/.themes/Ant-Dracula/gtk-2.0/gtkrc"
 
-gtk-theme-name  = "Ant-Dracula"
-gtk-icon-theme-name = "Tela-dark"
+gtk-theme-name  = "Qogir-win"
+gtk-icon-theme-name = "Qogir"
 gtk-font-name = "Cantarell 11"
 
 include "/home/adtya/.gtkrc.mine"
