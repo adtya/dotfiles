@@ -73,7 +73,7 @@ _get_git_dirty() {
         }
         fi
 
-        if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others --exclude-standard $_GITDIR 2>/dev/null)" ]
+        if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others --exclude-standard "$_GITDIR" 2>/dev/null)" ]
         then {
                 local _OC='\033[1;31m'
                 local _SYM='✘ '
