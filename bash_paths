@@ -1,0 +1,28 @@
+# set PATH so it includes user's private(home) bin if it exists
+if [ -d "$HOME/.bin" ] && [[ "$PATH" != *$HOME/.bin:* ]]; then
+export PATH="$HOME/.bin:$PATH"
+fi
+
+# set PATH so it includes user's private(local) bin if it exists
+if [ -d "$HOME/.local/bin" ] && [[ "$PATH" != *$HOME/.local/bin:* ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH so it includes the user's npm global bin if it exists
+if [ -d "$HOME/.local/share/npm-global/bin" ] && [[ "$PATH" != *$HOME/.local/share/npm-global/bin:* ]]; then
+    export PATH="$HOME/.local/share/npm-global/bin:$PATH"
+fi
+
+# Add nodejs from /opt/nodejs
+if [ -d "/opt/nodejs/bin" ] && [[ "$PATH" != */opt/nodejs/bin:* ]]; then
+    export PATH="/opt/nodejs/bin:$PATH"
+fi
+
+# Add yarnpkg from /opt/yarnpkg
+if [ -d "/opt/yarnpkg/bin" ] && [[ "$PATH" != */opt/yarnpkg/bin:* ]]; then
+    export PATH="/opt/yarnpkg/bin:$PATH"
+fi
+
+if [ -d "/opt/exercism" ]; then
+    source /opt/exercism/shell/exercism_completion.bash
+fi
