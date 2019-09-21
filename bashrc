@@ -5,12 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
-export MOZ_ENABLE_WAYLAND=1
 keychain --agents gpg 2>/dev/null
 . ${HOME}/.keychain/${HOSTNAME}-sh-gpg
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
+export MOZ_ENABLE_WAYLAND=1
 if [ "$(tty)" == "/dev/tty1" ] ; then
     if [ -z "$(pgrep pulseaudio)" ] ; then
         pulseaudio --start --log-target=syslog
@@ -18,17 +17,11 @@ if [ "$(tty)" == "/dev/tty1" ] ; then
     sway
 fi
 
-export EDITOR=vim
-export GPG_TTY=$(tty)
 HISTCONTROL=ignoreboth
-shopt -s histappend
 HISTSIZE=-1
 HISTFILESIZE=-1
+shopt -s histappend
 shopt -s checkwinsize
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # Use Bash Completion
 if ! shopt -oq posix; then
@@ -41,142 +34,97 @@ fi
 
 # Set _GITVAR if the PWD is inside a git work tree
 _is_git_dir() {
-    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]
-    then echo "$(git rev-parse --show-toplevel 2>/dev/null)"
-    else echo ""
+    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+        echo -n "$(git rev-parse --show-toplevel 2>/dev/null)"
+    else
+        echo -n ""
     fi
 }
 
 # Set _GITBRANCH to the current out branch
 _get_git_branch() {
-    if [ "$(_is_git_dir)" ]
-    then echo "($(git symbolic-ref --quiet --short HEAD 2>/dev/null)) "
-    else echo ""
+    if [ "$(_is_git_dir)" ]; then
+        echo -n "($(git symbolic-ref --quiet --short HEAD 2>/dev/null)) "
+    else
+        echo -n ""
     fi
 }
 
-# Set _DIRTSYMBOL based on how dirty the git directory is.
 _get_git_dirty() {
-    if [ "$(_is_git_dir)" ]
-    then {
-        # _TEMP stores the current branch.
-        _TEMP="$(echo $(_get_git_branch) | sed -e 's/(//' -e 's/)//')"
-
-        # Check if remote and local are in sync.
+    local _GITDIR="$(_is_git_dir)"
+    if [ "$_GITDIR" ]; then
+    {
+        local _TEMP="$(echo $(_get_git_branch) | sed -e 's/(//' -e 's/)//')"
         if [ x"$(git rev-parse $_TEMP 2>/dev/null)" = x"$(git rev-parse remotes/origin/$_TEMP 2>/dev/null)" ]
         then {
-            # Green Tick if in sync.
-            _DIRT="gt"
+            local _OC='\033[1;32m'
+            local _SYM='✔ '
         }
         else {
-            # Yellow tick if out of sync.
-            _DIRT="yt"
+            local _OC='\033[1;33m'
+            local _SYM='✔ '
         }
         fi
 
-        # Check if anything is in staging, overwrites the value set by previous if block
         if [ "$(git diff --name-only --cached 2>/dev/null)" ]
         then {
-            # Yellow X if anything is in Staging.
-            _DIRT="yx"
+            local _OC='\033[1;33m'
+            local _SYM='✘ '
         }
         fi
 
-        # Check if any unstaged changes, overwrites the value set by any previous if blocks.
-        if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others --exclude-standard $(_is_git_dir) 2>/dev/null)" ]
+        if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others --exclude-standard $_GITDIR 2>/dev/null)" ]
         then {
-            # Red X if unstaged changes.
-            _DIRT="rx"
+                local _OC='\033[1;31m'
+                local _SYM='✘ '
         }
         fi
-        unset _TEMP
-    }
-    else {
-        # remove _DIRT if not a valid GIT directory
-        unset _DIRT
+        local _CC='\033[0m'
+        local _ARG="$1"
+        case "$_ARG" in
+            "-o")
+                echo -ne "$_OC"
+                ;;
+            "-c")
+                echo -ne "$_CC"
+                ;;
+            *)
+                echo -ne "$_SYM"
+                ;;
+        esac
     }
     fi
-    case "$_DIRT" in
-        "gt")
-            echo -e "\033[1;32m✔\033[0m "
-            ;;
-        "yt")
-            echo -e "\033[1;33m✔\033[0m "
-            ;;
-        "yx")
-            echo -e "\033[1;33m✘\033[0m "
-            ;;
-        "rx")
-            echo -e "\033[1;31m✘\033[0m "
-            ;;
-        *)
-            echo ""
-            ;;
-    esac
 }
 
 _get_virtual_env_name() {
-    if [ "$VIRTUAL_ENV" ]
-    then {
-        IFS='/' read -a _envdirectory <<< $VIRTUAL_ENV
-        _VENVNAME="${_envdirectory[${#_envdirectory[@]}-1]}"
-        echo "[$_VENVNAME] "
-    }
-    else {
-        echo ""
-    }
+    if [ "$VIRTUAL_ENV" ]; then
+        echo -n "[${VIRTUAL_ENV##*/}] "
+    else
+        echo -n ""
     fi
-    unset _VENVNAME
 }
 
 _err_code() {
     _ERR="$?"
-    if [ $_ERR -eq 0 ]
-    then echo ""
-    else echo "${_ERR} "
+    if [ $_ERR -eq 0 ]; then
+        echo -n ""
+    else
+        echo -n "${_ERR} "
     fi
 }
 
-prompt_command="history -a; echo -en '\033]2;'$(_get_virtual_env_name)${PWD/\/home\/$USER/\~} $(_get_git_branch)'\007'"
+PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD/\/home\/'$USER'/\~} $(_get_git_branch)\007"'
+export PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]\[\$(_get_git_dirty -o)\]\$(_get_git_dirty)\[\$(_get_git_dirty -c)\]\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]\[\033[1;32m\]\W\[\033[0m\] \[\033[1;34m\]\$(_get_git_branch)\[\033[0m\]"
+export PS2=" \[\033[1;35m\]...\[\033[0m\] "
 
-# 30 - Dark Gray
-# 31 - Red
-# 32 - Light Green
-# 33 - Yellow
-# 34 - Light Blue
-# 35 - Light Purple
-# 36 - Light Cyan
-# 37 - White
-
-export PS1=' \[\033[1;31m\]$(_err_code)\[\033[0m\]$(_get_git_dirty)\[\033[1;33m\]$(_get_virtual_env_name)\[\033[0m\]\[\033[1;32m\]\W\[\033[0m\] \[\033[1;34m\]$(_get_git_branch)\[\033[0m\]'
-export PS2=' \[\033[1;35m\]...\[\033[0m\] '
-
-# set PATH so it includes user's private(home) bin if it exists
-if [ -d "$HOME/.bin" ] && [[ "$PATH" != *$HOME/.bin:* ]] ; then
-    export PATH="$HOME/.bin:$PATH"
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
 fi
 
-# set PATH so it includes user's private(local) bin if it exists
-if [ -d "$HOME/.local/bin" ] && [[ "$PATH" != *$HOME/.local/bin:* ]] ; then
-    export PATH="$HOME/.local/bin:$PATH"
+if [ -f $HOME/.bash_paths ]; then
+    . $HOME/.bash_paths
 fi
 
-# set PATH so it includes the user's npm global bin if it exists
-if [ -d "$HOME/.local/share/npm-global/bin" ] && [[ "$PATH" != *$HOME/.local/share/npm-global/bin:* ]] ; then
-    export PATH="$HOME/.local/share/npm-global/bin:$PATH"
-fi
-
-# Add nodejs from /opt/nodejs
-if [ -d "/opt/nodejs/bin" ] && [[ "$PATH" != */opt/nodejs/bin:* ]] ; then
-    export PATH="/opt/nodejs/bin:$PATH"
-fi
-
-# Add yarnpkg from /opt/yarnpkg
-if [ -d "/opt/yarnpkg/bin" ] && [[ "$PATH" != */opt/yarnpkg/bin:* ]] ; then
-    export PATH="/opt/yarnpkg/bin:$PATH"
-fi
-
-if [ -d "/opt/exercism" ] ; then
-    source /opt/exercism/shell/exercism_completion.bash
-fi
-
+export EDITOR=vim
+export GPG_TTY=$(tty)
+export VIRTUAL_ENV_DISABLE_PROMPT=1
