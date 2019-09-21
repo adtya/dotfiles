@@ -6,8 +6,8 @@
 [[ $- != *i* ]] && return
 
 keychain --agents gpg 2>/dev/null
-. ${HOME}/.keychain/${HOSTNAME}-sh-gpg
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+. "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 export MOZ_ENABLE_WAYLAND=1
 if [ "$(tty)" == "/dev/tty1" ] ; then
@@ -54,7 +54,7 @@ _get_git_dirty() {
     local _GITDIR="$(_is_git_dir)"
     if [ "$_GITDIR" ]; then
     {
-        local _TEMP="$(echo $(_get_git_branch) | sed -e 's/(//' -e 's/)//')"
+        local _TEMP="$(_get_git_branch | sed -e 's/(//' -e 's/)//')"
         if [ x"$(git rev-parse $_TEMP 2>/dev/null)" = x"$(git rev-parse remotes/origin/$_TEMP 2>/dev/null)" ]
         then {
             local _OC='\033[1;32m'
@@ -117,12 +117,12 @@ PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD/\/hom
 export PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]\[\$(_get_git_dirty -o)\]\$(_get_git_dirty)\[\$(_get_git_dirty -c)\]\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]\[\033[1;32m\]\W\[\033[0m\] \[\033[1;34m\]\$(_get_git_branch)\[\033[0m\]"
 export PS2=" \[\033[1;35m\]...\[\033[0m\] "
 
-if [ -f $HOME/.bash_aliases ]; then
-    . $HOME/.bash_aliases
+if [ -f "$HOME"/.bash_aliases ]; then
+    . "$HOME"/.bash_aliases
 fi
 
-if [ -f $HOME/.bash_paths ]; then
-    . $HOME/.bash_paths
+if [ -f "$HOME"/.bash_paths ]; then
+    . "$HOME"/.bash_paths
 fi
 
 export EDITOR=vim
