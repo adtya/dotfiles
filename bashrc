@@ -72,7 +72,7 @@ _get_virtual_env_name() {
 }
 
 _err_code() {
-    _ERR="$?"
+    local _ERR="$?"
     if [ $_ERR -ne 0 ]; then
         echo -n "${_ERR} "
     fi
