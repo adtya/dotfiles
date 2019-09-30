@@ -1,0 +1,6 @@
+$include /etc/inputrc
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\033[1;32m\2INS\1\033[0m\2
+set vi-cmd-mode-string \1\033[1;34m\2CMD\1\033[0m\2
+set history-preserve-point on
