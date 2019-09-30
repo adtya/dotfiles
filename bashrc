@@ -1,25 +1,11 @@
 [[ $- != *i* ]] && return
 
-export EDITOR=vim
-export GPG_TTY=$(tty)
-keychain --agents gpg 2>/dev/null
-. "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-export MOZ_ENABLE_WAYLAND=1
-if [ "$(tty)" == "/dev/tty1" ] ; then
-    if [ -z "$(pgrep pulseaudio)" ] ; then
-        pulseaudio --start --log-target=syslog
-    fi
-    sway
-fi
-
+shopt -s histappend
+shopt -s checkwinsize
 HISTCONTROL=ignoreboth
 HISTSIZE=-1
 HISTFILESIZE=-1
-shopt -s histappend
-shopt -s checkwinsize
+
 
 _is_git_dir() {
     if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
@@ -92,12 +78,20 @@ _err_code() {
     fi
 }
 
+keychain --agents gpg 2>/dev/null
+. "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+export GPG_TTY=$(tty)
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export MOZ_ENABLE_WAYLAND=1
+export EDITOR=vim
+
 PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD/\/home\/'$USER'/\~} $(_get_git_branch)\007"'
 PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]"
-PS1="${PS1}\[\$(_get_git_dirty -o)\]\$(_get_git_dirty)\[\$(_get_git_dirty -c)\]"
 PS1="${PS1}\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]"
 PS1="${PS1}\[\033[1;32m\]\W\[\033[0m\] "
 PS1="${PS1}\[\033[1;34m\]\$(_get_git_branch)\[\033[0m\]"
+PS1="${PS1}\[\$(_get_git_dirty -o)\]\$(_get_git_dirty)\[\$(_get_git_dirty -c)\]"
 export PS1
 export PS2=" \[\033[1;35m\]...\[\033[0m\] "
 
@@ -109,3 +103,10 @@ if [ -f "$HOME"/.bash_paths ]; then
     . "$HOME"/.bash_paths
 fi
 
+
+if [ "$(tty)" == "/dev/tty1" ] ; then
+    if [ -z "$(pgrep pulseaudio)" ] ; then
+        pulseaudio --start --log-target=syslog
+    fi
+    sway
+fi
