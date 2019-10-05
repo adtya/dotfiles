@@ -6,7 +6,6 @@ HISTCONTROL=ignoreboth
 HISTSIZE=-1
 HISTFILESIZE=-1
 
-
 _is_git_dir() {
     if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
         echo -n "$(git rev-parse --show-toplevel 2>/dev/null)"
@@ -81,10 +80,16 @@ _err_code() {
 keychain --agents gpg 2>/dev/null
 . "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+export EDITOR=vim
 export GPG_TTY=$(tty)
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export MOZ_ENABLE_WAYLAND=1
-export EDITOR=vim
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+for file in "${HOME}"/.local/etc/bash_completion.d/* ; do
+        [ -r "${file}" ] && . "${file}"
+done
 
 PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD/\/home\/'$USER'/\~} $(_get_git_branch)\007"'
 PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]"
@@ -103,10 +108,10 @@ if [ -f "$HOME"/.bash_paths ]; then
     . "$HOME"/.bash_paths
 fi
 
-
 if [ "$(tty)" == "/dev/tty1" ] ; then
     if [ -z "$(pgrep pulseaudio)" ] ; then
         pulseaudio --start --log-target=syslog
     fi
     sway
 fi
+
