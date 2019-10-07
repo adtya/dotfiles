@@ -21,5 +21,5 @@ set showmatch
 set noswapfile
 
 let base16colorspace=256
-colorscheme base16-dracula
+colorscheme base16-nord
 hi Normal ctermbg=None
