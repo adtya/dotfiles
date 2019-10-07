@@ -2,14 +2,14 @@
  * Base16 Nord ROFI Color theme
  *
  * Authors
- *  Scheme: arcticicestudio
+ *  Scheme: DonHugo69
  *  Template: Jordi Pakey-Rodriguez (https://github.com/0xdec), Andrea Scarpino (https://github.com/ilpianista)
  */
 
 * {
-    red:                         rgba ( 136, 192, 208, 100 % );
-    blue:                        rgba ( 235, 203, 139, 100 % );
-    lightfg:                     rgba ( 236, 239, 244, 100 % );
+    red:                         rgba ( 191, 97, 106, 100 % );
+    blue:                        rgba ( 129, 161, 193, 100 % );
+    lightfg:                     rgba ( 236, 191, 244, 100 % );
     lightbg:                     rgba ( 59, 66, 82, 100 % );
     foreground:                  rgba ( 229, 233, 240, 100 % );
     background:                  rgba ( 46, 52, 64, 100 % );

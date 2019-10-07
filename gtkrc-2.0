@@ -2,7 +2,7 @@
 include "/home/adtya/.themes/Nordic/gtk-2.0/gtkrc"
 
 gtk-theme-name  = "Nordic"
-gtk-icon-theme-name = "Papirus-Dark"
+gtk-icon-theme-name = "Newaita-Dark"
 gtk-font-name = "Cantarell 11"
 
 include "/home/adtya/.gtkrc.mine"
