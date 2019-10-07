@@ -13,8 +13,8 @@
 	"extensions.showRecommendationsOnlyOnDemand": true,
 	"telemetry.enableCrashReporter": false,
 	"telemetry.enableTelemetry": false,
-	"zenMode.fullScreen": false,
 	"zenMode.centerLayout": false,
+	"zenMode.fullScreen": false,
 	"zenMode.hideLineNumbers": false,
 	"explorer.autoReveal": true,
 	"explorer.openEditors.visible": 0,
@@ -25,18 +25,18 @@
 	"editor.renderWhitespace": "all",
 	"editor.smoothScrolling": true,
 	"editor.cursorSmoothCaretAnimation": true,
+	"editor.lineNumbers": "relative",
+	"editor.rulers": [80],
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"editor.detectIndentation": true,
-	"editor.insertSpaces": false,
-	"editor.tabSize": 2,
 	"window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
 	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"terminal.integrated.cursorStyle": "underline",
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.fontFamily": "Fira Code Medium",
-	"workbench.colorTheme": "Dracula",
+	"workbench.colorTheme": "Nord",
 	"workbench.iconTheme": "vs-seti",
 	"window.zoomLevel": 0,
 	"files.exclude": {
@@ -64,5 +64,5 @@
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"prettier.useTabs": true
+	"prettier.useTabs": true,
 }
