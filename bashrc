@@ -81,7 +81,6 @@ keychain --agents gpg 2>/dev/null
 . "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
-export EDITOR=vim
 export GPG_TTY=$(tty)
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export MOZ_ENABLE_WAYLAND=1
