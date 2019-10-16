@@ -418,7 +418,7 @@ CONFIG_HOTPLUG_CPU=y
 CONFIG_LEGACY_VSYSCALL_XONLY=y
 # CONFIG_LEGACY_VSYSCALL_NONE is not set
 CONFIG_CMDLINE_BOOL=y
-CONFIG_CMDLINE="quiet splash"
+CONFIG_CMDLINE="rd.luks.uuid=1f4675d1-c846-426f-ba66-792957db23cb rd.lvm.vg=vg0 resume=/dev/mapper/vg0-swap root=/dev/mapper/vg0-root quiet splash"
 # CONFIG_CMDLINE_OVERRIDE is not set
 CONFIG_MODIFY_LDT_SYSCALL=y
 CONFIG_HAVE_LIVEPATCH=y
