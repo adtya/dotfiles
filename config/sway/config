@@ -69,30 +69,37 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+
 mode "resize" {
-bindsym Left resize shrink width 10px
-bindsym Down resize grow height 10px
-bindsym Up resize shrink height 10px
-bindsym Right resize grow width 10px
-bindsym Return mode "default"
-bindsym Escape mode "default"
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
 bar {
-swaybar_command waybar
+	swaybar_command waybar
 }
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/volume_up.sh
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/volume_down.sh
 bindsym shift+XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/mic_down.sh
 bindsym shift+XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/mic_up.sh
+
 bindsym XF86MonBrightnessUp exec brightnessctl set 47+
 bindsym XF86MonBrightnessDOwn exec brightnessctl set 47-
+
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym $mod+l exec swaylock -i "$(cat /tmp/wallpaper)"
-bindsym $mod+shift+l exec ~/.config/scripts/hibernate.sh
+bindsym $mod+shift+l exec systemctl hibernate
+
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id mako --default-timeout 8000
 exec_always --no-startup-id ~/.config/scripts/chpaper.sh
 exec telegram -startintray
+
 include /etc/sway/config.d/*
