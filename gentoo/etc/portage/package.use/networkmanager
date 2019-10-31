@@ -1,1 +1,1 @@
-net-misc/networkmanager dhclient -ppp -wext
+net-misc/networkmanager connection-sharing dhclient -ppp -wext
