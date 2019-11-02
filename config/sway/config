@@ -17,10 +17,10 @@ gaps inner 4
 output eDP-1 pos 0 0 res 1920x1080
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
-dwt enabled
-tap enabled
-natural_scroll enabled
-middle_emulation enabled
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
 }
 
 bindsym $mod+Return exec $term
@@ -95,7 +95,6 @@ bindsym XF86MonBrightnessDOwn exec brightnessctl set 47-
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym $mod+l exec swaylock -i "$(cat /tmp/wallpaper)"
-bindsym $mod+shift+l exec systemctl hibernate
 
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id mako --default-timeout 8000
