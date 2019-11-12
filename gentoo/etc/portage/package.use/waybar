@@ -1,5 +1,11 @@
-gui-apps/waybar mpd network tray
-
-# required by gui-apps/waybar-0.7.2-r1::gentoo[tray]
-# required by waybar (argument)
->=dev-libs/libdbusmenu-16.04.0 gtk3
+gui-apps/waybar network tray
+# required by gui-apps/waybar::gentoo[tray]
+# required by @selected
+# required by @world (argument)
+dev-libs/libdbusmenu gtk3
+# required by app-text/gnome-doc-utils::gentoo
+# required by dev-libs/libdbusmenu::gentoo
+# required by gui-apps/waybar::gentoo[tray]
+# required by @selected
+# required by @world (argument)
+dev-libs/libxml2 python

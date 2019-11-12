@@ -1,15 +1,6 @@
 www-client/firefox ~amd64
 
-# required by virtual/rust-1.37.0::gentoo
-# required by www-client/firefox-69.0::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-lang/rust-1.37.0 ~amd64
-# required by www-client/firefox-69.0::gentoo
-# required by @selected
-# required by @world (argument)
-=virtual/cargo-1.37.0 ~amd64
-# required by www-client/firefox-69.0::gentoo
-# required by @selected
-# required by @world (argument)
-=virtual/rust-1.37.0 ~amd64
+# required by net-misc/networkmanager-1.18.2::gentoo[nss]
+# required by www-client/firefox-70.0.1::gentoo[wifi]
+# required by www-client/firefox (argument)
+=dev-libs/nss-3.47 ~amd64

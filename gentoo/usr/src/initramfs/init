@@ -1,0 +1,57 @@
+#!/bin/busybox sh
+
+die() {
+	echo "Oops! You're fucked. Do you happen to have any live USBs around?"
+	echo -e "Last command said, and I quote, '\e[1;31m#{$1}\e[00m'"
+	echo "(Here's a shell in case you know what to do)"
+	exec sh
+}
+
+# mount /proc, /sys and /dev
+mount -t proc none /proc || die "/proc mount failed."
+mount -t sysfs none /sys || die "/sys mount failed."
+mount -t devtmpfs none /dev || die "/dev mount failed."
+
+# parse cmdline for crypt_root,root,crypt_resume, resume and ro/rw
+for PARAM in $(cat /proc/cmdline); do
+	case "${PARAM}" in
+		crypt_root=*)
+			crypt_root="${PARAM#*=}"
+		;;
+		crypt_resume=*)
+			crypt_resume="${PARAM#*=}"
+		;;
+		root=*)
+			root="${PARAM##*=}"
+		;;
+		resume=*)
+			resume="${PARAM##*=}"
+		;;
+		ro|rw)
+			mount_ro_rw="${PARAM}"
+		;;
+	esac
+done
+
+# Open the encrypted partitions
+crypt_root="$(findfs "${crypt_root}")"
+real_root="${root##*/}"
+cryptsetup open ${crypt_root} ${real_root} || die "decrypting "${crypt_root}" failed."
+echo "${crypt_root} decrypted."
+mount -o "${mount_ro_rw}" ${root} /mnt/root || die "mounting /mnt/root failed."
+
+crypt_resume="$(findfs "${crypt_resume}")"
+real_resume="${resume##*/}"
+echo -n "Decrypting ${crypt_resume} ... "
+cryptsetup open -d /mnt/root/etc/keys/swap.key ${crypt_resume} ${real_resume} || die "decrypting "${crypt_resume}" failed."
+echo "Done."
+printf "%u:%u\n" $(stat -L -c '0x%t 0x%T' ${resume}) > /sys/power/resume || die "cannot resume."
+
+
+# Clean up
+umount /proc
+umount /sys
+umount /dev
+
+# Switch root
+exec switch_root /mnt/root /sbin/openrc-init || die "switch_root failed. You were this close to success."

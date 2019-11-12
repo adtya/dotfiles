@@ -1,1 +1,4 @@
-gui-wm/sway swaybar swaybg swayidle swaylock swaymsg swaynag tray wallpapers
+gui-wm/sway tray wallpapers
+
+# required by sway
+x11-libs/libxcb xkb

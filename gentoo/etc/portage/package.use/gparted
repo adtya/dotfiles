@@ -1,1 +1,1 @@
-sys-block/gparted cryptsetup ntfs fat
+sys-block/gparted fat ntfs

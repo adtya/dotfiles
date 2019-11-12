@@ -1,0 +1,42 @@
+sys-apps/busybox static
+sys-fs/cryptsetup static kernel -gcrypt -openssl
+
+# required by sys-fs/cryptsetup::gentoo[-static-libs,static]
+# required by @selected
+# required by @world (argument)
+dev-libs/json-c static-libs
+# required by sys-fs/cryptsetup::gentoo[-static-libs,static]
+# required by @selected
+# required by @world (argument)
+dev-libs/libgpg-error static-libs
+# required by sys-fs/cryptsetup::gentoo[-static-libs,static]
+# required by @selected
+# required by @world (argument)
+dev-libs/popt static-libs
+# required by sys-fs/cryptsetup::gentoo[-static-libs,static]
+# required by @selected
+# required by @world (argument)
+sys-apps/util-linux static-libs
+# required by sys-fs/cryptsetup::gentoo[static,argon2,-static-libs]
+# required by @selected
+# required by @world (argument)
+app-crypt/argon2 static-libs
+# required by sys-fs/cryptsetup::gentoo[-static-libs,static]
+# required by @selected
+# required by @world (argument)
+sys-fs/lvm2 static-libs
+# required by sys-fs/lvm2::gentoo[-static]
+# required by sys-fs/cryptsetup::gentoo[-static-libs,static]
+# required by @selected
+# required by @world (argument)
+dev-libs/libaio static-libs
+# required by sys-fs/lvm2::gentoo[udev]
+# required by sys-fs/cryptsetup::gentoo[-static-libs,static]
+# required by @selected
+# required by @world (argument)
+virtual/libudev static-libs
+# required by virtual/libudev::gentoo[-systemd]
+# required by sys-fs/cryptsetup::gentoo[udev]
+# required by @selected
+# required by @world (argument)
+sys-fs/eudev static-libs

@@ -1,0 +1,4 @@
+# required by net-print/cups-filters::gentoo[postscript]
+# required by net-print/cups::gentoo
+# required by app-editors/vscode-bin::jorgicio
+app-text/ghostscript-gpl cups

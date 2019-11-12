@@ -1,0 +1,9 @@
+#!/bin/bash
+
+backlight_sys_dir="/sys/class/backlight/intel_backlight"
+
+if [ ! -d /var/lib/backlight ] ; then
+	mkdir -p /var/lib/backlight
+fi
+
+cat ${backlight_sys_dir}/brightness > /var/lib/backlight/brightness
