@@ -77,6 +77,8 @@ _err_code() {
     fi
 }
 
+
+
 keychain --agents gpg 2>/dev/null
 . "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
@@ -111,6 +113,6 @@ if [ "$(tty)" == "/dev/tty1" ] ; then
     if [ -z "$(pgrep pulseaudio)" ] ; then
         pulseaudio --start --log-target=syslog
     fi
-    sway
+    dbus-launch --exit-with-session sway
 fi
 
