@@ -5,6 +5,15 @@ shopt -s checkwinsize
 HISTCONTROL=ignoreboth
 HISTSIZE=-1
 HISTFILESIZE=-1
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export GPG_TTY=$(tty)
+
+if [ -z "$(pgrep gpg-agent)" ] ; then
+    keychain --agents gpg 2>/dev/null
+    . "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 _is_git_dir() {
     if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
@@ -77,17 +86,6 @@ _err_code() {
     fi
 }
 
-
-
-keychain --agents gpg 2>/dev/null
-. "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-
-export GPG_TTY=$(tty)
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-
 for file in "${HOME}"/.local/etc/bash_completion.d/* ; do
         [ -r "${file}" ] && . "${file}"
 done
@@ -110,9 +108,11 @@ if [ -f "$HOME"/.bash_paths ]; then
 fi
 
 if [ "$(tty)" == "/dev/tty1" ] ; then
+    export MOZ_ENABLE_WAYLAND=1
+    export _JAVA_AWT_WM_NONREPARENTING=1
     if [ -z "$(pgrep pulseaudio)" ] ; then
         pulseaudio --start --log-target=syslog
     fi
-    dbus-launch --exit-with-session sway
+    sway
 fi
 
