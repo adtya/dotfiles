@@ -1,0 +1,41 @@
+=sys-devel/clang-9.0.0 ~amd64
+=sys-devel/lld-9.0.0 ~amd64
+
+# required by sys-devel/clang-runtime-9.0.0::gentoo[sanitize,compiler-rt]
+# required by sys-devel/clang-9.0.0::gentoo
+# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.1::gentoo
+=sys-libs/compiler-rt-sanitizers-9.0.0 ~amd64
+
+# required by sys-devel/clang-9.0.0::gentoo
+# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.1::gentoo
+=sys-devel/llvm-9.0.0 ~amd64
+
+# required by sys-devel/clang-runtime-9.0.0::gentoo[openmp]
+# required by sys-devel/clang-9.0.0::gentoo
+# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.1::gentoo
+=sys-libs/libomp-9.0.0 ~amd64
+
+# required by sys-devel/clang-9.0.0::gentoo
+# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.1::gentoo
+=sys-devel/clang-runtime-9.0.0 ~amd64
+
+# required by sys-devel/llvm-9.0.0::gentoo[gold]
+# required by sys-libs/compiler-rt-8.0.1::gentoo
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.1::gentoo
+=sys-devel/llvmgold-9 ~amd64
+
+# required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt]
+# required by sys-devel/clang-9.0.0::gentoo
+# required by sys-libs/compiler-rt-8.0.1::gentoo[clang]
+# required by sys-devel/clang-runtime-8.0.1::gentoo[compiler-rt]
+# required by sys-devel/clang-8.0.1::gentoo
+=sys-libs/compiler-rt-9.0.0-r1 ~amd64

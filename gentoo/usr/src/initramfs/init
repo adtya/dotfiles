@@ -7,6 +7,8 @@ die() {
 	exec sh
 }
 
+echo "Beware, Inside there be Dragons!"
+
 # mount /proc, /sys and /dev
 mount -t proc none /proc || die "/proc mount failed."
 mount -t sysfs none /sys || die "/sys mount failed."
