@@ -1,7 +1,0 @@
-net-misc/networkmanager connection-sharing -wext -ppp
-
-# required by net-misc/networkmanager::gentoo[wifi]
-net-wireless/wpa_supplicant dbus
-
-# required by net-misc/networkmanager::gentoo[connection-sharing]
-net-dns/dnsmasq dbus

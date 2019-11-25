@@ -1,4 +1,4 @@
-www-client/firefox clang lto pgo -system-av1 -system-harfbuzz -system-icu -system-jpeg -system-libevent -system-libvpx -system-sqlite -system-webp
+www-client/firefox clang lto pgo -system-av1 -system-harfbuzz -system-icu -system-jpeg -system-libevent -system-libvpx -system-sqlite -system-webp -wifi
 
 # required by www-client/firefox::gentoo
 media-libs/libpng apng
