@@ -8,12 +8,6 @@ HISTFILESIZE=-1
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export GPG_TTY=$(tty)
 
-if [ -z "$(pgrep gpg-agent)" ] ; then
-    keychain --agents gpg 2>/dev/null
-    . "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
-    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
-gpg-connect-agent updatestartuptty /bye > /dev/null
 
 _is_git_dir() {
     if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
@@ -115,4 +109,7 @@ if [ "$(tty)" == "/dev/tty1" ] ; then
     fi
     sway
 fi
+
+#keychain --agents gpg,ssh 2>/dev/null
+#. "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
 
