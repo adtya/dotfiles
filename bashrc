@@ -110,6 +110,6 @@ if [ "$(tty)" == "/dev/tty1" ] ; then
     sway
 fi
 
-#keychain --agents gpg,ssh 2>/dev/null
-#. "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
-
+keychain --agents gpg,ssh 2>/dev/null
+. "${HOME}"/.keychain/"${HOSTNAME}"-sh
+. "${HOME}"/.keychain/"${HOSTNAME}"-sh-gpg
