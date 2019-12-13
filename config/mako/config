@@ -6,21 +6,16 @@ icon-path=/home/adtya/.icons/Newaita-Dark
 markup=1
 default-timeout=8000
 
-## Base16 Nord
-# Author: DonHugo69
-#
-# You can use these variables anywhere in the mako configuration file.
-
-background-color=#434C5E
-text-color=#E5E9F0
-border-color=#E5E9F0
+background-color=#4d4f68
+text-color=#e9e9f4
+border-color=#e9e9f4
 
 [urgency=low]
-background-color=#3B4252
-text-color=#4C566A
-border-color=#E5E9F0
+background-color=#3a3c4e
+text-color=#626483
+border-color=#e9e9f4
 
 [urgency=high]
-background-color=#BF616A
-text-color=#ECBFF4
-border-color=#E5E9F0
+background-color=#ea51b2
+text-color=#f1f2f8
+border-color=#e9e9f4

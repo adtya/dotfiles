@@ -1,7 +1,7 @@
 # -- THEME AUTO-WRITTEN DO NOT EDIT
-include "/home/adtya/.themes/Nordic/gtk-2.0/gtkrc"
+include "/home/adtya/.themes/Ant-Dracula/gtk-2.0/gtkrc"
 
-gtk-theme-name  = "Nordic"
+gtk-theme-name  = "Ant-Draula"
 gtk-icon-theme-name = "Newaita-Dark"
 gtk-font-name = "Cantarell 11"
 

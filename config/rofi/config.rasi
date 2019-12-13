@@ -5,5 +5,5 @@ configuration {
 	terminal: "kitty";
 	icon-theme: "Newaita-Dark";
 	sort: false;
-	theme: "base16-nord";
+	theme: "base16-dracula";
 }

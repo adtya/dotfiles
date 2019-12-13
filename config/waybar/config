@@ -5,9 +5,16 @@
     "height": 29,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],
-    "modules-right": ["network", "custom/ip", "pulseaudio", "backlight", "battery", "clock"],
+    "modules-right": ["network", "custom/ip", "pulseaudio", "backlight", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "{}"
+    },
+    "sway/window": {
+	"tooltip": false
+    },
+    "tray": {
+    	"icon-size": 15,
+    	"spacing": 10
     },
     "clock": {
         "tooltip": false,
@@ -61,7 +68,7 @@
     "custom/ip": {
         "format": "",
         "format-alt": "{} ",
-        "interval": 10,
+        "interval": 60,
         "exec": "$HOME/.config/scripts/getip.sh",
         "tooltip": false
     }
