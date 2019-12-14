@@ -5,7 +5,7 @@
     "height": 29,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],
-    "modules-right": ["network", "custom/ip", "pulseaudio", "backlight", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "custom/ip", "backlight", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "{}"
     },
@@ -52,7 +52,7 @@
         "tooltip": false,
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "ﱝ {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
