@@ -1,0 +1,15 @@
+dir /dev 0755 0 0
+nod /dev/console 0600 0 0 c 5 1
+nod /dev/random 0666 0 0 c 1 8
+nod /dev/urandom 0666 0 0 c 1 9
+nod /dev/tty 0666 0 0 c 5 0
+nod /dev/sda 0660 0 0 b 8 0
+nod /dev/sda1 0660 0 0 b 8 1
+nod /dev/sda2 0660 0 0 b 8 2
+nod /dev/sda3 0660 0 0 b 8 3
+
+dir /bin 0755 0 0
+file /bin/busybox /bin/busybox 0755 0 0
+
+
+file /init /usr/src/initramfs/init 0755 0 0

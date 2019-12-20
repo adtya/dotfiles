@@ -1,6 +1,6 @@
 configuration {
 	modi: "drun,run";
-	font: "Fira Code Retina 12";
+	font: "Cantarell Regular 13";
 	show-icons: true;
 	terminal: "kitty";
 	icon-theme: "Newaita-Dark";

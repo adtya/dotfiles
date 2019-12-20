@@ -1,10 +1,8 @@
-# -- THEME AUTO-WRITTEN DO NOT EDIT
-include "/home/adtya/.themes/Ant-Dracula/gtk-2.0/gtkrc"
+include "/usr/share/themes/Ant-Dracula/gtk-2.0/gtkrc"
 
-gtk-theme-name  = "Ant-Draula"
+gtk-theme-name  = "Ant-Dracula"
 gtk-icon-theme-name = "Newaita-Dark"
 gtk-font-name = "Cantarell 11"
 
 include "/home/adtya/.gtkrc.mine"
 
-# -- THEME AUTO-WRITTEN DO NOT EDIT

@@ -1,7 +1,6 @@
 # required by dev-lang/python-2.7.16::gentoo[readline]
 # required by dev-python/pycairo-1.17.0-r1::gentoo[python_targets_python2_7]
 # required by dev-python/pygobject-3.32.1::gentoo[cairo]
-# required by net-misc/networkmanager-1.18.2::gentoo[introspection,-test]
 # required by @selected
 # required by @world (argument)
-=sys-libs/readline-8.0_p1-r1 ~amd64
+>=sys-libs/readline-8.0_p1-r1 ~amd64

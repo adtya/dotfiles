@@ -81,7 +81,8 @@ done
 
 # Setup colors
 [ -f "${HOME}/.config/scripts/base16-dracula.sh" ] && . "${HOME}/.config/scripts/base16-dracula.sh"
-PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD/\/home\/'$USER'/\~} $(_get_git_branch)\007"'
+#PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD/\/home\/'$USER'/\~} $(_get_git_branch)\007"'
+PROMPT_COMMAND='history -a'
 PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]"
 PS1="${PS1}\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]"
 PS1="${PS1}\[\033[1;32m\]\W\[\033[0m\] "

@@ -3,7 +3,7 @@
     "position": "top", 
     "width": 1920,
     "height": 29,
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
     "modules-center": [],
     "modules-right": ["pulseaudio", "network", "custom/ip", "backlight", "battery", "clock", "tray"],
     "sway/mode": {
@@ -63,12 +63,13 @@
             "portable": "",
             "car": "",
             "default": ["", "", ""]
-        }
+        },
+	"on-click": "pavucontrol"
     },
     "custom/ip": {
         "format": "",
         "format-alt": "{} ",
-        "interval": 60,
+        "interval": 120,
         "exec": "$HOME/.config/scripts/getip.sh",
         "tooltip": false
     }
