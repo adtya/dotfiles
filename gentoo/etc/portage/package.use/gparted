@@ -1,1 +1,1 @@
-sys-block/gparted fat ntfs
+sys-clock/gparted btrfs f2fs fat ntfs

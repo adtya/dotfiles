@@ -99,6 +99,7 @@ export PS2=" \[\033[1;35m\]...\[\033[0m\] "
 if [ "$(tty)" == "/dev/tty1" ] ; then
 	export MOZ_ENABLE_WAYLAND=1
 	export _JAVA_AWT_WM_NONREPARENTING=1
+	export SWAY_CURSOR_THEME=Bibata-Classic
 	#export XDG_CURRENT_DESKTOP=Unity
 	[ -z "$(pgrep pulseaudio)" ] && pulseaudio --start --log-target=syslog
 	exec dbus-launch --sh-syntax --exit-with-session sway

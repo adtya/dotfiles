@@ -1,4 +1,1 @@
 gui-wm/sway tray wallpapers
-
-# required by sway
-x11-libs/libxcb xkb

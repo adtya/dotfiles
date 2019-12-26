@@ -1,8 +1,9 @@
 #!/bin/busybox sh
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin"
 
 die() {
-	echo "Oops! You're fucked. Do you happen to have any live USBs around?"
-	echo -e "Last command said, and I quote, '\e[1;31m#{$1}\e[00m'"
+	echo "Oops! looks like you're fucked. Do you happen to have any live USBs around?"
+	echo -e "Last command said, and I quote, '\e[1;31m$1\e[00m'"
 	echo "(Here's a shell in case you know what to do)"
 	exec sh
 }
@@ -14,26 +15,39 @@ mount -t proc none /proc || die "/proc mount failed."
 mount -t sysfs none /sys || die "/sys mount failed."
 mount -t devtmpfs none /dev || die "/dev mount failed."
 
-for PARAM in $(cat /proc/cmdline); do
-	case "${PARAM}" in
-		root=*)
-			root="$(findfs ${PARAM#*=})"
-		;;
-		resume=*)
-			resume="$(findfs ${PARAM#*=})"
-		;;
-		ro|rw)
-			mount_ro_rw="${PARAM}"
-		;;
-	esac
-done
+echo "Searching for Keys..."
+while ! (findfs UUID=48249452-e545-4a94-9da6-48e628368289 > /dev/null 2>&1); do sleep 1; done
+
+crypt_keystore=$(findfs UUID=48249452-e545-4a94-9da6-48e628368289)
+echo "Key found on ${crypt_keystore}"
+
+crypt_root=$(findfs UUID=78ad20f5-c609-4060-9f21-671fb0b7ee51)
+crypt_resume=$(findfs UUID=ac2e87c2-02dd-4396-b858-dd1849f60873)
+crypt_misc=$(findfs UUID=e73a024a-74b7-45c5-85e9-10ef748d5b4d)
+
+cryptsetup luksOpen ${crypt_keystore} keystore
+mount -o ro /dev/mapper/keystore /mnt/keystore
+
+echo "Decrypting ${crypt_resume}"
+cryptsetup open ${crypt_resume} swap -d /mnt/keystore/swap.key
+
+echo "Decrypting ${crypt_root}"
+cryptsetup luksOpen ${crypt_root} root -d /mnt/keystore/root.key
+
+echo "Decrypting ${crypt_misc}"
+cryptsetup luksOpen ${crypt_misc} storage -d /mnt/keystore/storage.key
+
+umount /mnt/keystore
+cryptsetup close keystore
+
+resume="/dev/mapper/swap"
+root="/dev/mapper/root"
+
+echo "Trying to resume from ${resume}"
+printf '%u:%u\n' $(stat -L -c '0x%t 0x%T' ${resume}) > /sys/power/resume || die "cannot resume"
 
 # Open the encrypted partitions
 mount -o "${mount_ro_rw}" ${root} /mnt/root || die "mounting /mnt/root failed."
-
-echo "Trying to resume from ${resume}"
-printf "%u:%u\n" $(stat -L -c '0x%t 0x%T' ${resume}) > /sys/power/resume || die "cannot resume."
-
 
 # Clean up
 umount /proc

@@ -1,4 +1,4 @@
-include "/usr/share/themes/Ant-Dracula/gtk-2.0/gtkrc"
+include "/home/adtya/.themes/Ant-Dracula/gtk-2.0/gtkrc"
 
 gtk-theme-name  = "Ant-Dracula"
 gtk-icon-theme-name = "Newaita-Dark"

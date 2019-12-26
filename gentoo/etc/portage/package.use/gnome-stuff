@@ -16,13 +16,5 @@ media-libs/harfbuzz icu
 # required by nautilus (argument)
 app-text/poppler cairo
 
-# required by gnome-base/gnome-keyring-3.28.2::gentoo
-# required by app-crypt/libsecret-0.18.8::gentoo
-# required by app-text/evince-3.30.2::gentoo[gnome-keyring]
-# required by gnome-extra/sushi-3.30.0::gentoo
-# required by gnome-base/nautilus-3.30.5-r1::gentoo[previewer]
-# required by nautilus (argument)
-app-crypt/gcr gtk
-
 # required by media-video/gnome-mpv-0.16::gentoo
 >=media-video/mpv-0.29.1-r1 libmpv

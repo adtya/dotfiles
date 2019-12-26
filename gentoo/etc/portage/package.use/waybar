@@ -1,11 +1,9 @@
 gui-apps/waybar network tray
-# required by gui-apps/waybar::gentoo[tray]
-# required by @selected
-# required by @world (argument)
+
+# required by gui-apps/waybar-0.8.0::gentoo[tray]
 dev-libs/libdbusmenu gtk3
-# required by app-text/gnome-doc-utils::gentoo
-# required by dev-libs/libdbusmenu::gentoo
-# required by gui-apps/waybar::gentoo[tray]
-# required by @selected
-# required by @world (argument)
+
+# required by app-text/gnome-doc-utils-0.20.10-r1::gentoo
+# required by dev-libs/libdbusmenu-16.04.0-r1::gentoo
+# required by gui-apps/waybar-0.8.0::gentoo[tray]
 dev-libs/libxml2 python

@@ -1,2 +1,1 @@
-# required by x11-misc/rofi::gentoo
 x11-libs/cairo xcb

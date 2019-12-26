@@ -36,7 +36,7 @@
 	"terminal.integrated.cursorStyle": "underline",
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.fontFamily": "Fira Code Medium",
-	"workbench.colorTheme": "Nord",
+	"workbench.colorTheme": "Dracula",
 	"workbench.iconTheme": "vs-seti",
 	"window.zoomLevel": 0,
 	"files.exclude": {
