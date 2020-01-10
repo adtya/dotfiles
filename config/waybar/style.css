@@ -68,7 +68,7 @@ window#waybar.solo {
 }
 
 #battery.critical:not(.charging) {
-    color: @base00;
+    color: @base08;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -81,13 +81,13 @@ label:focus {
 }
 
 #network.disconnected {
-    color: @base00;
+    color: @base01;
 }
 
 #pulseaudio.muted {
-    color: @base00;
+    color: @base01;
 }
 
 #temperature.critical {
-    color: @base00;
+    color: @base08;
 }
