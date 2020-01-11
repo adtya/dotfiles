@@ -3,5 +3,8 @@
 # required by www-client/firefox-70.0.1::gentoo[wifi]
 >=dev-libs/nss-3.47 ~amd64
 
+# required by www-client-firefox-72.0.0:gentoo
+>=dev-util/cbindgen-0.10.1 ~amd64
+
 # required by dev-libs/nss-3.48::gentoo
 >=dev-libs/nspr-4.23 ~amd64
