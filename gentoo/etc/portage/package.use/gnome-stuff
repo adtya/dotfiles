@@ -4,6 +4,7 @@ app-text/evince djvu nautilus
 gnome-base/nautilus sendto
 gnome-base/gvfs fuse
 sys-apps/gnome-disk-utility fat
+media-sound/easytag nautilus
 
 # required by net-libs/webkit-gtk-2.24.4::gentoo
 # required by gnome-extra/sushi-3.30.0::gentoo
