@@ -1,7 +1,7 @@
 {
 	"workbench.startupEditor": "none",
 	"files.autoSave": "onFocusChange",
-	"editor.fontFamily": "'Fira Code Medium'",
+	"editor.fontFamily": "'Fira Code Retina'",
 	"editor.cursorStyle": "underline",
 	"editor.cursorBlinking": "phase",
 	"editor.fontLigatures": true,
@@ -35,7 +35,7 @@
 	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"terminal.integrated.cursorStyle": "underline",
 	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.fontFamily": "Fira Code Medium",
+	"terminal.integrated.fontFamily": "Fira Code Retina",
 	"workbench.colorTheme": "Dracula",
 	"workbench.iconTheme": "vs-seti",
 	"window.zoomLevel": 0,
