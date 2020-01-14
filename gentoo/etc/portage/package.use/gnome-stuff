@@ -18,4 +18,10 @@ media-libs/harfbuzz icu
 app-text/poppler cairo
 
 # required by media-video/gnome-mpv-0.16::gentoo
->=media-video/mpv-0.29.1-r1 libmpv
+media-video/mpv libmpv
+
+app-text/gnome-doc-utils python_targets_python2_7
+dev-libs/libxml2 python python_targets_python2_7
+
+gnome-base/gconf python_targets_python2_7
+
