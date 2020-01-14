@@ -5,7 +5,7 @@
 	"height": 29,
 	"modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["pulseaudio", "network", "custom/ip", "backlight", "battery", "clock", "tray"],
+	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "battery" ,"clock"],
 	"sway/mode": {
 		"format": "{}"
 	},
@@ -19,11 +19,11 @@
 	"clock": {
 		"tooltip": false,
 		"interval": 1,
-		"format": "{:%I:%M %p} ",
-		"format-alt": "{:%d %B %Y, %A} "
+		"format": "{:%I:%M %p}",
+		"format-alt": "{:%d %B %Y, %A}"
 	},
 	"backlight": {
-		"format": "{percent}% {icon}",
+		"format": "{icon} {percent}%",
 		"format-icons": ["", ""]
 	},
 	"battery": {
@@ -32,29 +32,29 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{time} {icon}",
+		"format": "{icon} {capacity}%",
 		"format-charging": "{capacity}% ",
 		"format-plugged": "{capacity}% ",
-		"format-alt": "{capacity}% {icon}",
+		"format-alt": "{icon} {time}",
 		"format-icons": ["", "", "", "", ""],
 		"tooltip": false
 	},
 	"network": {
 		"interval": 5,
-		"format-wifi": "{essid} ",
-		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-		"format-linked": "{ifname} (No IP) ",
-		"format-disconnected": "Disconnected ⚠",
+		"format-wifi": " {essid}",
+		"format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+		"format-linked": " {ifname} (No IP)",
+		"format-disconnected": "",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}",
 		"tooltip": false
 	},
 	"pulseaudio": {
 		"tooltip": false,
-		"format": "{volume}% {icon} {format_source}",
-		"format-bluetooth": "{volume}% {icon} {format_source}",
-		"format-muted": "ﱝ {format_source}",
-		"format-source": "{volume}% ",
-		"format-source-muted": "",
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "",
+		"format-source": " {volume}%",
+		"format-source-muted": "",
 		"format-icons": {
 			"headphones": "",
 			"handsfree": "",
@@ -68,7 +68,7 @@
 	},
 	"custom/ip": {
 		"format": "",
-		"format-alt": "{} ",
+		"format-alt": " {}",
 		"interval": 120,
 		"exec": "$HOME/.config/scripts/getip.sh",
 		"tooltip": false

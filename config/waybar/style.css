@@ -1,93 +1,93 @@
 @import 'base16-dracula.css';
 
 * {
-    border: none;
-    border-radius: 0px;
-    font-family: 'FuraMono Nerd Font Mono';
-    font-size: 16px;
-    min-height: 0;
+	border: none;
+	border-radius: 0px;
+	font-family: 'FuraCode Nerd Font';
+	font-size: 16px;
+	min-height: 0;
 }
 
 #window {
-   padding: 0px 10px;
-   background: @base00;
+	padding: 0px 10px;
+	background: @base00;
 }
 
 window#waybar {
-    background: @base00;
-    color: @base05;
+	background: @base00;
+	color: @base05;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+	opacity: 0.2;
 }
 
 window#waybar.empty {
-    background: @base00;
+	background: @base00;
 }
 window#waybar.solo {
-    background: @base00;
+	background: @base00;
 }
 
 #workspaces button {
-    padding: 0px 3px;
-    background: @base00;
-    color: @base05;
+	padding: 0px 3px;
+	background: @base00;
+	color: @base05;
 }
 
 #workspaces button.focused {
-    padding: 0px;
-    border: 3px solid @base0F;
+	color: @base0F;
 }
 
 #workspaces button.urgent {
-    padding: 0px;
-    background: @base00;
-    border: 3px solid @base08;
+	background: @base00;
+	color: @base08;
 }
 
 #mode {
-    background: @base00;
-    border: 3px solid @base02;
+	background: @base00;
+	border: 3px solid @base02;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip {
-    padding: 0 10px;
-    color: @base05;
-    background-color: @base00;
+	padding: 0 10px;
+	color: @base05;
+	background-color: @base00;
 }
 
 #battery.charging {
-    color: @base0F;
+	color: @base0F;
 }
 
 @keyframes blink {
-    to {
-        color: @base05;
-    }
+	to {
+		color: @base05;
+	}
 }
 
 #battery.critical:not(.charging) {
-    color: @base08;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+	color: @base08;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 label:focus {
-    background-color: @base00;
+	background-color: @base00;
 }
 
 #network.disconnected {
-    color: @base01;
+	margin: 0px;
+	padding: 0px;
 }
 
 #pulseaudio.muted {
-    color: @base01;
+	margin: 0px;
+	padding: 0px;
 }
 
 #temperature.critical {
-    color: @base08;
+	color: @base08;
 }
