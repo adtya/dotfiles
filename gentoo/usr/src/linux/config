@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.4.10-gentoo Kernel Configuration
+# Linux/x86 5.4.11-gentoo Kernel Configuration
 #
 
 #
@@ -898,10 +898,10 @@ CONFIG_SKB_EXTENSIONS=y
 # Networking options
 #
 CONFIG_PACKET=y
-# CONFIG_PACKET_DIAG is not set
+CONFIG_PACKET_DIAG=y
 CONFIG_UNIX=y
 CONFIG_UNIX_SCM=y
-# CONFIG_UNIX_DIAG is not set
+CONFIG_UNIX_DIAG=y
 # CONFIG_TLS is not set
 CONFIG_XFRM=y
 CONFIG_XFRM_ALGO=y
