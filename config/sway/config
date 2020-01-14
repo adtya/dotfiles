@@ -10,7 +10,7 @@ set $mod Mod4
 set $term kitty
 set $menu rofi -show drun
 
-font pango:Fira Code Retina 10
+font pango:Fira Code Retina 11
 default_border pixel 2
 gaps outer 4
 gaps inner 4
@@ -95,6 +95,7 @@ bindsym XF86MonBrightnessDOwn exec brightnessctl set 47-
 bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
 bindsym $mod+l exec swaylock -i "$(cat /tmp/wallpaper)"
+bindsym $mod+shift+w exec ~/.config/scripts/chpaper.sh
 
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id mako --default-timeout 8000
