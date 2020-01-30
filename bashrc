@@ -101,6 +101,3 @@ export GPG_TTY=$(tty)
 # Setup aliases
 [ -f "${HOME}/.bash_aliases" ] && . "${HOME}/.bash_aliases"
 
-# update PATH
-[ -f "${HOME}/.bash_paths" ] && . "${HOME}/.bash_paths"
-
