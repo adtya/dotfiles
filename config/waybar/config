@@ -5,7 +5,7 @@
 	"height": 29,
 	"modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "battery" ,"clock"],
+	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "battery", "cpu", "memory", "clock"],
 	"sway/mode": {
 		"format": "{}"
 	},
@@ -65,6 +65,17 @@
 			"default": ["", "", ""]
 		},
 	"on-click": "pavucontrol"
+	},
+	"cpu" :{
+		"interval": 10,
+		"format": "{}% ",
+		"tooltip": false
+	},
+	"memory": {
+		"interval": 10,
+		"format": "{}% ",
+		"format-alt": "{used:0.1f}G/{total:0.1f}G ",
+		"tooltip": false
 	},
 	"custom/ip": {
 		"format": "",
