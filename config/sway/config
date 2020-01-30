@@ -16,6 +16,8 @@ gaps outer 4
 gaps inner 4
 output eDP-1 pos 0 0 res 1920x1080
 
+# for_window [app_id="Viewnior"] floating enable, focus;
+
 input "2:7:SynPS/2_Synaptics_TouchPad" {
 	dwt enabled
 	tap enabled
@@ -98,6 +100,7 @@ bindsym $mod+l exec swaylock -i "$(cat /tmp/wallpaper)"
 bindsym $mod+shift+w exec ~/.config/scripts/chpaper.sh
 
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id kanshi
 exec --no-startup-id mako --default-timeout 8000
 exec_always --no-startup-id ~/.config/scripts/chpaper.sh
 exec telegram -startintray
