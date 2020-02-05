@@ -76,7 +76,7 @@ _is_ssh() {
 }
 
 # Setup colors
-[ -f "${HOME}/.config/scripts/base16-dracula.sh" ] && . "${HOME}/.config/scripts/base16-dracula.sh"
+[ -f "${HOME}/.config/scripts/dracula.sh" ] && . "${HOME}/.config/scripts/dracula.sh"
 
 # Setup prompt
 PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD/\/home\/'$USER'/\~} $(_get_git_branch)\007"'
