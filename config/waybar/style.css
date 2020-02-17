@@ -1,4 +1,4 @@
-@import 'base16-dracula.css';
+@import 'dracula.css';
 
 * {
 	border: none;
@@ -10,12 +10,12 @@
 
 #window {
 	padding: 0px 10px;
-	background: @base00;
+	background: @background;
 }
 
 window#waybar {
-	background: @base00;
-	color: @base05;
+	background: @background;
+	color: @foreground;
 }
 
 window#waybar.hidden {
@@ -23,50 +23,50 @@ window#waybar.hidden {
 }
 
 window#waybar.empty {
-	background: @base00;
+	background: @background;
 }
 window#waybar.solo {
-	background: @base00;
+	background: @background;
 }
 
 #workspaces button {
 	padding: 0px 3px;
-	background: @base00;
-	color: @base05;
+	background: @background;
+	color: @foreground;
 }
 
 #workspaces button.focused {
-	color: @base0F;
+	color: @green;
 }
 
 #workspaces button.urgent {
-	background: @base00;
-	color: @base08;
+	background: @background;
+	color: @red;
 }
 
 #mode {
-	background: @base00;
-	border: 3px solid @base02;
+	background: @background;
+	border: 3px solid @purple;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip {
 	padding: 0 10px;
-	color: @base05;
-	background-color: @base00;
+	color: @foreground;
+	background-color: @background;
 }
 
 #battery.charging {
-	color: @base0F;
+	color: @green;
 }
 
 @keyframes blink {
 	to {
-		color: @base05;
+		color: @red;
 	}
 }
 
 #battery.critical:not(.charging) {
-	color: @base08;
+	color: @yellow;
 	animation-name: blink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
@@ -75,7 +75,7 @@ window#waybar.solo {
 }
 
 label:focus {
-	background-color: @base00;
+	background-color: @selection;
 }
 
 #network.disconnected {
@@ -89,5 +89,5 @@ label:focus {
 }
 
 #temperature.critical {
-	color: @base08;
+	color: @red;
 }

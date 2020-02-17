@@ -6,16 +6,16 @@ icon-path=/home/adtya/.icons/Newaita-Dark
 markup=1
 default-timeout=8000
 
-background-color=#4d4f68
-text-color=#e9e9f4
-border-color=#e9e9f4
+background-color=#282a36
+text-color=#f8f8f2
+border-color=#8be9fd
 
 [urgency=low]
-background-color=#3a3c4e
-text-color=#626483
-border-color=#e9e9f4
+background-color=#282a36
+text-color=#6272a4
+border-color=#6272a4
 
 [urgency=high]
-background-color=#ea51b2
-text-color=#f1f2f8
-border-color=#e9e9f4
+background-color=#282a36
+text-color=#ff5555
+border-color=#ff5555
