@@ -5,7 +5,7 @@
 	"height": 29,
 	"modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "battery", "cpu", "memory", "clock"],
+	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "battery", "cpu", "memory", "clock", "custom/power"],
 	"sway/mode": {
 		"format": "{}"
 	},
@@ -30,11 +30,11 @@
 		"states": {
 			"good": 95,
 			"warning": 30,
-			"critical": 15
+			"critical": 20
 		},
 		"format": "{icon} {capacity}%",
-		"format-charging": "{capacity}% ",
-		"format-plugged": "{capacity}% ",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
 		"format-alt": "{icon} {time}",
 		"format-icons": ["", "", "", "", ""],
 		"tooltip": false
@@ -68,12 +68,12 @@
 	},
 	"cpu" :{
 		"interval": 10,
-		"format": "{}% ",
+		"format": " {}%",
 		"tooltip": false
 	},
 	"memory": {
 		"interval": 10,
-		"format": "{}% ",
+		"format": " {}%",
 		"format-alt": "{used:0.1f}G/{total:0.1f}G ",
 		"tooltip": false
 	},
@@ -83,5 +83,10 @@
 		"interval": 120,
 		"exec": "$HOME/.config/scripts/getip.sh",
 		"tooltip": false
+	},
+	"custom/power": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "$HOME/.config/scripts/rofi-power-menu.sh"
 	}
 }

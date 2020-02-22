@@ -49,17 +49,31 @@ window#waybar.solo {
 	border: 3px solid @purple;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #custom-ip, #custom-power {
 	padding: 0 10px;
 	color: @foreground;
 	background-color: @background;
 }
 
 #battery.charging {
-	color: @green;
+	animation-name: blink_good;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
-@keyframes blink {
+#battery.warning {
+	color: @yellow;
+}
+
+@keyframes blink_good {
+	to {
+		color: @green;
+	}
+}
+
+@keyframes blink_bad {
 	to {
 		color: @red;
 	}
@@ -67,7 +81,7 @@ window#waybar.solo {
 
 #battery.critical:not(.charging) {
 	color: @yellow;
-	animation-name: blink;
+	animation-name: blink_bad;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
