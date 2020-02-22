@@ -1,28 +1,28 @@
 #!/bin/sh
 
-color00="28/2a/36" # Base 00 - Black
-color08="44/47/5a" # Base 03 - Bright Black
+color00="18/1a/26" # Base 03 - Black
+color08="28/2a/36" # Base 00 - Bright Black
 
-color01="ff/55/55" # Base 08 - Red
-color09="ff/65/65" # Base 08 - Bright Red
+color01="ef/45/45" # Base 08 - Red
+color09="ff/55/55" # Base 08 - Bright Red
 
-color02="50/fa/7b" # Base 0B - Green
-color10="60/ff/8b" # Base 0B - Bright Green
+color02="40/ea/6b" # Base 0B - Green
+color10="50/fa/7b" # Base 0B - Bright Green
 
-color03="f1/fa/8c" # Base 0A - Yellow
-color11="ff/ff/9c" # Base 0A - Bright Yellow
+color03="e1/ea/7c" # Base 0A - Yellow
+color11="f1/fa/8c" # Base 0A - Bright Yellow
 
-color04="bd/93/f9" # Base 0D - Blue
-color12="cd/a3/ff" # Base 0D - Bright Blue
+color04="ad/83/e9" # Base 0D - Blue
+color12="bd/93/f9" # Base 0D - Bright Blue
 
-color05="ff/79/c6" # Base 0E - Magenta
-color13="ff/89/d6" # Base 0E - Bright Magenta
+color05="ef/69/b6" # Base 0E - Magenta
+color13="ff/79/c6" # Base 0E - Bright Magenta
 
-color06="8b/e9/fd" # Base 0C - Cyan
-color14="9b/f9/ff" # Base 0C - Bright Cyan
+color06="7b/d9/ed" # Base 0C - Cyan
+color14="8b/e9/fd" # Base 0C - Bright Cyan
 
-color07="f8/f8/f2" # Base 05 - White
-color15="ff/ff/ff" # Base 07 - Bright White
+color07="e8/e8/e2" # Base 07 - White
+color15="f8/f8/f2" # Base 05 - Bright White
 
 color16="ef/69/b6"
 color17="e1/ea/7c"
@@ -30,8 +30,8 @@ color18="28/28/28"
 color19="38/38/38"
 color20="ad/83/e9"
 color21="e8/e2/e8"
-color_foreground="f8/f8/f2"
-color_background="28/2a/36"
+color_foreground="e8/e8/e2"
+color_background="18/1a/26"
 
 if [ -n "$TMUX" ]; then
   # Tell tmux to pass the escape sequences through
