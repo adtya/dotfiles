@@ -6,6 +6,10 @@
   width: 512px;
 }
 
+window {
+  border: 2px;
+}
+
 inputbar {
   border: 0 0 1px 0;
   children: [prompt,entry];
@@ -41,3 +45,5 @@ element {
 element selected {
   background-color: #44475a;
 }
+
+// vim: ft=css
