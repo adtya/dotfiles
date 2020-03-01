@@ -1,8 +1,8 @@
-{
+[{
 	"layer": "top",
-	"position": "bottom",
-	"width": 1920,
-	"height": 29,
+	"output": "eDP-1",
+	"position": "top",
+	"height": 32,
 	"modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
 	"modules-center": [],
 	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "battery", "cpu", "memory", "clock", "custom/power"],
@@ -10,11 +10,7 @@
 		"format": "{}"
 	},
 	"sway/window": {
-	"tooltip": false
-	},
-	"tray": {
-	"icon-size": 15,
-		"spacing": 10
+		"tooltip": false
 	},
 	"clock": {
 		"tooltip": false,
@@ -87,6 +83,20 @@
 	"custom/power": {
 		"format": "",
 		"tooltip": false,
-		"on-click": "$HOME/.config/scripts/rofi-power-menu.sh"
+		"on-click": "$HOME/.config/scripts/power-menu.sh"
 	}
-}
+}, {
+	"layer": "top",
+	"output": "HDMI-A-1",
+	"position": "top",
+	"height": 32,
+	"modules-left": ["sway/workspaces"],
+	"modules-center": ["sway/window"],
+	"modules-right": ["sway/mode"],
+	"sway/mode": {
+		"format": "{}"
+	},
+	"sway/window": {
+		"tooltip": false
+	}
+}]

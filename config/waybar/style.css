@@ -55,6 +55,18 @@ window#waybar.solo {
 	background-color: @background;
 }
 
+@keyframes blink_good {
+	to {
+		color: @green;
+	}
+}
+
+@keyframes blink_bad {
+	to {
+		color: @red;
+	}
+}
+
 #battery.charging {
 	animation-name: blink_good;
 	animation-duration: 0.5s;
@@ -67,16 +79,8 @@ window#waybar.solo {
 	color: @yellow;
 }
 
-@keyframes blink_good {
-	to {
-		color: @green;
-	}
-}
-
-@keyframes blink_bad {
-	to {
-		color: @red;
-	}
+#battery.critical {
+	color: @red;
 }
 
 #battery.critical:not(.charging) {
