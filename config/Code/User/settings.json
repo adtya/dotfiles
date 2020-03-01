@@ -16,6 +16,7 @@
 	"zenMode.centerLayout": false,
 	"zenMode.fullScreen": false,
 	"zenMode.hideLineNumbers": false,
+	"zenMode.hideStatusBar": false,
 	"explorer.autoReveal": true,
 	"explorer.openEditors.visible": 0,
 	"editor.minimap.enabled": true,
@@ -26,7 +27,9 @@
 	"editor.smoothScrolling": true,
 	"editor.cursorSmoothCaretAnimation": true,
 	"editor.lineNumbers": "relative",
-	"editor.rulers": [80],
+	"editor.rulers": [
+		80
+	],
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 	"workbench.settings.enableNaturalLanguageSearch": false,
@@ -38,7 +41,7 @@
 	"terminal.integrated.fontFamily": "Fira Code Retina",
 	"workbench.colorTheme": "Dracula",
 	"workbench.iconTheme": "vs-seti",
-	"window.zoomLevel": 0,
+	"window.zoomLevel": 0.75,
 	"files.exclude": {
 		"**/node_modules": true,
 		"**/.git": true,
@@ -56,7 +59,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
