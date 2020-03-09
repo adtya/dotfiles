@@ -19,6 +19,7 @@ output eDP-1 pos 0 0 res 1920x1080
 
 for_window [app_id="mpv"] floating enable, focus;
 for_window [app_id="wdisplays"] floating enable, focus;
+for_window [app_id="sushi-start"] floating enable, focus;
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
 	dwt enabled
@@ -109,6 +110,5 @@ exec --no-startup-id kanshi
 exec --no-startup-id mako --default-timeout 8000
 exec_always --no-startup-id ~/.config/scripts/chpaper.sh
 exec telegram -startintray
-exec syncthing -no-browser
 
 include /etc/sway/config.d/*
