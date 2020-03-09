@@ -55,37 +55,33 @@ window#waybar.solo {
 	background-color: @background;
 }
 
-@keyframes blink_good {
+@keyframes blink{
 	to {
-		color: @green;
+		color: @foreground;
 	}
 }
 
-@keyframes blink_bad {
-	to {
-		color: @red;
-	}
-}
-
-#battery.charging {
-	animation-name: blink_good;
+#battery.warning {
+	color: @yellow;
+	animation-name: blink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 }
 
-#battery.warning {
-	color: @yellow;
-}
-
 #battery.critical {
 	color: @red;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
-#battery.critical:not(.charging) {
-	color: @yellow;
-	animation-name: blink_bad;
+#battery.charging {
+	color: @green;
+	animation-name: blink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
