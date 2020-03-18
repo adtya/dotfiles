@@ -6,11 +6,9 @@ SESSION="$(tmux list-sessions -F "(#{session_attached}) #S #{pane_current_comman
 
 case "$SESSION" in
 	"")
-		notify-send -t 1500 -u low "Canceled"
 		;;
 	*)
 		kitty tmux attach -t "$SESSION"
 		;;
 esac
-
 

@@ -11,3 +11,4 @@ CURR_VOL="$(pactl list sources | grep '^\s*Volume' | awk '{print $5}' | sed 's/\
 if [ "$CURR_VOL" -gt 20 ] ; then
     pactl set-source-volume @DEFAULT_SOURCE@ 20%
 fi
+

@@ -9,3 +9,4 @@ if [ "$CURR_VOL" -le 5 ] ; then
 else
 	pactl set-source-volume @DEFAULT_SOURCE@ -5%
 fi
+

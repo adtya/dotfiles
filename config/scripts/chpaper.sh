@@ -12,3 +12,4 @@ random_paper() {
 export SWAYSOCK
 magick convert "$(random_paper)" /tmp/wallpaper.jpg && swaymsg "output * bg '/tmp/wallpaper.jpg' fill" &
 magick convert "$(random_paper)" /tmp/lockpaper.jpg
+

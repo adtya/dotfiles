@@ -5,7 +5,6 @@ set -eu
 chpower() {
 	case "$1" in
 		"")
-			notify-send -t 1500 -u low "Canceled"
 		;;
 		Shutdown)
 			exec sudo openrc-shutdown -p now
@@ -28,4 +27,4 @@ chpower() {
 
 OPTIONS="Shutdown\nReboot\nHibernate\nLogout"
 
-chpower "$(printf "%b" "$OPTIONS" | dmenu -p "Power Menu")"
+chpower "$(printf "%b" "$OPTIONS" | sort | dmenu -p "Power Menu")"
