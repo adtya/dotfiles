@@ -1,7 +1,6 @@
 #!/bin/busybox sh
 
 die() {
-	echo "Oops! looks like you're fucked. Do you happen to have any live USBs around?"
 	echo -e "Last command said, and I quote, '\e[1;31m$1\e[00m'"
 	echo "(Here's a shell in case you know what to do)"
 	exec setsid cttyhack /bin/sh
@@ -16,10 +15,9 @@ borked() {
 echo "Beware, Inside there be Dragons!"
 
 # mount /proc, /sys and /dev
-echo "Mounting pseudo-filesystems ..."
-mount -t proc none /proc || die "/proc mount failed."
-mount -t sysfs none /sys || die "/sys mount failed."
-mount -t devtmpfs none /dev || die "/dev mount failed."
+mount -t proc none /proc || die "/proc mount failed"
+mount -t sysfs none /sys || die "/sys mount failed"
+mount -t devtmpfs none /dev || die "/dev mount failed"
 
 for param in $(cat /proc/cmdline); do
 	case $param in
@@ -39,13 +37,13 @@ done
 root="$(findfs ${root})"
 resume="$(findfs ${resume})"
 
-[ -z "${root}" ] && die "No root partition specified."
-[ -z "${resume}" ] && die "No swap partition specified."
+[ -z "${root}" ] && die "No root partition specified"
+[ -z "${resume}" ] && die "No resume partition specified"
 
-[ -n "${resume}" ] && printf '%u:%u\n' $(stat -L -c '0x%t 0x%T' ${resume}) > /sys/power/resume || die "trying to resume failed."
+printf '%u:%u\n' $(stat -L -c '0x%t 0x%T' ${resume}) > /sys/power/resume || die "trying to resuming failed"
 
 # Mount the real root
-mount -t btrfs -o defaults,rw,subvol=/ ${root} /mnt/root || die "mounting /mnt/root failed."
+mount -t btrfs -o defaults,rw,subvol=/ ${root} /mnt/root || die "unable to mount real root"
 
 # Clean up
 umount /proc
@@ -53,4 +51,4 @@ umount /sys
 umount /dev
 
 # Switch to the real root
-exec switch_root /mnt/root /sbin/openrc-init || die "switch_root failed. You were this close to success."
+exec switch_root /mnt/root /sbin/openrc-init || die "unable to start PID 1"
