@@ -36,7 +36,7 @@
 		"tooltip": false
 	},
 	"network": {
-		"interval": 5,
+		"interval": 1,
 		"format-wifi": " {essid}",
 		"format-ethernet": " {ifname}: {ipaddr}/{cidr}",
 		"format-linked": " {ifname} (No IP)",
@@ -63,12 +63,12 @@
 	"on-click": "pavucontrol"
 	},
 	"cpu" :{
-		"interval": 10,
+		"interval": 1,
 		"format": " {}%",
 		"tooltip": false
 	},
 	"memory": {
-		"interval": 10,
+		"interval": 1,
 		"format": " {}%",
 		"format-alt": "{used:0.1f}G/{total:0.1f}G ",
 		"tooltip": false
