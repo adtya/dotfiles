@@ -8,3 +8,7 @@
 
 # required by dev-libs/nss-3.48::gentoo
 >=dev-libs/nspr-4.23 ~amd64
+
+# requred by www-client/firefox-74
+>=media-libs/libvpx-1.8.2 ~amd64
+>=media-libs/libwebp-1.1.0 ~amd64
