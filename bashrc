@@ -91,7 +91,7 @@ _is_ssh() {
 # Setup prompt
 PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD##*/} $(_get_git_branch)\007"'
 PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]"
-PS1="${PS1}\[\033[1;31m\]\$(_is_ssh)\[\033[0m\]"
+PS1="${PS1}\[\033[1;36m\]\$(_is_ssh)\[\033[0m\]"
 PS1="${PS1}\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]"
 PS1="${PS1}\[\033[1;32m\]\W\[\033[0m\] "
 PS1="${PS1}\[\033[1;34m\]\$(_get_git_branch)\[\033[0m\]"
