@@ -7,3 +7,5 @@ x11-libs/libxcb xkb
 # required by x11-misc/xdg-utils-1.1.3-r1::gentoo
 # required by xdg-utils (argument)
 >=app-text/xmlto-0.0.28-r1 text
+
+dev-vcs/mercurial -python_targets_python3_8

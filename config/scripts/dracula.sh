@@ -1,37 +1,24 @@
 #!/bin/sh
 
-color00="18/1a/26" # Base 03 - Black
-color08="28/2a/36" # Base 00 - Bright Black
+color00="21/22/2c" # Base 03 - Black
+color01="ff/55/55" # Base 08 - Red
+color02="50/fa/7b" # Base 0B - Green
+color03="f1/fa/8c" # Base 0A - Yellow
+color04="bd/93/f9" # Base 0D - Blue
+color05="ff/79/c6" # Base 0E - Magenta
+color06="8b/e9/fd" # Base 0C - Cyan
+color07="f8/f8/f2" # Base 07 - White
+color08="62/72/a4" # Base 00 - Bright Black
+color09="ff/6e/6e" # Base 08 - Bright Red
+color10="69/ff/94" # Base 0B - Bright Green
+color11="ff/ff/a5" # Base 0A - Bright Yellow
+color12="d6/ac/ff" # Base 0D - Bright Blue
+color13="ff/92/df" # Base 0E - Bright Magenta
+color14="a4/ff/ff" # Base 0C - Bright Cyan
+color15="ff/ff/ff" # Base 05 - Bright White
 
-color01="ef/45/45" # Base 08 - Red
-color09="ff/55/55" # Base 08 - Bright Red
-
-color02="40/ea/6b" # Base 0B - Green
-color10="50/fa/7b" # Base 0B - Bright Green
-
-color03="e1/ea/7c" # Base 0A - Yellow
-color11="f1/fa/8c" # Base 0A - Bright Yellow
-
-color04="ad/83/e9" # Base 0D - Blue
-color12="bd/93/f9" # Base 0D - Bright Blue
-
-color05="ef/69/b6" # Base 0E - Magenta
-color13="ff/79/c6" # Base 0E - Bright Magenta
-
-color06="7b/d9/ed" # Base 0C - Cyan
-color14="8b/e9/fd" # Base 0C - Bright Cyan
-
-color07="e8/e8/e2" # Base 07 - White
-color15="f8/f8/f2" # Base 05 - Bright White
-
-color16="ef/69/b6"
-color17="e1/ea/7c"
-color18="28/28/28"
-color19="38/38/38"
-color20="ad/83/e9"
-color21="e8/e2/e8"
-color_foreground="e8/e8/e2"
-color_background="18/1a/26"
+color_foreground="f8/f8/f2"
+color_background="28/2a/36"
 
 if [ -n "$TMUX" ]; then
   # Tell tmux to pass the escape sequences through
@@ -72,14 +59,6 @@ put_template 13 $color13
 put_template 14 $color14
 put_template 15 $color15
 
-# 256 color space
-put_template 16 $color16
-put_template 17 $color17
-put_template 18 $color18
-put_template 19 $color19
-put_template 20 $color20
-put_template 21 $color21
-
 # clean up
 unset -f put_template
 unset -f put_template_var
@@ -100,12 +79,6 @@ unset color12
 unset color13
 unset color14
 unset color15
-unset color16
-unset color17
-unset color18
-unset color19
-unset color20
-unset color21
 unset color_foreground
 unset color_background
 

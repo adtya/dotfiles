@@ -96,13 +96,15 @@ bindsym shift+XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/mic_up
 bindsym XF86MonBrightnessUp exec brightnessctl set 47+
 bindsym XF86MonBrightnessDOwn exec brightnessctl set 47-
 
-bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
-bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot-$(date +%Y-%m-%d-%I-%M-%S).png"
+bindsym print exec grim "$(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
+bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
+
 bindsym $mod+l exec swaylock -i "/tmp/lockpaper.jpg"
 bindsym $mod+shift+w exec ~/.config/scripts/chpaper.sh
 bindsym $mod+shift+escape exec ~/.config/scripts/power-menu.sh
 bindsym $mod+i exec ~/.config/scripts/emoji-menu.sh
 bindsym $mod+F11 exec ~/.config/scripts/tmux-sessions.sh
+bindsym $mod+shift+F10 exec ~/.config/scripts/vim-sessions.sh
 bindsym $mod+F3 exec wdisplays
 
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
@@ -110,5 +112,11 @@ exec --no-startup-id kanshi
 exec --no-startup-id mako --default-timeout 8000
 exec_always --no-startup-id ~/.config/scripts/chpaper.sh
 exec telegram -startintray
+
+exec swayidle -w \
+	timeout 600 'swaylock -f -i /tmp/lockpaper.jpg' \
+	timeout 900 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -i /tmp/lockpaper.jpg'
 
 include /etc/sway/config.d/*

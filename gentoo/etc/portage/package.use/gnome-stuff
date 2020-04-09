@@ -1,7 +1,7 @@
 media-libs/cogl gles2
 media-libs/clutter egl
 app-text/evince djvu nautilus
-gnome-base/nautilus sendto
+gnome-base/nautilus sendto gstreamer
 gnome-base/gvfs fuse
 sys-apps/gnome-disk-utility fat
 
@@ -15,9 +15,6 @@ media-libs/harfbuzz icu
 # required by gnome-base/nautilus-3.30.5-r1::gentoo[previewer]
 # required by nautilus (argument)
 app-text/poppler cairo
-
-# required by media-video/gnome-mpv-0.16::gentoo
-media-video/mpv libmpv
 
 app-text/gnome-doc-utils python_targets_python2_7
 dev-libs/libxml2 python python_targets_python2_7

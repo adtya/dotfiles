@@ -1,1 +1,2 @@
->=x11-terms/kitty-0.15.0 ~amd64
+>=x11-terms/kitty-0.16.0-r2 ~amd64
+>=x11-terms/kitty-terminfo-0.16.0 ~amd64

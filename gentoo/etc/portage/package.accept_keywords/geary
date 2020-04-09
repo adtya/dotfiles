@@ -1,4 +1,0 @@
->=mail-client/geary-3.34 ~amd64
->=net-libs/webkit-gtk-2.26.4 ~amd64
->=app-text/enchant-2.2.7 ~amd64
->=app-text/gspell-1.8.3 ~amd64
