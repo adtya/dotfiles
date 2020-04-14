@@ -20,49 +20,49 @@
 	},
 	"backlight": {
 		"format": "{icon} {percent}%",
-		"format-icons": ["", ""]
+		"format-icons": ["", "", "", ""]
 	},
 	"battery": {
 		"states": {
 			"good": 95,
 			"warning": 30,
-			"critical": 19
+			"critical": 20
 		},
 		"format": "{icon} {capacity}%",
-		"format-charging": " {capacity}%",
+		"format-charging": " {capacity}%",
 		"format-plugged": " {capacity}%",
 		"format-alt": "{icon} {time}",
-		"format-icons": ["", "", "", "", ""],
+		"format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
 		"tooltip": false
 	},
 	"network": {
-		"format-wifi": "",
-		"format-ethernet": "",
-		"format-linked": " (No IP)",
-		"format-disconnected": "",
+		"format-wifi": "直 {essid}",
+		"format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+		"format-linked": " (No IP)",
+		"format-disconnected": "睊 Disconnected",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}",
 		"tooltip": false
 	},
 	"pulseaudio": {
 		"tooltip": false,
 		"format": "{icon} {volume}%",
-		"format-bluetooth": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
 		"format-muted": "",
-		"format-source": " {volume}%",
+		"format-source": " {volume}%",
 		"format-source-muted": "",
 		"format-icons": {
-			"headphones": "",
+			"headphones": "",
 			"handsfree": "",
 			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["", "", ""]
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["奄", "奔", "墳"]
 		},
 	"on-click": "pavucontrol"
 	},
 	"custom/ip": {
-		"format": "",
+		"format": "",
 		"format-alt": "{}",
 		"interval": 120,
 		"exec": "$HOME/.config/scripts/getip.sh",
