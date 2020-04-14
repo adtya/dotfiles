@@ -103,8 +103,8 @@ bindsym $mod+l exec swaylock -i "/tmp/lockpaper.jpg"
 bindsym $mod+shift+w exec ~/.config/scripts/chpaper.sh
 bindsym $mod+shift+escape exec ~/.config/scripts/power-menu.sh
 bindsym $mod+i exec ~/.config/scripts/emoji-menu.sh
-bindsym $mod+F11 exec ~/.config/scripts/tmux-sessions.sh
 bindsym $mod+shift+F10 exec ~/.config/scripts/vim-sessions.sh
+bindsym $mod+shift+F11 exec ~/.config/scripts/tmux-sessions.sh
 bindsym $mod+F3 exec wdisplays
 
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
