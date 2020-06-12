@@ -1,9 +1,9 @@
 configuration {
 	modi: "drun,run";
-	font: "FuraMono Nerd Font Mono 11";
+	font: "FiraCode Nerd Font Mono 11";
 	show-icons: true;
-	terminal: "kitty";
-	icon-theme: "Newaita-Dark";
+	terminal: "alacritty";
+	icon-theme: "Newaita-dark";
 	sort: false;
 	theme: "slate-dracula";
 }

@@ -1,0 +1,188 @@
+[colors]
+background = #282a36
+foreground = #f8f8f2
+selection = #44475a
+unfocused = #62724a
+cyan = #8be9fd
+green = #50fa7b
+orange = #ffb86c
+pink = #ff79c6
+purple = #bd93f9
+red = #ff5555
+yellow = #f1fa8c
+
+[bar/topbar]
+enable-ipc = true
+width = 100%
+height = 27
+radius = 0
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = ${colors.yellow}
+border-size = 0
+border-color = #00000000
+padding-left = 1
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+font-0 = Fira Code:size=11:antialias=true;1
+font-1 = Wuncon Siji:size=11:antialias=true;1
+font-2 = FiraCode Nerd Font:size=11:antialias=true;1
+modules-left = bspwm xwindow
+modules-center =
+modules-right = mpd backlight-acpi pulseaudio wlan eth battery date
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.selection}
+
+wm-restack = bspwm
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-underline= ${colors.cyan}
+label-focused-padding = 1
+label-occupied = %index%
+label-occupied-padding = 1
+label-urgent = %index%!
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+label-empty =
+label-empty-foreground =
+label-empty-padding =
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+host = 127.0.0.1
+port = 54321
+icon-prev = 玲
+icon-stop = 栗
+icon-play = 契
+icon-pause = 
+icon-next = 怜
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/backlight-acpi]
+type = internal/backlight
+card = intel_backlight
+format = <label>
+label =  %percentage%%
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.pink}
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.pink}
+
+[module/eth]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+
+format-connected-underline = ${colors.green}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.pink}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 60
+date =
+date-alt = " %Y-%m-%d"
+time = %I:%M %p
+time-alt = %I:%M %p
+format-prefix = 
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.foreground}
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume>
+format-volume-underline = ${colors.cyan}
+format-muted-underline = ${colors.red}
+label-volume = 墳 %percentage%%
+label-volume-foreground = ${colors.foreground}
+label-muted = ﱝ %percentage%%
+label-muted-foreground = ${colors.unfocused}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 98
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.yellow}
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.green}
+format-full-underline = ${self.format-charging-underline}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground}
+animation-discharging-framerate = 750
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

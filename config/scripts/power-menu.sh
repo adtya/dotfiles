@@ -13,7 +13,6 @@ chpower() {
 			exec sudo openrc-shutdown -r now
 		;;
 		Hibernate)
-			swaylock -f -i /tmp/lockpaper.jpg
 			echo disk | sudo tee /sys/power/state
 		;;
 		Logout)

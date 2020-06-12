@@ -1,0 +1,38 @@
+sw_volume: 100
+audio_device_state:1:PulseAudio Output
+audio_device_state:1:FIFO Output
+state: stop
+current: 23
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Deadmau5 - 5 Years of Mau5/01 Deadmau5 - Ghosts  n  Stuff.mp3
+1:Deadmau5 - 5 Years of Mau5/05 Deadmau5 - Strobe (Club Edit).mp3
+2:Deadmau5 - 5 Years of Mau5/Deadmau5 - The Veldt (8 Minute Edit).mp3
+3:Deadmau5 - Mau5ville Level 1/01 Deadmau5 - Monophobia.mp3
+4:Muse - Discography/2015 - Drones/03. Psycho.flac
+5:Muse - Discography/2015 - Drones/04. Mercy.flac
+6:Muse - Discography/2015 - Drones/05. Reapers.flac
+7:Muse - Discography/2015 - Drones/06. The Handler.flac
+8:Muse - Discography/2018 - Simulation Theory/01-muse-algorithm.flac
+9:Muse - Discography/2018 - Simulation Theory/02-muse-the_dark_side.flac
+10:Muse - Discography/2018 - Simulation Theory/03-muse-pressure.flac
+11:Muse - Discography/2018 - Simulation Theory/04-muse-propaganda.flac
+12:Muse - Discography/2018 - Simulation Theory/05-muse-break_it_to_me.flac
+13:Muse - Discography/2018 - Simulation Theory/06-muse-something_human.flac
+14:Muse - Discography/2018 - Simulation Theory/07-muse-thought_contagion.flac
+15:Muse - Discography/2018 - Simulation Theory/08-muse-get_up_and_fight.flac
+16:Muse - Discography/2018 - Simulation Theory/09-muse-blockades.flac
+17:Muse - Discography/2018 - Simulation Theory/10-muse-dig_down.flac
+18:Muse - Discography/2018 - Simulation Theory/11-muse-the_void.flac
+19:Muse - Discography/2012 - The 2nd Law/02. Madness.flac
+20:Muse - Discography/2012 - The 2nd Law/12. The 2nd Law; Unsustainable.flac
+21:Muse - Discography/2012 - The 2nd Law/13. The 2nd Law; Isolated System.flac
+22:Muse - Discography/2009 - The Resistance/01. Uprising.flac
+23:Muse - Discography/2009 - The Resistance/02. Resistance.flac
+playlist_end

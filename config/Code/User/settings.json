@@ -2,12 +2,12 @@
 	"workbench.startupEditor": "none",
 	"files.autoSave": "onFocusChange",
 	"editor.fontFamily": "'Fira Code Retina'",
-	"editor.cursorStyle": "underline",
+	"editor.cursorStyle": "line",
 	"editor.cursorBlinking": "phase",
 	"editor.fontLigatures": true,
 	"window.titleBarStyle": "native",
 	"breadcrumbs.enabled": true,
-	"window.menuBarVisibility": "toggle",
+	"window.menuBarVisibility": "hidden",
 	"update.mode": "none",
 	"extensions.ignoreRecommendations": true,
 	"extensions.showRecommendationsOnlyOnDemand": true,
@@ -41,7 +41,7 @@
 	"terminal.integrated.fontFamily": "Fira Code Retina",
 	"workbench.colorTheme": "Dracula",
 	"workbench.iconTheme": "vs-seti",
-	"window.zoomLevel": 0.75,
+	"window.zoomLevel": 1,
 	"files.exclude": {
 		"**/node_modules": true,
 		"**/.git": true,
@@ -55,17 +55,5 @@
 		"**/.git/subtree-cache/**": true,
 		"**/node_modules/**": true
 	},
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "vscode.json-language-features"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"prettier.useTabs": true,
+	"go.formatTool": "goimports"
 }

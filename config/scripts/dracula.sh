@@ -8,6 +8,7 @@ color04="bd/93/f9" # Base 0D - Blue
 color05="ff/79/c6" # Base 0E - Magenta
 color06="8b/e9/fd" # Base 0C - Cyan
 color07="f8/f8/f2" # Base 07 - White
+
 color08="62/72/a4" # Base 00 - Bright Black
 color09="ff/6e/6e" # Base 08 - Bright Red
 color10="69/ff/94" # Base 0B - Bright Green
