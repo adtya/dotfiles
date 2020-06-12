@@ -1,5 +1,5 @@
-# required by media-sound/ncmpcpp-0.8.2-r1::gentoo
-# required by media-sound/ncmpcpp (argument)
->=dev-libs/boost-1.71.0 icu
 
+# required by media-sound/ncmpcpp
+dev-libs/boost icu
 media-sound/ncmpcpp outputs visualizer
+

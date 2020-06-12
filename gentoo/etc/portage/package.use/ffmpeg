@@ -1,1 +1,1 @@
-media-video/ffmpeg libdrm x265
+media-video/ffmpeg gnutls openssl

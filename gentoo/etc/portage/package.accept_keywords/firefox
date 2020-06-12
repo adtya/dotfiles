@@ -1,14 +1,3 @@
->=www-client/firefox-70.0.1 ~amd64
-
-# required by www-client/firefox-70.0.1::gentoo[wifi]
->=dev-libs/nss-3.47 ~amd64
-
-# required by www-client-firefox-72.0.0:gentoo
->=dev-util/cbindgen-0.10.1 ~amd64
-
-# required by dev-libs/nss-3.48::gentoo
->=dev-libs/nspr-4.23 ~amd64
-
-# requred by www-client/firefox-74
+>=dev-libs/nss-3.52 ~amd64
 >=media-libs/libvpx-1.8.2 ~amd64
->=media-libs/libwebp-1.1.0 ~amd64
+>=www-client/firefox-76.0.0 ~amd64

@@ -1,4 +1,1 @@
-sys-kernel/ck-sources ~amd64
-sys-kernel/gentoo-sources ~amd64
->=sys-kernel/zen-sources-5.5.13 ~amd64
->=sys-kernel/vanilla-sources-5.5 ~amd64
+>=sys-kernel/gentoo-sources-5.6.0 ~amd64

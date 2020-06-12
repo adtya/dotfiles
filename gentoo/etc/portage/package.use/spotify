@@ -1,0 +1,4 @@
+# required by net-print/cups-filters
+# required by net-print/cups
+# required by media-sound/spotify
+app-text/ghostscript-gpl cups

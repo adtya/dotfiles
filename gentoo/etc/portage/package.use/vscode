@@ -1,0 +1,4 @@
+# required by gnome-base/gnome-keyring::gentoo
+# required by app-crypt/libsecret::gentoo
+# required by app-editors/vscode-bin::jorgicio
+app-crypt/pinentry gnome-keyring

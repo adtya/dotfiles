@@ -1,0 +1,2 @@
+# required by app-emulation/virt-manager::gentoo[gtk]
+net-misc/spice-gtk usbredir

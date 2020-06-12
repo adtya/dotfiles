@@ -1,0 +1,17 @@
+www-client/firefox clang lto pgo -wifi
+
+# required by www-client/firefox[system-sqlite]
+dev-db/sqlite secure-delete
+
+# required by www-client/firefox
+media-libs/libpng apng
+
+# required by www-client/firefox[system-libvpx]
+media-libs/libvpx postproc
+
+# required by www-client/firefox[clang]
+sys-devel/llvm gold
+
+# required by www-client/firefox[pgo]
+x11-base/xorg-server xvfb
+
