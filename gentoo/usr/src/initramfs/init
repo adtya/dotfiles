@@ -1,0 +1,51 @@
+#!/bin/busybox sh
+
+export PATH="/usr/sbin:/usr/bin:/sbin:/bin"
+
+die() {
+	echo "$1"
+	setsid cttyhack /bin/sh
+}
+
+mount -t proc none /proc || die "/proc mount failed"
+mount -t devtmpfs none /dev || die "/dev mount failed"
+mount -t sysfs none /sys || die "/sys mount failed"
+
+for PARAM in $(cat /proc/cmdline); do
+	case "${PARAM}" in
+		crypt_root=*)
+			crypt_root="$(findfs ${PARAM#*=})"
+			;;
+		crypt_resume=*)
+			crypt_resume="$(findfs ${PARAM#*=})"
+			;;
+		ro|rw)
+			mount_ro_rw="${PARAM}"
+			;;
+	esac
+done
+
+
+crypt_keystore="/etc/keystore"
+
+cryptsetup open "${crypt_keystore}" keystore || die "keystore decryption failed"
+mount /dev/mapper/keystore /mnt/keystore || die "keystore mount failed"
+
+echo "Decrypting resume partition ..."
+cryptsetup open "${crypt_resume}" swap -d /mnt/keystore/swap.key || die "swap decryption failed"
+
+echo "Trying to resume from hibernation ..."
+printf "%u:%u\n" $(stat -L -c '0x%t 0x%T' /dev/mapper/swap) > /sys/power/resume || die "failed to resume"
+
+echo "Decrypting root partition ..."
+cryptsetup open "${crypt_root}" root -d /mnt/keystore/root.key || die "root decryption failed"
+mount -o "${mount_ro_rw}" /dev/mapper/root /mnt/root || die "real root mount failed"
+
+echo "Performing cleanup ..."
+umount /mnt/keystore
+cryptsetup close keystore
+umount /proc
+umount /dev
+umount /sys
+
+exec switch_root /mnt/root /sbin/openrc-init || die "switch root failed"
