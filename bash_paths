@@ -11,6 +11,8 @@ fi
 # Add go from /opt/go
 if [ -d "/opt/go/bin" ] && [[ "${PATH}" != */opt/go/bin:* ]] ; then
 	export PATH="/opt/go/bin:${PATH}"
+	export GOPATH="${HOME}/go"
+	export PATH="${GOPATH}/bin:${PATH}"
 fi
 
 # Add stuff from /opt/bin

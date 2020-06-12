@@ -5,7 +5,7 @@ if command -v tmux > /dev/null ; then
 		*screen*)
 		;;
 		*)
-			[ -n "${DISPLAY}" ] && [ -z "${TERM_PROGRAM}" ] && [ -z "${TMUX}" ] && exec tmux
+			[ -n "${DISPLAY}" ] && [ "x${TERM_PROGRAM}" != 'xvscode' ] && [ "x${TERMINAL_EMULATOR}" != 'xJetBrains-JediTerm' ] && [ -z "${TMUX}" ] && exec tmux
 		;;
 	esac
 fi
