@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 
 # program launcher
 super + d
@@ -13,6 +13,22 @@ super + d
 # run
 super + F2
 	rofi -show run
+
+# Volume control
+super + {F3,F4}
+	$HOME/.config/scripts/volume.sh -{d,u}
+
+# Backlight brightness control
+super + {F5,F6}
+	$HOME/.config/scripts/brightness.sh -{d,u}
+
+# dowload videos from the internet
+super + F7
+	$HOME/.config/scripts/youtube-dl.sh -d
+
+# Play videos from internet
+super + F8
+	$HOME/.config/scripts/youtube-dl.sh -p
 
 # TMUX sessions menu
 super + F11
@@ -30,22 +46,21 @@ super + Insert
 super + q
 	i3lock -i /tmp/lockpaper.png
 
+# power menu
+super + shift + Escape
+	$HOME/.config/scripts/power-menu.sh
+
 # change wallpaper
 super + shift + w
 	$HOME/.config/scripts/chpaper.sh
 
 # Screnshot
 @Print
-	scrot "$HOME/Pictures/screenshots/screenshot-%Y%m%d%T.png"
+	scrot "$HOME/pictures/screenshots/screenshot-%Y%m%d%T.png"
 
-
-# Volume control
-super + {F3,F4}
-	$HOME/.config/scripts/volume.sh -{d,u}
-
-# Backlight brightness control
-super + {F5,F6}
-	$HOME/.config/scripts/brightness.sh -{d,u}
+# selective screenshot
+shift + @Print
+	scrot -s "$HOME/pictures/screenshots/screenshot-%Y%m%d%T.png"
 
 # make sxhkd reload its configuration files:
 super + Escape
