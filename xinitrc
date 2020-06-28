@@ -2,18 +2,11 @@
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/Xresources
-sysmodmap=/etc/X11/xinit/Xmodmap
+
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
 
 # merge in defaults and keymaps
-if [ -f $sysresources ]; then
-	xrdb -merge $sysresources
-fi
-
-if [ -f $sysmodmap ]; then
-	xmodmap $sysmodmap
-fi
-
 if [ -f "$userresources" ]; then
 	xrdb -merge "$userresources"
 fi
@@ -24,9 +17,13 @@ fi
 
 # some env. variables
 export _JAVA_AWT_WM_NONREPARENTING=1
+if command -v gnome-keyring-daemon > /dev/null ; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
+fi
 
 # start some nice programs
-/usr/libexec/polkit-gnome-authentication-agent-1 &
-dunst &
-mpd --kill; mpd &
-exec bspwm
+pidof polkit-gnome-authentication-agent-1 || /usr/libexec/polkit-gnome-authentication-agent-1 &
+pidof dunst || dunst &
+pidof mpd || mpd &
+exec dbus-launch --sh-syntax --exit-with-x11 bspwm
