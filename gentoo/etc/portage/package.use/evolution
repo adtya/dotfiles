@@ -1,0 +1,3 @@
+mail-client/evolution -bogofilter -weather
+gnome-extra/evolution-data-server -weather
+media-libs/harfbuzz icu
