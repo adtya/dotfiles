@@ -14,7 +14,7 @@ yellow = #f1fa8c
 [bar/topbar]
 enable-ipc = true
 width = 100%
-height = 27
+height = 28
 radius = 0
 fixed-center = false
 background = ${colors.background}
@@ -40,17 +40,12 @@ tray-background = ${colors.selection}
 
 wm-restack = bspwm
 
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:100:...%
+label = %title:0:72:...%
 
 [module/bspwm]
 type = internal/bspwm
@@ -88,7 +83,8 @@ label =  %percentage%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+#interface = wlp2s0
+interface = wlp8s0
 interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.pink}
@@ -109,7 +105,7 @@ ramp-signal-foreground = ${colors.pink}
 
 [module/eth]
 type = internal/network
-interface = enp3s0
+interface = enp9s0
 interval = 3.0
 
 format-connected-underline = ${colors.green}
