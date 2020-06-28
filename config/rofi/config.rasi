@@ -2,7 +2,7 @@ configuration {
 	modi: "drun,run";
 	font: "FiraCode Nerd Font Mono 11";
 	show-icons: true;
-	terminal: "alacritty";
+	terminal: "kitty";
 	icon-theme: "Newaita-dark";
 	sort: false;
 	theme: "slate-dracula";
