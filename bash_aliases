@@ -1,7 +1,4 @@
 alias cp='cp -v'
-alias gaa='git add .'
-alias ga='git add'
-alias gc='git commit'
 alias grep='grep --color=auto'
 alias l='ls -lah --color=auto'
 alias ln='ln -v'
