@@ -2,7 +2,7 @@
 
 set -eu
 
-DIR="${HOME}/Pictures/Wallpapers"
+DIR="${HOME}/pictures/wallpapers"
 
 random_paper() {
 	find "${DIR}"/ -type f -regextype egrep -regex ".*\.(jpe?g|png)$" | shuf -n1

@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
 
-SESSION="$(find "${HOME}/Projects" -type f -name '.vimsession' | dmenu -l 8 -p "Saved VIM Sessions")"
+SESSION="$(find "${HOME}/projects" -type f -name '.vimsession' | dmenu -l 8 -p "Saved VIM Sessions")"
 
-alacritty -e tmux new-session vi -S "${SESSION}"
+kitty -e tmux new-session vi -S "${SESSION}"

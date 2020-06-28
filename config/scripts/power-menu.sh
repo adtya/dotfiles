@@ -13,10 +13,8 @@ chpower() {
 			exec sudo openrc-shutdown -r now
 		;;
 		Hibernate)
+			i3lock -i /tmp/lockpaper.png
 			echo disk | sudo tee /sys/power/state
-		;;
-		Logout)
-			swaymsg exit
 		;;
 		*)
 			notify-send -t 1500 -u low "Invalid Option"

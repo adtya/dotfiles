@@ -2,14 +2,28 @@
 
 set -eu
 
-BOOKMARK_FILE="${HOME}/documents/youtube-bookmarks.txt"
+OPTION="$1"
 
-VIDEOID="$(dmenu -l 8 -p "Youtube video ID" < "${BOOKMARK_FILE}" | awk '{print $1}' | sed 's/\[//g;s/\]//g')"
 
-if ! grep "${VIDEOID}" "${BOOKMARK_FILE}" > /dev/null 2>&1 ; then
-	TITLE="$(curl -s "https://www.invidio.us/api/v1/videos/${VIDEOID}?fields=title" | awk -F':' '{$1="";print $0}' | sed 's/^\s*\"//g;s/\"\}$//g')"
-	echo "[${VIDEOID}] ${TITLE}" >> "${BOOKMARK_FILE}"
-fi
-
-mpv "https://www.invidio.us/watch?v=${VIDEOID}"
-
+case "${OPTION}" in
+	"-p")
+		URL="$(dmenu -l 0 -p "URL to play:")"
+		if [ -n "${URL}" ] ; then
+			notify-send "Fetching video" "${URL}"
+			mpv "${URL}"
+		else
+			notify-send "Fetching failed!" "provided url is empty!"
+		fi
+		;;
+	"-d")
+		URL="$(dmenu -l 0 -p "Video to download:")"
+		if [ -n "${URL}"  ] ; then
+			notify-send "Downloading video" "${URL}"
+			VIDEO_DIR="${HOME}/videos"
+			youtube-dl "${URL}" -o "${VIDEO_DIR}/youtube-dl/%(title)s_$(id)s.%(ext)s" --restrict-filenames
+			notify-send "Download finished" "${URL}"
+		else
+			notify-send "Fetching failed!" "provided url is empty!"
+		fi
+		;;
+esac
