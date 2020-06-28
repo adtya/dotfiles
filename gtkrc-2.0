@@ -1,7 +1,8 @@
 include "/home/adtya/.themes/Ant-Dracula/gtk-2.0/gtkrc"
 
-gtk-theme-name  = "Ant-Dracula"
+gtk-theme-name  = "Dracula"
 gtk-icon-theme-name = "Newaita-dark"
+gtk-cursor-theme-name = "Bibata-Classic"
 gtk-font-name = "Cantarell 11"
 
 include "/home/adtya/.gtkrc.mine"
