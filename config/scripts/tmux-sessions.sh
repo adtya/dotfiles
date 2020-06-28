@@ -8,7 +8,7 @@ case "$SESSION" in
 	"")
 		;;
 	*)
-		alacritty -e tmux attach -t "$SESSION"
+		kitty -e tmux attach -t "$SESSION"
 		;;
 esac
 
