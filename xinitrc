@@ -26,4 +26,4 @@ fi
 pidof polkit-gnome-authentication-agent-1 || /usr/libexec/polkit-gnome-authentication-agent-1 &
 pidof dunst || dunst &
 pidof mpd || mpd &
-exec dbus-launch --sh-syntax --exit-with-x11 bspwm
+exec bspwm

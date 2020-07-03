@@ -28,5 +28,11 @@ if [ -d "${HOME}/.local/share/man" ] && [[ "${MANPATH}" != *${HOME}/.local/share
 	export MANPATH="${HOME}/.local/share/man:${MANPATH}"
 fi
 
+# GOPATH
+if command -v go > /dev/null && [ -z "${GOPATH}" ]; then
+	GOPATH="${HOME}/go"
+	PATH="${GOPATH}/bin:${PATH}"
+fi
+
 export PATH
 

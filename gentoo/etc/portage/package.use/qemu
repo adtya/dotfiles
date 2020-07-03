@@ -1,1 +1,0 @@
-app-emulation/qemu plugins sdl-image spice vde vhost-user-fs virgl usbredir host-net QEMU_SOFTMMU_TARGETS: x86_64 QEMU_USER_TARGETS: x86_64

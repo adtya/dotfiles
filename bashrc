@@ -106,7 +106,7 @@ done
 
 # Misc. environment variables
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-#export GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 export LESSHISTFILE="-"
 
 # Setup aliases
