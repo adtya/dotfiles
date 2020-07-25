@@ -3,11 +3,15 @@
 xsetroot -cursor_name left_ptr
 
 pidof sxhkd || sxhkd &
-pidof picom || picom &
+picom &
+/usr/libexec/polkit-gnome-authentication-agent-1 &
+dunst &
 $HOME/.config/polybar/launch.sh
 $HOME/.config/scripts/chpaper.sh &
 pidof conky || conky &
-env KEYBASE_AUTOSTART=1 run_keybase &
+pidof mpd || mpd &
+#env KEYBASE_AUTOSTART=1 run_keybase &
+#ipfs daemon &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -21,7 +25,7 @@ bspc config focus_follows_pointer true
 
 bspc rule -a imv state=floating
 bspc rule -a scrcpy state=floating
-bspc rule -a mpv state=pseudo_tiled
+bspc rule -a mpv state=floating
 bspc rule -a Virt-manager state=floating
 bspc rule -a Arandr state=floating
 bspc rule -a Pavucontrol state=floating

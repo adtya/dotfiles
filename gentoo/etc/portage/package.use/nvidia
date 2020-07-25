@@ -67,4 +67,4 @@
 # required by @selected
 # required by @world (argument)
 >=x11-base/xcb-proto-1.14-r1 abi_x86_32
-x11-drivers/nvidia-drivers uvm
+x11-drivers/nvidia-drivers gtk3 uvm

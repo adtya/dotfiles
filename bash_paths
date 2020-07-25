@@ -30,7 +30,7 @@ fi
 
 # GOPATH
 if command -v go > /dev/null && [ -z "${GOPATH}" ]; then
-	GOPATH="${HOME}/go"
+	export GOPATH="${HOME}/go"
 	PATH="${GOPATH}/bin:${PATH}"
 fi
 

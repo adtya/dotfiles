@@ -1,0 +1,3 @@
+# required by media-gfx/gimp::gentoo
+media-libs/gegl cairo
+
