@@ -1,14 +1,12 @@
-[[ $- != *i* ]] && return
-
-if command -v tmux > /dev/null ; then
-	case "${TERM}" in
-		*screen*)
-		;;
-		*)
-			[ -n "${DISPLAY}" ] && [ "x${TERM_PROGRAM}" != 'xvscode' ] && [ "x${TERMINAL_EMULATOR}" != 'xJetBrains-JediTerm' ] && [ -z "${TMUX}" ] && exec tmux
-		;;
-	esac
-fi
+#if command -v tmux > /dev/null ; then
+#	case "${TERM}" in
+#		*screen*)
+#		;;
+#		*)
+#			[ -n "${DISPLAY}" ] && [ "x${TERM_PROGRAM}" != 'xvscode' ] && [ "x${TERMINAL_EMULATOR}" != 'xJetBrains-JediTerm' ] && [ -z "${TMUX}" ] && exec tmux
+#		;;
+#	esac
+#fi
 
 shopt -s histappend
 shopt -s checkwinsize
@@ -23,7 +21,7 @@ _is_git_dir() {
 
 _get_git_branch() {
 	[ "$(_is_git_dir)" ] && \
-		echo -n " ($(git symbolic-ref --quiet --short HEAD 2>/dev/null))"
+		echo -n "($(git symbolic-ref --quiet --short HEAD 2>/dev/null)) "
 }
 
 _get_git_dirty() {
@@ -34,25 +32,25 @@ _get_git_dirty() {
 		if [ x"$(git rev-parse $_TEMP 2>/dev/null)" = x"$(git rev-parse remotes/origin/$_TEMP 2>/dev/null)" ]
 		then {
 			local _OC='\033[1;32m'
-			local _SYM=' ✔ '
+			local _SYM='✔ '
 		}
 		else {
 			local _OC='\033[1;33m'
-			local _SYM=' ✔ '
+			local _SYM='✔ '
 		}
 		fi
 
 		if [ "$(git diff --name-only --cached 2>/dev/null)" ]
 		then {
 			local _OC='\033[1;33m'
-			local _SYM=' ✘ '
+			local _SYM='✘ '
 		}
 		fi
 
 		if [ "$(git diff --name-only 2>/dev/null)" ] || [ "$(git ls-files --others --exclude-standard "$_GITDIR" 2>/dev/null)" ]
 		then {
 			local _OC='\033[1;31m'
-			local _SYM=' ✘ '
+			local _SYM='✘ '
 		}
 		fi
 		local _CC='\033[0m'
@@ -105,7 +103,7 @@ _get_virtual_env_name() {
 
 _get_python_version() {
 	if [ "${VIRTUAL_ENV}" ] ; then
-		echo -n "via  $(${VIRTUAL_ENV}/bin/python --version | sed 's/Python\ //g')"
+		echo -n "via  $(${VIRTUAL_ENV}/bin/python --version | sed 's/Python\ //g') "
 	else
 		PIPFILE_PATH="$(_find_parent_with_file "${PWD}" "Pipfile")"
 		if [ -e "${PIPFILE_PATH}" ] ; then
@@ -132,7 +130,7 @@ PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD##*/}$
 PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]"
 PS1="${PS1}\[\033[1;36m\]\$(_is_ssh)\[\033[0m\]"
 PS1="${PS1}\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]"
-PS1="${PS1}\[\033[1;32m\]\W\[\033[0m\]"
+PS1="${PS1}\[\033[1;32m\]\W \[\033[0m\]"
 PS1="${PS1}\[\033[1;34m\]\$(_get_git_branch)\[\033[0m\]"
 PS1="${PS1}\[\$(_get_git_dirty -o)\]\$(_get_git_dirty)\[\$(_get_git_dirty -c)\]"
 PS1="${PS1}\[\033[1;35m\]\$(_get_python_version)\[\033[0m\]"
@@ -149,12 +147,12 @@ done
 
 # Misc. environment variables
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-export GPG_TTY=$(tty)
+#export GPG_TTY=$(tty)
 export LESSHISTFILE="-"
 
 # Setup aliases
 [ -f "${HOME}/.bash_aliases" ] && . "${HOME}/.bash_aliases"
 
 # source paths if not on a login shell
-shopt -q login_shell || . "${HOME}/.bash_paths"
+shopt -q login_shell || . "${HOME}/.paths"
 

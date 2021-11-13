@@ -1,0 +1,48 @@
+# update manpath to include ~/.local/share/man
+if [ -d "${HOME}/.local/share/man" ] && [[ "${MANPATH}" != *${HOME}/.local/share/man:* ]] ; then
+	export MANPATH="${HOME}/.local/share/man:${MANPATH}"
+fi
+
+# ANDROID_HOME
+if [ -d "/opt/android-sdk" ] ; then
+	export ANDROID_HOME="/opt/android-sdk"
+fi
+
+# Add Go
+if [ -d "/opt/go" ] ; then
+	export GOROOT="/opt/go"
+	export GOPATH="${HOME}/.local/share/go"
+fi
+
+# Add stuff from /opt/bin
+if [ -d "/opt/bin" ] && [[ "${PATH}" != */opt/bin:* ]] ; then
+	PATH="/opt/bin:${PATH}"
+fi
+
+# set PATH so it inludes GOROOT bin if it exists
+if [ -d "${GOROOT}/bin" ] && [[ "${PATH}" != *${GOROOT}/bin:* ]] ; then
+	PATH="${GOROOT}/bin:${PATH}"
+fi
+
+# set PATH so it includes user's private(local) bin if it exists
+if [ -d "$HOME/.local/bin" ] && [[ "${PATH}" != *$HOME/.local/bin:* ]] ; then
+	PATH="$HOME/.local/bin:${PATH}"
+fi
+
+# set PATH so it includes user's GOPATH bin if it exists
+if [ -d "${GOPATH}/bin" ] && [[ "${PATH}" != *${GOPATH}/bin:* ]] ; then
+	PATH="${GOPATH}/bin:${PATH}"
+fi
+
+# set PATH so it includes the user's npm global bin if it exists
+if [ -d "$HOME/.local/share/npm/bin" ] && [[ "${PATH}" != *$HOME/.local/share/npm/bin:* ]] ; then
+	PATH="$HOME/.local/share/npm/bin:${PATH}"
+fi
+
+# set PATH so it includes user's private(home) bin if it exists
+if [ -d "$HOME/.bin" ] && [[ "${PATH}" != *$HOME/.bin:* ]] ; then
+	PATH="$HOME/.bin:${PATH}"
+fi
+
+export PATH
+
