@@ -5,14 +5,12 @@
 	"editor.cursorStyle": "line",
 	"editor.cursorBlinking": "phase",
 	"editor.fontLigatures": true,
-	"window.titleBarStyle": "native",
+	"window.titleBarStyle": "custom",
 	"breadcrumbs.enabled": true,
-	"window.menuBarVisibility": "hidden",
+	"window.menuBarVisibility": "compact",
 	"update.mode": "none",
 	"extensions.ignoreRecommendations": true,
-	"extensions.showRecommendationsOnlyOnDemand": true,
-	"telemetry.enableCrashReporter": false,
-	"telemetry.enableTelemetry": false,
+	"telemetry.telemetryLevel": "off",
 	"zenMode.centerLayout": false,
 	"zenMode.fullScreen": false,
 	"zenMode.hideLineNumbers": false,
@@ -38,7 +36,7 @@
 	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"terminal.integrated.cursorStyle": "underline",
 	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.fontFamily": "Fira Code Retina",
+	"terminal.integrated.fontFamily": "FiraCode Nerd Font",
 	"workbench.colorTheme": "Dracula",
 	"workbench.iconTheme": "vs-seti",
 	"window.zoomLevel": 1,
@@ -55,5 +53,25 @@
 		"**/.git/subtree-cache/**": true,
 		"**/node_modules/**": true
 	},
-	"go.formatTool": "goimports"
+	"go.formatTool": "goimports",
+	"go.inferGopath": false,
+	"go.terminal.activateEnvironment": false,
+	"terminal.integrated.detectLocale": "off",
+	"git.enableSmartCommit": true,
+	"git.autofetch": true,
+	"[dart]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.rulers": [
+			80
+		],
+		"editor.selectionHighlight": false,
+		"editor.suggest.snippetsPreventQuickSuggestions": false,
+		"editor.suggestSelection": "first",
+		"editor.tabCompletion": "onlySnippets",
+		"editor.wordBasedSuggestions": false
+	},
+	"redhat.telemetry.enabled": false,
+	"go.toolsManagement.autoUpdate": true,
+	"dart.openDevTools": "flutter"
 }
