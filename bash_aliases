@@ -9,3 +9,6 @@ alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 alias rm='rm -v'
 alias sl='ls'
+alias gst="git status"
+alias glog="git log --oneline"
+alias gco="git checkout"
