@@ -3,9 +3,9 @@ if [ -d "${HOME}/.local/share/man" ] && [[ "${MANPATH}" != *${HOME}/.local/share
 	export MANPATH="${HOME}/.local/share/man:${MANPATH}"
 fi
 
-# ANDROID_HOME
-if [ -d "/opt/android-sdk" ] ; then
-	export ANDROID_HOME="/opt/android-sdk"
+# Add stuff from /opt/bin
+if [ -d "/opt/bin" ] && [[ "${PATH}" != */opt/bin:* ]] ; then
+	export PATH="/opt/bin:${PATH}"
 fi
 
 # Add Go
@@ -14,35 +14,66 @@ if [ -d "/opt/go" ] ; then
 	export GOPATH="${HOME}/.local/share/go"
 fi
 
-# Add stuff from /opt/bin
-if [ -d "/opt/bin" ] && [[ "${PATH}" != */opt/bin:* ]] ; then
-	PATH="/opt/bin:${PATH}"
-fi
-
 # set PATH so it inludes GOROOT bin if it exists
-if [ -d "${GOROOT}/bin" ] && [[ "${PATH}" != *${GOROOT}/bin:* ]] ; then
-	PATH="${GOROOT}/bin:${PATH}"
+if [ -d "${GOROOT}/bin" ] && [[ "${PATH}" != *$GOROOT/bin:* ]] ; then
+	export PATH="${GOROOT}/bin:${PATH}"
 fi
 
 # set PATH so it includes user's private(local) bin if it exists
 if [ -d "$HOME/.local/bin" ] && [[ "${PATH}" != *$HOME/.local/bin:* ]] ; then
-	PATH="$HOME/.local/bin:${PATH}"
+	export PATH="$HOME/.local/bin:${PATH}"
 fi
 
 # set PATH so it includes user's GOPATH bin if it exists
-if [ -d "${GOPATH}/bin" ] && [[ "${PATH}" != *${GOPATH}/bin:* ]] ; then
-	PATH="${GOPATH}/bin:${PATH}"
-fi
-
-# set PATH so it includes the user's npm global bin if it exists
-if [ -d "$HOME/.local/share/npm/bin" ] && [[ "${PATH}" != *$HOME/.local/share/npm/bin:* ]] ; then
-	PATH="$HOME/.local/share/npm/bin:${PATH}"
+if [ -d "${GOPATH}/bin" ] && [[ "${PATH}" != *$GOPATH/bin:* ]] ; then
+	export PATH="${GOPATH}/bin:${PATH}"
 fi
 
 # set PATH so it includes user's private(home) bin if it exists
 if [ -d "$HOME/.bin" ] && [[ "${PATH}" != *$HOME/.bin:* ]] ; then
-	PATH="$HOME/.bin:${PATH}"
+	export PATH="$HOME/.bin:${PATH}"
 fi
 
-export PATH
+# ANDROID_HOME
+if [ -d "/opt/android-sdk" ] ; then
+	if [ -d "/opt/android-sdk/cmdline-tools/latest/bin" ] && [[ "${PATH}" != */opt/android-sdk/cmdline-tools/latest/bin:* ]] ; then
+		export PATH="/opt/android-sdk/cmdline-tools/latest/bin:${PATH}"
+	fi
+	if [ -d "/opt/android-sdk/platform-tools" ] && [[ "${PATH}" != */opt/android-sdk/platform-tools:* ]] ; then
+		export PATH="/opt/android-sdk/platform-tools:${PATH}"
+	fi
+	export ANDROID_HOME="/opt/android-sdk"
+fi
+
+# flutter
+if [ -d "/opt/flutter/bin" ] && [[ "${PATH}" != */opt/flutter/bin:* ]] ; then
+	export PATH="/opt/flutter/bin:${PATH}"
+fi
+
+# Load rbenv and shims
+if [ -d "${HOME}/.rbenv/shims" ] && [[ "${PATH}" != *$HOME/.rbenv/shims:* ]] ; then
+	#export PATH="${HOME}/.rbenv/shims:${PATH}"
+	eval "$(rbenv init -)"
+fi
+
+# cargo and rust
+if [ -d "${HOME}/.cargo/bin" ] && [[ "${PATH}" != *$HOME/.cargo/bin:* ]] ; then
+	export PATH="${HOME}/.cargo/bin:${PATH}"
+fi
+
+export DENO_INSTALL="/home/adtya/.deno"
+if [ -d "${DENO_INSTALL}" ] && [[ "${PATH}" != *$DENO_INSTALL/bin:* ]] ; then
+	PATH="$DENO_INSTALL/bin:$PATH"
+fi
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# added by Nix installer
+#if [ -e /home/adtya/.nix-profile/etc/profile.d/nix.sh ] && [[ "${PATH}" != *$HOME/.nix-profile/bin:* ]]; then
+#	. /home/adtya/.nix-profile/etc/profile.d/nix.sh
+#fi 
 

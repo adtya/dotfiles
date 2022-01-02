@@ -1,12 +1,12 @@
-#if command -v tmux > /dev/null ; then
-#	case "${TERM}" in
-#		*screen*)
-#		;;
-#		*)
-#			[ -n "${DISPLAY}" ] && [ "x${TERM_PROGRAM}" != 'xvscode' ] && [ "x${TERMINAL_EMULATOR}" != 'xJetBrains-JediTerm' ] && [ -z "${TMUX}" ] && exec tmux
-#		;;
-#	esac
-#fi
+if command -v tmux > /dev/null ; then
+	case "${TERM}" in
+		*screen*)
+		;;
+		*)
+			[ -n "${WAYLAND_DISPLAY}" ] && [ -n "${DISPLAY}" ] && [ "x${TERM_PROGRAM}" != 'xvscode' ] && [ "x${TERMINAL_EMULATOR}" != 'xJetBrains-JediTerm' ] && [ -z "${TMUX}" ] && exec tmux
+		;;
+	esac
+fi
 
 shopt -s histappend
 shopt -s checkwinsize
@@ -126,7 +126,7 @@ _is_ssh() {
 [ -f "${HOME}/.config/scripts/dracula.sh" ] && . "${HOME}/.config/scripts/dracula.sh"
 
 # Setup prompt
-PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD##*/}$(_get_git_branch)\007"'
+PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD##*/} $(_get_git_branch)\007"'
 PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]"
 PS1="${PS1}\[\033[1;36m\]\$(_is_ssh)\[\033[0m\]"
 PS1="${PS1}\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]"
