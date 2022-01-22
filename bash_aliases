@@ -12,3 +12,5 @@ alias sl='ls'
 alias gst="git status"
 alias glog="git log --oneline"
 alias gco="git checkout"
+alias vi=nvim
+alias vim=nvim

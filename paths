@@ -52,7 +52,7 @@ fi
 
 # Load rbenv and shims
 if [ -d "${HOME}/.rbenv/shims" ] && [[ "${PATH}" != *$HOME/.rbenv/shims:* ]] ; then
-	#export PATH="${HOME}/.rbenv/shims:${PATH}"
+	export PATH="${HOME}/.rbenv/bin:${PATH}"
 	eval "$(rbenv init -)"
 fi
 
@@ -70,10 +70,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # added by Nix installer
-#if [ -e /home/adtya/.nix-profile/etc/profile.d/nix.sh ] && [[ "${PATH}" != *$HOME/.nix-profile/bin:* ]]; then
-#	. /home/adtya/.nix-profile/etc/profile.d/nix.sh
-#fi 
+if [ -e /home/adtya/.nix-profile/etc/profile.d/nix.sh ] && [[ "${PATH}" != *$HOME/.nix-profile/bin:* ]]; then
+	. /home/adtya/.nix-profile/etc/profile.d/nix.sh
+fi
 
