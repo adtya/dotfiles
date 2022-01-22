@@ -1,13 +1,3 @@
-if command -v tmux > /dev/null ; then
-	case "${TERM}" in
-		*screen*)
-		;;
-		*)
-			[ -n "${WAYLAND_DISPLAY}" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ] && exec tmux
-		;;
-	esac
-fi
-
 shopt -s histappend
 shopt -s checkwinsize
 HISTCONTROL=ignoreboth
