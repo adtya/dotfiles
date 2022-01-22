@@ -94,10 +94,10 @@ bar {
 #bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/volume_down.sh
 
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym shift+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
-bindsym shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+bindsym --locked XF86AudioLowerVolume exec ~/.config/scripts/volume_down.sh
+bindsym --locked XF86AudioRaiseVolume exec ~/.config/scripts/volume_up.sh
+bindsym shift+XF86AudioLowerVolume exec ~/.config/scripts/mic_down.sh
+bindsym shift+XF86AudioRaiseVolume exec ~/.config/scripts/mic_up.sh
 
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym --locked XF86MonBrightnessDOwn exec brightnessctl set 5%-
