@@ -118,7 +118,7 @@ _is_ssh() {
 [ -f "${HOME}/.config/scripts/dracula.sh" ] && . "${HOME}/.config/scripts/dracula.sh"
 
 # Setup prompt
-PROMPT_COMMAND='history -a; echo -en "\033]2;$(_get_virtual_env_name)${PWD##*/} $(_get_git_branch)\007"'
+PROMPT_COMMAND='history -a'
 PS1=" \[\033[1;31m\]\$(_err_code)\[\033[0m\]"
 PS1="${PS1}\[\033[1;36m\]\$(_is_ssh)\[\033[0m\]"
 PS1="${PS1}\[\033[1;33m\]\$(_get_virtual_env_name)\[\033[0m\]"
@@ -147,4 +147,9 @@ export LESSHISTFILE="-"
 
 # source paths if not on a login shell
 shopt -q login_shell || . "${HOME}/.paths"
+
+if test -n "$KITTY_INSTALLATION_DIR"; then
+	export KITTY_SHELL_INTEGRATION="enabled"
+	source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
+fi
 
