@@ -14,3 +14,4 @@ alias glog="git log --oneline"
 alias gco="git checkout"
 alias vi=nvim
 alias vim=nvim
+alias pgp-password='op --session "$(op signin --raw)" --cache get item OpenPGP\ Key\ Pair | jq -r .details.password | wl-copy'
