@@ -139,7 +139,7 @@ done
 
 # Misc. environment variables
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-export GPG_TTY=$(tty)
+#export GPG_TTY=$(tty)
 export LESSHISTFILE="-"
 
 # Setup aliases
@@ -147,9 +147,4 @@ export LESSHISTFILE="-"
 
 # source paths if not on a login shell
 shopt -q login_shell || . "${HOME}/.paths"
-
-if test -n "$KITTY_INSTALLATION_DIR"; then
-	export KITTY_SHELL_INTEGRATION="enabled"
-	source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
-fi
 
