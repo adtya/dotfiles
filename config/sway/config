@@ -8,8 +8,9 @@ client.placeholder      $foreground		$background		$foreground		$foreground		$for
 client.background       $background
 
 set $mod Mod4
-set $term kitty
-set $menu wofi --show drun --gtk-dark
+set $term alacritty
+#set $menu wofi --show drun --gtk-dark
+set $menu wlaunchpad
 
 font pango:Fira Code Regular 11
 default_border pixel 2
@@ -93,9 +94,10 @@ bar {
 #bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/volume_up.sh
 #bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/volume_down.sh
 
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec ~/.config/scripts/volume_down.sh
-bindsym --locked XF86AudioRaiseVolume exec ~/.config/scripts/volume_up.sh
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec ~/.config/scripts/volume_down.sh
+bindsym XF86AudioRaiseVolume exec ~/.config/scripts/volume_up.sh
+bindsym shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym shift+XF86AudioLowerVolume exec ~/.config/scripts/mic_down.sh
 bindsym shift+XF86AudioRaiseVolume exec ~/.config/scripts/mic_up.sh
 
@@ -116,6 +118,7 @@ bindsym $mod+F3 exec wdisplays
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id kanshi
 exec --no-startup-id mako --default-timeout 8000
+exec spotifyd
 exec_always --no-startup-id ~/.config/scripts/chpaper.sh
 
 exec swayidle -w \
