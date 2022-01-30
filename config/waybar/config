@@ -4,7 +4,7 @@
 	"height": 28,
 	"modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "battery", "clock"],
+	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "cpu", "memory", "battery", "clock", "tray"],
 	"sway/mode": {
 		"format": "{}"
 	},
@@ -23,15 +23,23 @@
 	},
 	"battery": {
 		"states": {
-			"good": 95,
-			"warning": 30,
-			"critical": 20
+			"good": 90,
+			"warning": 20,
+			"critical": 10
 		},
 		"format": "{icon} {capacity}%",
 		"format-charging": " {capacity}%",
 		"format-plugged": "‭ﮣ {capacity}%",
 		"format-alt": "{icon} {time}",
 		"format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+		"tooltip": false
+	},
+	"cpu": {
+		"format": "﬙ {usage}%",
+		"tooltip": false
+	},
+	"memory": {
+		"format": " {}%",
 		"tooltip": false
 	},
 	"network": {
@@ -44,15 +52,16 @@
 	},
 	"pulseaudio": {
 		"tooltip": false,
-		"format": "{icon} {volume}%",
-		"format-bluetooth": "{icon} {volume}%",
-		"format-muted": "",
+		"format": "{icon} {volume}% {format_source}",
+		"format-muted": "‭ﱝ {volume}% {format_source}",
+		"format-bluetooth": " {icon} {volume}% {format_source}",
+		"format-bluetooth-muted": " ‭ﱝ {volume}% {format_source}",
 		"format-source": " {volume}%",
-		"format-source-muted": "",
+		"format-source-muted": " {volume}%",
 		"format-icons": {
 			"headphones": "",
 			"handsfree": "",
-			"headset": "",
+			"headset": "",
 			"phone": "",
 			"portable": "",
 			"car": "",
@@ -62,7 +71,7 @@
 	},
 	"custom/ip": {
 		"format": "",
-		"format-alt": "{}",
+		"format-alt": " {}",
 		"interval": 120,
 		"exec": "$HOME/.config/scripts/getip.sh",
 		"tooltip": false
