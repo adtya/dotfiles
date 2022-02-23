@@ -1,7 +1,7 @@
 {
 	"workbench.startupEditor": "none",
 	"files.autoSave": "onFocusChange",
-	"editor.fontFamily": "'Fira Code Retina'",
+	"editor.fontFamily": "'FiraCode Nerd Font'",
 	"editor.cursorStyle": "line",
 	"editor.cursorBlinking": "phase",
 	"editor.fontLigatures": true,
