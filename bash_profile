@@ -1,12 +1,10 @@
 # update PATH
 [ -f "${HOME}/.paths" ] && . "${HOME}/.paths"
 
-export EDITOR=nvim
-export _JAVA_AWT_WM_NONREPARENTING=1
-eval "export $(/usr/bin/gnome-keyring-daemon)"
-
 if [ "$(tty)" == "/dev/tty1" ] ; then
-	exec sway
+	export _JAVA_AWT_WM_NONREPARENTING=1
+	eval "export $(/usr/bin/gnome-keyring-daemon --start)"
+	exec dbus-run-session sway
 fi
 
 # Return if non-interactive shell
