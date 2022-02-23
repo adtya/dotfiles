@@ -9,9 +9,9 @@ if [ -d "/opt/bin" ] && [[ "${PATH}" != */opt/bin:* ]] ; then
 fi
 
 # Add Go
-if [ -d "/opt/go" ] ; then
-	export GOROOT="/opt/go"
-	export GOPATH="${HOME}/.local/share/go"
+if [ -d "${HOME}/Applications/go" ] ; then
+	export GOROOT="${HOME}/Applications/go/root"
+	export GOPATH="${HOME}/Applications/go/path"
 fi
 
 # set PATH so it inludes GOROOT bin if it exists
@@ -34,20 +34,25 @@ if [ -d "$HOME/.bin" ] && [[ "${PATH}" != *$HOME/.bin:* ]] ; then
 	export PATH="$HOME/.bin:${PATH}"
 fi
 
+# set PATH so it includes user's Applications/bin if it exists
+if [ -d "$HOME/Applications/bin" ] && [[ "${PATH}" != *$HOME/Applications/bin:* ]] ; then
+	export PATH="$HOME/Applications/bin:${PATH}"
+fi
+
 # ANDROID_HOME
-if [ -d "/opt/android-sdk" ] ; then
-	if [ -d "/opt/android-sdk/cmdline-tools/latest/bin" ] && [[ "${PATH}" != */opt/android-sdk/cmdline-tools/latest/bin:* ]] ; then
-		export PATH="/opt/android-sdk/cmdline-tools/latest/bin:${PATH}"
+if [ -d "${HOME}/Applications/android-sdk" ] ; then
+	if [ -d "${HOME}/Applications/android-sdk/cmdline-tools/latest/bin" ] && [[ "${PATH}" != *$HOME/Applications/android-sdk/cmdline-tools/latest/bin:* ]] ; then
+		export PATH="${HOME}/Applications/android-sdk/cmdline-tools/latest/bin:${PATH}"
 	fi
-	if [ -d "/opt/android-sdk/platform-tools" ] && [[ "${PATH}" != */opt/android-sdk/platform-tools:* ]] ; then
-		export PATH="/opt/android-sdk/platform-tools:${PATH}"
+	if [ -d "${HOME}/Applications/android-sdk/platform-tools" ] && [[ "${PATH}" != *$HOME/Applications/android-sdk/platform-tools:* ]] ; then
+		export PATH="${HOME}/Applications/android-sdk/platform-tools:${PATH}"
 	fi
-	export ANDROID_HOME="/opt/android-sdk"
+	export ANDROID_HOME="${HOME}/Applications/android-sdk"
 fi
 
 # flutter
-if [ -d "/opt/flutter/bin" ] && [[ "${PATH}" != */opt/flutter/bin:* ]] ; then
-	export PATH="/opt/flutter/bin:${PATH}"
+if [ -d "${HOME}/Applications/flutter/bin" ] && [[ "${PATH}" != *$HOME/Applications/flutter/bin:* ]] ; then
+	export PATH="${HOME}/Applications/flutter/bin:${PATH}"
 fi
 
 # Load rbenv and shims
