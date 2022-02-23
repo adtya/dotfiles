@@ -1,0 +1,37 @@
+#!/bin/busybox sh
+
+rescue_shell() {
+	printf "$1 Dropping to a shell. You're on your own now :)"
+	exec setsid cttyhack /bin/sh
+}
+
+mount -t proc none /proc || rescue_shell "mounting /proc failed."
+mount -t sysfs none /sys || rescue_shell "mounting /sys failed."
+mount -t devtmpfs none /dev || rescue_shell "mounting /dev failed."
+
+for arg in $(cat /proc/cmdline); do
+	case "${arg}" in
+		root=*)
+		ROOT="${arg#*=}"
+		;;
+		ro|rw)
+		MOUNT_RO_RW="$arg}"
+		;;
+		rootflags=*)
+		ROOT_FLAGS="${arg#*=}"
+		;;
+		rootfstype=*)
+		ROOTFS_TYPE="${arg#*=}"
+		;;
+		init=*)
+		INIT="${arg#*=}"
+	esac
+done
+
+ROOT="${findfs "${ROOT}"}"
+mount -t "$ROOTFS_TYPE" -o "${MOUNT_RO_RW},{ROOT_FLAGS}" "${ROOT}" /mnt/root || rescue_shell "mounting /mnt/root failed."
+
+umount /proc /sys /dev
+
+exec switch_root /mnt/root "${INIT}"
+
