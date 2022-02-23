@@ -1,0 +1,4 @@
+>=gui-apps/waybar-0.9.9 ~amd64
+>=dev-libs/spdlog-1.9.2 ~amd64
+>=dev-libs/date-3.0.0 ~amd64
+>=dev-libs/libfmt-8.1.1 ~amd64

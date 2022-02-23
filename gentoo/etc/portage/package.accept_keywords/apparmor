@@ -1,0 +1,4 @@
+=sys-apps/apparmor-3.0.3 ~amd64
+=sys-libs/libapparmor-3.0.3 ~amd64
+=sys-apps/apparmor-utils-3.0.3 ~amd64
+=sec-policy/apparmor-profiles-3.0.3 ~amd64

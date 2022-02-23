@@ -1,3 +1,2 @@
-mail-client/evolution -bogofilter -weather
-gnome-extra/evolution-data-server -weather
-media-libs/harfbuzz icu
+mail-client/evolution -weather
+gnome-extra/evolution-data-server oauth

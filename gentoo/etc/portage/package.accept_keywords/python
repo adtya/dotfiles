@@ -1,6 +1,0 @@
->=dev-lang/python-3.8.0 ~amd64
-
->=dev-python/pip-19.3.0 ~amd64
->=dev-python/setuptools-46.4.0 ~amd64
->=dev-python/certifi-2019.9.11 ~amd64
-
