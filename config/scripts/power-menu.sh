@@ -7,14 +7,10 @@ chpower() {
 		"")
 		;;
 		Shutdown)
-			exec systemctl poweroff
+			exec sudo openrc-shutdown -p now
 		;;
 		Reboot)
-			exec systemctl reboot
-		;;
-		Hibernate)
-			swaylock -f -i /tmp/lockpaper.jpg
-			systemctl hibernate
+			exec sudo openrc-shutdown -r now
 		;;
 		Logout)
 			swaymsg exit
@@ -25,6 +21,6 @@ chpower() {
 	esac
 }
 
-OPTIONS="Shutdown\nReboot\nHibernate\nLogout"
+OPTIONS="Shutdown\nReboot\nLogout"
 
 chpower "$(printf "%b" "$OPTIONS" | sort | dmenu -p "Power Menu")"
