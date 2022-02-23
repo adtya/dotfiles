@@ -4,11 +4,19 @@
 	"height": 28,
 	"modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
 	"modules-center": [],
-	"modules-right": ["custom/ip", "network", "pulseaudio", "backlight", "cpu", "memory", "battery", "clock", "tray"],
+	"modules-right": ["idle_inhibitor", "custom/ip", "network", "pulseaudio", "backlight", "cpu", "memory", "battery", "clock", "tray"],
 	"sway/mode": {
 		"format": "{}"
 	},
 	"sway/window": {
+		"tooltip": false
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		},
 		"tooltip": false
 	},
 	"clock": {
@@ -28,9 +36,9 @@
 			"critical": 10
 		},
 		"format": "{icon} {capacity}%",
+		"format-alt": "{icon} {time}",
 		"format-charging": " {capacity}%",
 		"format-plugged": "‭ﮣ {capacity}%",
-		"format-alt": "{icon} {time}",
 		"format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
 		"tooltip": false
 	},

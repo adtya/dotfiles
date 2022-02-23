@@ -105,3 +105,7 @@ label:focus {
 #temperature.critical {
 	color: @red;
 }
+#idle_inhibitor.activated {
+	color: @green;
+}
+
