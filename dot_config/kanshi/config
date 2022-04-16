@@ -1,0 +1,8 @@
+profile {
+	output eDP-1 transform normal position 0,360 mode 1920x1080 scale 1.5
+	output DP-1 transform normal position 1280,0 mode 1920x1080
+}
+
+profile {
+	output eDP-1 position 0,0 mode 1920x1080
+}
