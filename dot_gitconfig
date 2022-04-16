@@ -1,0 +1,8 @@
+[user]
+	email = adtya@adtya.xyz
+	name = Adithya Nair
+	signingkey = 0C7F35F4F821290F
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
