@@ -1,0 +1,127 @@
+include dracula
+#class                  border      background  text        indicator   child_border
+client.focused          $cyan       $background $foreground $cyan       $cyan
+client.focused_inactive $unfocused  $background $foreground $unfocused  $unfocused
+client.unfocused        $unfocused  $background $unfocused  $unfocused  $unfocused
+client.urgent           $red        $background $red        $red        $red
+client.placeholder      $foreground $background $foreground $foreground $foreground
+client.background       $background
+
+set $mod Mod4
+set $term kitty
+set $menu wofi --show drun --gtk-dark
+
+font pango:FiraCode Nerd Font Mono 11
+default_border pixel 2
+gaps outer 4
+gaps inner 4
+output eDP-1 pos 0 0 res 1920x1080
+seat seat0 xcursor_theme 'Bibata-Modern-Classic' 24
+
+for_window [app_id="mpv"] floating enable, focus;
+for_window [app_id="wdisplays"] floating enable, focus;
+for_window [app_id="sushi-start"] floating enable, focus;
+
+input "type:touchpad" {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+}
+
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+e exit
+bindsym $mod+d exec $menu
+bindsym $mod+F2 exec rofi -show run
+floating_modifier $mod normal
+bindsym $mod+Shift+c reload
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+mode "resize" {
+	bindsym Left resize shrink width 10px
+	bindsym Down resize shrink height 10px
+	bindsym Up resize grow height 10px
+	bindsym Right resize grow width 10px
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bar {
+	swaybar_command waybar
+}
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec ~/.config/scripts/volume_down.sh
+bindsym XF86AudioRaiseVolume exec ~/.config/scripts/volume_up.sh
+bindsym shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym shift+XF86AudioLowerVolume exec ~/.config/scripts/mic_down.sh
+bindsym shift+XF86AudioRaiseVolume exec ~/.config/scripts/mic_up.sh
+
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym --locked XF86MonBrightnessDOwn exec brightnessctl set 5%-
+
+bindsym print exec grim "$(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
+bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
+
+bindsym $mod+l exec swaylock -i "/tmp/lockpaper.jpg"
+bindsym $mod+shift+w exec ~/.config/scripts/chpaper.sh
+bindsym $mod+shift+escape exec ~/.config/scripts/power-menu.sh
+bindsym $mod+i exec ~/.config/scripts/emoji-menu.sh
+bindsym $mod+shift+F10 exec ~/.config/scripts/vim-sessions.sh
+bindsym $mod+shift+F11 exec ~/.config/scripts/tmux-sessions.sh
+bindsym $mod+F3 exec wdisplays
+
+#exec dbus-update-activation-environment --all
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec ~/.config/scripts/gnome-keyring.sh
+exec mako --default-timeout 8000
+exec_always kanshi
+exec_always ~/.config/scripts/chpaper.sh
+
+exec swayidle -w \
+	timeout 600 'swaylock -f -i /tmp/lockpaper.jpg' \
+	timeout 900 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -i /tmp/lockpaper.jpg'
+
+include /etc/sway/config.d/*
