@@ -1,0 +1,79 @@
+# update manpath to include ~/.local/share/man
+if [ -d "${HOME}/.local/share/man" ] && [[ "${MANPATH}" != *${HOME}/.local/share/man:* ]] ; then
+	export MANPATH="${HOME}/.local/share/man:${MANPATH}"
+fi
+
+# Add stuff from /opt/bin
+if [ -d "/opt/bin" ] && [[ "${PATH}" != */opt/bin:* ]] ; then
+	export PATH="/opt/bin:${PATH}"
+fi
+
+# Add Go
+if [ -d "${HOME}/Applications/go" ] ; then
+	export GOROOT="${HOME}/Applications/go/root"
+	export GOPATH="${HOME}/Applications/go/path"
+fi
+
+# set PATH so it inludes GOROOT bin if it exists
+if [ -d "${GOROOT}/bin" ] && [[ "${PATH}" != *$GOROOT/bin:* ]] ; then
+	export PATH="${GOROOT}/bin:${PATH}"
+fi
+
+# set PATH so it includes user's private(local) bin if it exists
+if [ -d "$HOME/.local/bin" ] && [[ "${PATH}" != *$HOME/.local/bin:* ]] ; then
+	export PATH="$HOME/.local/bin:${PATH}"
+fi
+
+# set PATH so it includes user's GOPATH bin if it exists
+if [ -d "${GOPATH}/bin" ] && [[ "${PATH}" != *$GOPATH/bin:* ]] ; then
+	export PATH="${GOPATH}/bin:${PATH}"
+fi
+
+# set PATH so it includes user's private(home) bin if it exists
+if [ -d "$HOME/.bin" ] && [[ "${PATH}" != *$HOME/.bin:* ]] ; then
+	export PATH="$HOME/.bin:${PATH}"
+fi
+
+# set PATH so it includes user's Applications/bin if it exists
+if [ -d "$HOME/Applications/bin" ] && [[ "${PATH}" != *$HOME/Applications/bin:* ]] ; then
+	export PATH="$HOME/Applications/bin:${PATH}"
+fi
+
+# ANDROID_HOME
+if [ -d "${HOME}/Applications/android-sdk" ] ; then
+	if [ -d "${HOME}/Applications/android-sdk/cmdline-tools/latest/bin" ] && [[ "${PATH}" != *$HOME/Applications/android-sdk/cmdline-tools/latest/bin:* ]] ; then
+		export PATH="${HOME}/Applications/android-sdk/cmdline-tools/latest/bin:${PATH}"
+	fi
+	if [ -d "${HOME}/Applications/android-sdk/platform-tools" ] && [[ "${PATH}" != *$HOME/Applications/android-sdk/platform-tools:* ]] ; then
+		export PATH="${HOME}/Applications/android-sdk/platform-tools:${PATH}"
+	fi
+	export ANDROID_HOME="${HOME}/Applications/android-sdk"
+fi
+
+# flutter
+if [ -d "${HOME}/Applications/flutter/bin" ] && [[ "${PATH}" != *$HOME/Applications/flutter/bin:* ]] ; then
+	export PATH="${HOME}/Applications/flutter/bin:${PATH}"
+fi
+
+# Load rbenv and shims
+if [ -d "${HOME}/.rbenv/shims" ] && [[ "${PATH}" != *$HOME/.rbenv/shims:* ]] ; then
+	export PATH="${HOME}/.rbenv/bin:${PATH}"
+	eval "$(rbenv init -)"
+fi
+
+# cargo and rust
+if [ -d "${HOME}/.cargo/bin" ] && [[ "${PATH}" != *$HOME/.cargo/bin:* ]] ; then
+	export PATH="${HOME}/.cargo/bin:${PATH}"
+fi
+
+export DENO_INSTALL="/home/adtya/.deno"
+if [ -d "${DENO_INSTALL}" ] && [[ "${PATH}" != *$DENO_INSTALL/bin:* ]] ; then
+	PATH="$DENO_INSTALL/bin:$PATH"
+fi
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+

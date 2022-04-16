@@ -1,0 +1,20 @@
+alias cp='cp -v'
+alias grep='grep --color=auto'
+alias l='ls -lah --color=auto'
+alias ln='ln -v'
+alias ls='ls --color=auto --human-readable'
+alias mv='mv -v'
+alias naut='nautilus --new-window "$PWD" >/dev/null 2>/dev/null &'
+#alias poweroff='sudo openrc-shutdown -p now'
+#alias reboot='sudo openrc-shutdown -r now'
+alias rm='rm -v'
+alias sl='ls'
+alias gst="git status"
+alias glog="git log --oneline"
+alias gco="git checkout"
+#alias vi=nvim
+#alias vim=nvim
+alias pgp-password='op --session "$(op signin --raw)" --cache get item OpenPGP\ Key\ Pair | jq -r .details.password | wl-copy'
+if [ "${TERM}" == "xterm-kitty" ]; then
+	alias ssh="kitty +kitten ssh"
+fi

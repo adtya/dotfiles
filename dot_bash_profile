@@ -1,0 +1,16 @@
+# update PATH
+[ -f "${HOME}/.paths" ] && . "${HOME}/.paths"
+
+if [ "$(tty)" == "/dev/tty1" ] ; then
+	export _JAVA_AWT_WM_NONREPARENTING=1
+	export MOZ_ENABLE_WAYLAND=1
+	eval "export $(/usr/bin/gnome-keyring-daemon --start)"
+	#exec dbus-run-session sway
+	exec sway
+fi
+
+# Return if non-interactive shell
+[[ $- != *i* ]] && return
+
+# Source .bashrc if is interactive shell
+[ -f "${HOME}"/.bashrc ] && . "${HOME}"/.bashrc
