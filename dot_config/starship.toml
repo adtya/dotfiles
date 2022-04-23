@@ -1,1 +1,4 @@
 add_newline = false
+
+[git_metrics]
+disabled = false
