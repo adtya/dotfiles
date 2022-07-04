@@ -22,5 +22,5 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     unfunction kitty-integration
 fi
 
+eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
-
