@@ -64,28 +64,28 @@ window#waybar.solo {
 #battery.warning {
 	color: @yellow;
 	animation-name: blink;
-	animation-duration: 0.5s;
+	animation-duration: 1s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
-	animation-direction: alternate;
+	animation-direction: normal;
 }
 
 #battery.critical {
 	color: @red;
 	animation-name: blink;
-	animation-duration: 0.5s;
+	animation-duration: 1s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
-	animation-direction: alternate;
+	animation-direction: normal;
 }
 
 #battery.charging {
 	color: @green;
 	animation-name: blink;
-	animation-duration: 0.5s;
+	animation-duration: 1s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
-	animation-direction: alternate;
+	animation-direction: normal;
 }
 
 label:focus {
