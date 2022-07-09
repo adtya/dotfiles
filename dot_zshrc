@@ -1,17 +1,15 @@
-setopt histignorealldups sharehistory
+#setopt append_history inc_append_history hist_ignore_all_dups share_history
+setopt extended_history share_history hist_ignore_all_dups
 
-# Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTFILE=~/.zsh_history
-
-[ -f "${HOME}/.paths" ] && source "${HOME}/.paths"
-[ -f "${HOME}/.zaliases" ] && . "${HOME}/.zaliases"
-
-# Use modern completion system
 autoload -Uz compinit
 compinit
+
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
 
 if test -n "$KITTY_INSTALLATION_DIR"; then
 	export KITTY_SHELL_INTEGRATION="enabled"
@@ -20,13 +18,14 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
 	unfunction kitty-integration
 fi
 
-if [ -r "$HOME/.antigen.zsh" ]; then
-	source "$HOME/.antigen.zsh"
-	antigen bundle zsh-users/zsh-autosuggestions
-	antigen bundle zdharma-continuum/fast-syntax-highlighting
-	antigen bundle zsh-users/zsh-completions
-	antigen apply
+if [[ ! -f ~/.zpm/zpm.zsh ]]; then
+	git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
 fi
+source ~/.zpm/zpm.zsh
+zpm load zsh-users/zsh-autosuggestions
+zpm load zdharma-continuum/fast-syntax-highlighting
+zpm load zsh-users/zsh-completions
+zpm load zpm-zsh/ls
 
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"

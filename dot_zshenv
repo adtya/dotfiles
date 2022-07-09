@@ -1,0 +1,2 @@
+[ -f "${HOME}/.paths" ] && source "${HOME}/.paths"
+[ -f "${HOME}/.zaliases" ] && . "${HOME}/.zaliases"
