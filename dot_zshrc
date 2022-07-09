@@ -1,4 +1,3 @@
-#setopt append_history inc_append_history hist_ignore_all_dups share_history
 setopt extended_history share_history hist_ignore_all_dups
 
 bindkey -e
