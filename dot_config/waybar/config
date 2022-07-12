@@ -74,6 +74,6 @@
 		"format-connected": "",
 		"format-disabled": "",
 		"format-off": "",
-		"format-connected-battery": "{device_battery_percentage}"
+		"format-connected-battery": " {device_battery_percentage}%"
 	}
 }
