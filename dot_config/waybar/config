@@ -36,7 +36,7 @@
 			"critical": 10
 		},
 		"format": "{icon}",
-		"format-alt": "{icon} ({capacity}%) {time}",
+		"format-alt": "{icon} {capacity}% ({time})",
 		"format-charging": "",
 		"format-plugged": "‭ﮣ",
 		"format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
