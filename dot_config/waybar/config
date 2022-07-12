@@ -32,11 +32,11 @@
 	"battery": {
 		"states": {
 			"good": 90,
-			"warning": 20,
+			"warning": 30,
 			"critical": 10
 		},
 		"format": "{icon}",
-		"format-alt": "{icon} {time}",
+		"format-alt": "{icon} ({capacity}%) {time}",
 		"format-charging": "",
 		"format-plugged": "‭ﮣ",
 		"format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
