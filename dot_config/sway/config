@@ -21,6 +21,7 @@ seat seat0 xcursor_theme 'Bibata-Modern-Classic' 24
 for_window [app_id="mpv"] floating enable, focus;
 for_window [app_id="wdisplays"] floating enable, focus;
 for_window [app_id="sushi-start"] floating enable, focus;
+for_window [class="1Password"] floating enable, focus;
 
 input "type:touchpad" {
 	dwt enabled
@@ -110,11 +111,11 @@ bindsym $mod+i exec ~/.config/scripts/emoji-menu.sh
 bindsym $mod+shift+F10 exec ~/.config/scripts/vim-sessions.sh
 bindsym $mod+shift+F11 exec ~/.config/scripts/tmux-sessions.sh
 bindsym $mod+F3 exec wdisplays
+bindsym $mod+p exec 1password --quick-access
 
-#exec dbus-update-activation-environment --all
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec ~/.config/scripts/gnome-keyring.sh
 exec mako --default-timeout 8000
+exec 1password --silent
 exec_always kanshi
 exec_always ~/.config/scripts/chpaper.sh
 
