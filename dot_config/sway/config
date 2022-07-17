@@ -22,6 +22,7 @@ for_window [app_id="mpv"] floating enable, focus;
 for_window [app_id="wdisplays"] floating enable, focus;
 for_window [app_id="sushi-start"] floating enable, focus;
 for_window [class="1Password"] floating enable, focus;
+for_window [class="blueman-manager"] floating enable, focus;
 
 input "type:touchpad" {
 	dwt enabled
