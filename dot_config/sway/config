@@ -116,6 +116,7 @@ bindsym $mod+p exec 1password --quick-access
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako --default-timeout 8000
 exec 1password --silent
+exec solaar -w hide
 exec_always kanshi
 exec_always ~/.config/scripts/chpaper.sh
 
