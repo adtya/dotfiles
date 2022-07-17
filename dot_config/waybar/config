@@ -3,8 +3,8 @@
 	"position": "top",
 	"height": 28,
 	"modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
-	"modules-center": ["tray"],
-	"modules-right": ["idle_inhibitor", "network", "bluetooth", "pulseaudio", "backlight", "battery", "clock"],
+	"modules-center": [],
+	"modules-right": ["tray", "idle_inhibitor", "network", "bluetooth", "pulseaudio", "backlight", "battery", "clock"],
 	"sway/mode": {
 		"format": "{}"
 	},
@@ -32,7 +32,7 @@
 	"battery": {
 		"states": {
 			"good": 90,
-			"warning": 30,
+			"warning": 20,
 			"critical": 10
 		},
 		"format": "{icon}",
