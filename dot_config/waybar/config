@@ -37,7 +37,7 @@
 		},
 		"format": "{icon}",
 		"format-alt": "{icon} {capacity}% ({time})",
-		"format-charging": "",
+		"format-charging": " {capacity}%",
 		"format-plugged": "‭ﮣ",
 		"format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
 		"tooltip": false
