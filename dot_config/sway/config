@@ -19,6 +19,7 @@ output eDP-1 pos 0 0 res 1920x1080
 seat seat0 xcursor_theme 'Bibata-Modern-Classic' 24
 
 for_window [app_id="mpv"] floating enable, focus;
+for_window [app_id="io.github.celluloid_player.Celluloid"] floating enable, focus;
 for_window [app_id="wdisplays"] floating enable, focus;
 for_window [app_id="sushi-start"] floating enable, focus;
 for_window [app_id="blueman-manager"] floating enable, focus;
@@ -102,8 +103,8 @@ bindsym shift+XF86AudioRaiseVolume exec ~/.config/scripts/mic_up.sh
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym --locked XF86MonBrightnessDOwn exec brightnessctl set 5%-
 
-bindsym print exec grim "$(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
-bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
+bindsym print exec grim "$(xdg-user-dir PICTURES)/Screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
+bindsym shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
 
 bindsym $mod+l exec swaylock -i "/tmp/lockpaper.jpg"
 bindsym $mod+shift+w exec ~/.config/scripts/chpaper.sh
