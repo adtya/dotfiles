@@ -1,9 +1,16 @@
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+  if ! systemctl --user is-active --quiet tmux.service; then
+    systemctl --user start tmux.service
+  fi
+  exec tmux attach-session -t "${USER}" >/dev/null 2>&1
+fi
+
 setopt extended_history share_history hist_ignore_all_dups
 
 bindkey -e
 
-autoload -Uz compinit
-compinit
+export fpath=(~/.zsh/functions $fpath)
+autoload -Uz compinit && compinit
 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
@@ -26,5 +33,6 @@ zpm load zdharma-continuum/fast-syntax-highlighting
 zpm load zsh-users/zsh-completions
 zpm load zpm-zsh/ls
 
+eval "$(fnm env --use-on-cd)"
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
