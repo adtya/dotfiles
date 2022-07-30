@@ -36,7 +36,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exit
 bindsym $mod+d exec $menu
-bindsym $mod+F2 exec rofi -show run
+bindsym $mod+F2 exec wofi --show run
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Left focus left
