@@ -38,7 +38,7 @@
 		"format": "{icon}",
 		"format-alt": "{icon} {capacity}% ({time})",
 		"format-charging": " {capacity}%",
-		"format-plugged": "‭ﮣ",
+		"format-plugged": "‭ﮣ {capacity}%",
 		"format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
 		"tooltip": false
 	},
@@ -74,7 +74,8 @@
 		"format-connected": "",
 		"format-disabled": "",
 		"format-off": "",
-		"format-connected-battery": " {device_battery_percentage}%"
+		"format-connected-battery": " {device_battery_percentage}%",
+		"on-click": "blueman-manager"
 	},
 	"tray": {
 		"spacing": 4
