@@ -28,6 +28,7 @@ for_window [app_id="wdisplays"] floating enable, focus;
 for_window [app_id="sushi-start"] floating enable, focus;
 for_window [app_id="blueman-manager"] floating enable, focus;
 for_window [class="1Password"] floating enable, focus;
+for_window [class="Spotify"] move container to workspace 9, focus;
 
 input "type:touchpad" {
 	dwt enabled
