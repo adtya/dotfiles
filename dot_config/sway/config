@@ -15,7 +15,11 @@ font pango:FiraCode Nerd Font Mono 11
 default_border pixel 2
 gaps outer 4
 gaps inner 4
+
 output eDP-1 pos 0 0 res 1920x1080
+bindswitch --reload --locked lid:on output eDP-1 disable
+bindswitch --reload --locked lid:off output eDP-1 enable
+
 seat seat0 xcursor_theme 'Bibata-Modern-Classic' 24
 
 for_window [app_id="mpv"] floating enable, focus;
