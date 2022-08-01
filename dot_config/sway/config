@@ -28,7 +28,6 @@ for_window [app_id="blueman-manager"] floating enable, focus;
 for_window [app_id="google-chrome"] move container to workspace 2, focus;
 for_window [class="1Password"] floating enable, focus;
 for_window [class="Spotify"] move container to workspace 9, focus;
-for_window [title="Google Chrome" app_id=""] floating enable, focus;
 
 input "type:touchpad" {
 	dwt enabled
