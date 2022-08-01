@@ -7,7 +7,7 @@ case "$SESSION" in
 	"")
 		;;
 	*)
-		kitty tmux attach -t "$SESSION"
+		kitty tmux attach-session -dEt "$SESSION"
 		;;
 esac
 
