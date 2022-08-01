@@ -1,5 +1,5 @@
-alias vi='nvim'
-alias vim='nvim'
+alias vi='lvim'
+alias vim='lvim'
 alias cp='cp -v'
 alias grep='grep --color=auto'
 alias ln='ln -v'
