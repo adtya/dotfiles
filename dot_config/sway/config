@@ -8,7 +8,6 @@ client.placeholder      $foreground $background $foreground $foreground $foregro
 client.background       $background
 
 set $mod Mod4
-set $term kitty
 set $menu wofi --show drun --gtk-dark
 
 font pango:FiraCode Nerd Font Mono 11
@@ -24,11 +23,12 @@ seat seat0 xcursor_theme 'Bibata-Modern-Classic' 24
 
 for_window [app_id="mpv"] floating enable, focus;
 for_window [app_id="io.github.celluloid_player.Celluloid"] floating enable, focus;
-for_window [app_id="wdisplays"] floating enable, focus;
 for_window [app_id="sushi-start"] floating enable, focus;
 for_window [app_id="blueman-manager"] floating enable, focus;
+for_window [app_id="google-chrome"] move container to workspace 2, focus;
 for_window [class="1Password"] floating enable, focus;
 for_window [class="Spotify"] move container to workspace 9, focus;
+for_window [title="Google Chrome" app_id=""] floating enable, focus;
 
 input "type:touchpad" {
 	dwt enabled
@@ -37,7 +37,8 @@ input "type:touchpad" {
 	middle_emulation enabled
 }
 
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec kitty tmux new
+bindsym $mod+shift+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exit
 bindsym $mod+d exec $menu
@@ -116,8 +117,7 @@ bindsym $mod+shift+w exec ~/.config/scripts/chpaper.sh
 bindsym $mod+shift+escape exec ~/.config/scripts/power-menu.sh
 bindsym $mod+i exec ~/.config/scripts/emoji-menu.sh
 bindsym $mod+shift+F10 exec ~/.config/scripts/vim-sessions.sh
-bindsym $mod+shift+F11 exec ~/.config/scripts/tmux-sessions.sh
-bindsym $mod+F3 exec wdisplays
+bindsym $mod+F11 exec ~/.config/scripts/tmux-sessions.sh
 bindsym $mod+p exec 1password --quick-access
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
