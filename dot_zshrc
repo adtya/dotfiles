@@ -35,4 +35,5 @@ zpm load zpm-zsh/ls
 
 eval "$(fnm env --use-on-cd)"
 eval "$(atuin init zsh)"
+eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
