@@ -25,6 +25,7 @@ for_window [app_id="mpv"] floating enable, focus;
 for_window [app_id="io.github.celluloid_player.Celluloid"] floating enable, focus;
 for_window [app_id="sushi-start"] floating enable, focus;
 for_window [app_id="blueman-manager"] floating enable, focus;
+for_window [app_id="nm-connection-editor"] floating enable, focus;
 for_window [app_id="google-chrome"] move container to workspace 2, focus;
 for_window [class="1Password"] floating enable, focus;
 for_window [class="Spotify"] move container to workspace 9, focus;
