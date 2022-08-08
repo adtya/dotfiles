@@ -1,0 +1,10 @@
+show=drun
+allow_images=true
+hide_scroll=true
+prompt=
+
+width=500
+lines=10
+
+show_all=true
+always_parse_args=true
