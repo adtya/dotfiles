@@ -8,7 +8,7 @@ client.placeholder      $foreground $background $foreground $foreground $foregro
 client.background       $background
 
 set $mod Mod4
-set $menu wofi --show drun --gtk-dark
+set $menu wofi --show drun
 
 font pango:FiraCode Nerd Font Mono 11
 default_border pixel 2
