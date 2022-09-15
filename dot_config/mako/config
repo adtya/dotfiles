@@ -4,7 +4,7 @@ border-size=3
 icons=1
 icon-path=/home/adtya/.icons/Dracula
 markup=1
-default-timeout=8000
+default-timeout=3000
 
 background-color=#282a36
 text-color=#f8f8f2
