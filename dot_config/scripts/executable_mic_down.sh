@@ -2,5 +2,5 @@
 
 set -eu
 
-pactl set-source-volume @DEFAULT_SOURCE@ -5%
+wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-
 

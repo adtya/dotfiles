@@ -1,4 +1,5 @@
 #!/bin/sh
 
 set -eu
-pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
