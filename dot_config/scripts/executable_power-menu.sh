@@ -12,6 +12,9 @@ chpower() {
 		Reboot)
 			exec systemctl reboot
 		;;
+    Hibernate)
+      exec systemctl hibernate
+    ;;
 		Logout)
 			swaymsg exit
 		;;
@@ -21,6 +24,6 @@ chpower() {
 	esac
 }
 
-OPTIONS="Shutdown\nReboot\nLogout"
+OPTIONS="Shutdown\nReboot\nHibernate\nLogout"
 
 chpower "$(printf "%b" "$OPTIONS" | sort | dmenu -p "Power Menu")"
