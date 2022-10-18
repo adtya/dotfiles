@@ -1,0 +1,16 @@
+shell = "zsh"
+
+[plugins]
+
+[plugins.autosuggestions]
+github = 'zsh-users/zsh-autosuggestions'
+
+[plugins.syntax-highlighting]
+github = 'zdharma-continuum/fast-syntax-highlighting'
+
+[plugins.completions]
+github = 'zsh-users/zsh-completions'
+
+[plugins.ls]
+github = 'zpm-zsh/ls'
+
