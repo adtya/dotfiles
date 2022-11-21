@@ -29,6 +29,8 @@ for_window [app_id="nm-connection-editor"] floating enable, focus;
 for_window [app_id="solaar"] floating enable, focus;
 for_window [app_id="org.gnome.Firmware"] floating enable, focus;
 for_window [app_id="pavucontrol"] floating enable, focus;
+for_window [app_id="gnome-multi-writer"] floating enable, focus;
+for_window [app_id="systemadm"] floating enable, focus;
 for_window [class="1Password"] floating enable, focus;
 for_window [class="GParted"] floating enable, focus;
 
@@ -42,7 +44,7 @@ input "type:touchpad" {
 	middle_emulation enabled
 }
 
-bindsym $mod+Return exec kitty tmux new
+bindsym $mod+Return exec kitty zellij
 bindsym $mod+shift+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exit
