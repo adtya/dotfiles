@@ -34,7 +34,7 @@ for_window [app_id="systemadm"] floating enable, focus;
 for_window [class="1Password"] floating enable, focus;
 for_window [class="GParted"] floating enable, focus;
 
-for_window [app_id="google-chrome"] move container to workspace 2, focus;
+for_window [app_id="firefox"] move container to workspace 2, focus;
 for_window [class="Spotify"] move container to workspace 9, focus;
 
 input "type:touchpad" {
@@ -44,7 +44,7 @@ input "type:touchpad" {
 	middle_emulation enabled
 }
 
-bindsym $mod+Return exec kitty zellij
+bindsym $mod+Return exec kitty tmux new
 bindsym $mod+shift+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exit
